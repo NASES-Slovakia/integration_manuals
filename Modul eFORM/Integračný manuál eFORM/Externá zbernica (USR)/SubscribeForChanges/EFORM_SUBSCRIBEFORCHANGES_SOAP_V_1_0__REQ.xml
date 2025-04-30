@@ -1,0 +1,28 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://schemas.gov.sk/ServiceBus/service/1.0/IServiceBus/CallService</Action>
+		<ActivityId CorrelationId="889f4ca7-8a89-40fa-be7c-094cd6ff8033" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">a29aaa28-e4e8-4352-8daa-7ebbfabfaf81</ActivityId>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink"/>
+	</s:Header>
+	<s:Body>
+		<CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<serviceClass>EFORM_SUBSCRIBEFORCHANGES_SOAP_V_1_0</serviceClass>
+			<serviceParameter xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:d4p2="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" i:type="d4p2:SubscribeForChangesReq">
+				<d4p2:EndpointUrl>http://demourl.svc</d4p2:EndpointUrl>
+				<d4p2:SearchCriteria>
+					<d4p2:Description>test</d4p2:Description>
+					<d4p2:FormTemplate i:nil="true"/>
+					<d4p2:FreeText/>
+					<d4p2:Gestor/>
+					<d4p2:Keywords/>
+					<d4p2:Publisher>UPVS</d4p2:Publisher>
+					<d4p2:Status>All</d4p2:Status>
+					<d4p2:Title/>
+					<d4p2:Type>All</d4p2:Type>
+				</d4p2:SearchCriteria>
+				<d4p2:SubscribedGestor>Testcase.TS</d4p2:SubscribedGestor>
+				<d4p2:SubscribedPublisher>UPVS</d4p2:SubscribedPublisher>
+			</serviceParameter>
+		</CallService>
+	</s:Body>
+</s:Envelope>

@@ -1,0 +1,15 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://schemas.gov.sk/ServiceBus/service/1.0/IServiceBus/CallService</Action>
+		<ActivityId CorrelationId="378a15b1-8697-4cb0-ba97-828d0b68d593" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">e02974e8-e9d0-4372-ad12-a8f137160a29</ActivityId>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink"/>
+	</s:Header>
+	<s:Body>
+		<CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<serviceClass>EFORM_FINDFORMTEMPLATES_SOAP_V_1_0</serviceClass>
+			<serviceParameter xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:d4p2="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" i:type="d4p2:FindFormTemplatesReq">
+				<d4p2:Criteria i:nil="true"/>
+			</serviceParameter>
+		</CallService>
+	</s:Body>
+</s:Envelope>

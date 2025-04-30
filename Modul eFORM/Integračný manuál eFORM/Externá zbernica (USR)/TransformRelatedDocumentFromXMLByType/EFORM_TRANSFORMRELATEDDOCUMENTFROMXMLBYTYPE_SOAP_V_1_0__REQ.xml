@@ -1,0 +1,21 @@
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ns="http://schemas.gov.sk/ServiceBus/service/1.0">
+	<soap:Header/>
+	<soap:Body>
+		<ns:CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<ns:serviceClass>EFORM_TRANSFORMRELATEDDOCUMENTFROMXMLBYTYPE_SOAP_V_1_0</ns:serviceClass>
+			<serviceParameter i:type="a:TransformRelatedDocumentFromXMLByTypeReq" xmlns:a="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+				<a:FOTransform>false</a:FOTransform>
+				<a:FormTemplate>
+					<a:Identifier>App.GeneralAgenda</a:Identifier>
+					<a:Version>
+						<a:Major>1</a:Major>
+						<a:Minor>8</a:Minor>
+					</a:Version>
+				</a:FormTemplate>
+				<a:RelatedDocumentXML>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48R2VuZXJhbEFnZW5kYSB4bWxucz0iaHR0cDovL3NjaGVtYXMuZ292LnNrL2Zvcm0vQXBwLkdlbmVyYWxBZ2VuZGEvMS44IiB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj4NCiAgPHN1YmplY3Q+YWFzc2RmZHM8L3N1YmplY3Q+DQogIDx0ZXh0PmFzZGZnZmRzYTwvdGV4dD4NCjwvR2VuZXJhbEFnZW5kYT4=</a:RelatedDocumentXML>
+				<a:RelatedDocumentXSLTLanguage>sk</a:RelatedDocumentXSLTLanguage>
+				<a:RelatedDocumentXSLTType>CLS_F_XSLT_HTML</a:RelatedDocumentXSLTType>
+			</serviceParameter>
+		</ns:CallService>
+	</soap:Body>
+</soap:Envelope>

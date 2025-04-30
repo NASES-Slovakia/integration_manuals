@@ -1,0 +1,203 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://gov.sk/eGov/IService/Receive</a:Action>
+		<a:MessageID>urn:uuid:e286c49d-b734-4fe4-815f-32a73ed0f69e</a:MessageID>
+		<ActivityId CorrelationId="40d2619b-6b8e-4fa7-a758-728e07e33d81" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">449c560e-a5d6-4a64-a564-181ffa97b0d4</ActivityId>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">http://vyvoj.upvs.globaltel.sk/g2g/G2GServiceBus/ServiceSkTalk3.svc</a:To>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<Receive xmlns="http://gov.sk/eGov/IService">
+			<message>
+				<EnvelopeVersion xmlns="http://gov.sk/SKTalkMessage">3.0</EnvelopeVersion>
+				<Header xmlns="http://gov.sk/SKTalkMessage">
+					<MessageInfo>
+						<Class>EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_01</Class>
+						<PospID/>
+						<PospVersion/>
+						<MessageID>891fc17a-c837-4365-a94a-e2ca3596884a</MessageID>
+						<CorrelationID>4fda16e0-8bb4-400d-876b-641babfcc2ed</CorrelationID>
+						<BusinessID/>
+						<ChannelInfo>
+							<Channel>
+								<ChannelInfoURI>http://eformapp/_vti_bin/eFLCMService.svc/ws</ChannelInfoURI>
+							</Channel>
+						</ChannelInfo>
+						<ChannelInfoReply>
+							<Channel>
+								<ChannelInfoURI>http://eformapp/_vti_bin/eFLCMService.svc/ws</ChannelInfoURI>
+							</Channel>
+						</ChannelInfoReply>
+					</MessageInfo>
+					<SenderInfo>
+						<SecurityMethod>security_method</SecurityMethod>
+						<SecurityToken/>
+						<Identity/>
+					</SenderInfo>
+					<RoutingInfo/>
+				</Header>
+				<Body xmlns="http://gov.sk/SKTalkMessage">
+					<InsertNewFormTemplate_Request xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.gov.sk/eflcm/InsertNewFormTemplate/1.0">
+						<Request>
+							<Title>Žiadosť na vytvorenie nového vzoru</Title>
+							<Description>test ziadosti IT = SOAUPUI</Description>
+							<Publisher>UPVS</Publisher>
+							<Gestor>UPVSP-VYVOJ\iturcan</Gestor>
+						</Request>
+						<FormTemplate>
+							<MetaData>
+								<Identifier>IT3.MDURZ.DisseminateRequest</Identifier>
+								<Title>IT3.MDURZ.DisseminateRequest</Title>
+								<Type>POSP</Type>
+								<Description>IT3.MDURZ.DisseminateRequest</Description>
+								<Gestor>UPVSP-VYVOJ\iturcan</Gestor>
+								<Publisher>UPVS</Publisher>
+								<Section/>
+								<Agenda/>
+								<Source/>
+								<Version>
+									<Major>2</Major>
+									<Minor>9</Minor>
+								</Version>
+								<ValidDateFrom>2013-09-26</ValidDateFrom>
+								<ValidDateTo>0001-01-01</ValidDateTo>
+								<Keywords/>
+								<AccessGroup/>
+							</MetaData>
+							<RelatedDocuments>
+								<Document>
+									<MetaData>
+										<Type>POSP</Type>
+										<Identifier>posp.xml</Identifier>
+										<Description>posp</Description>
+										<Language/>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiID8+PH.......................XRpb24+PC9wb3NwPg==</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSLT_DEFAULT</Type>
+										<Identifier>form.3.xslt</Identifier>
+										<Description>Xslt html transformĂˇcia na zobrazenie formulĂˇra</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz............................NsOnN0eWxlc2hlZXQ+DQo=</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSLT_RO</Type>
+										<Identifier>form.3.ro.xslt</Identifier>
+										<Description>Xslt html transformĂˇcia na zobrazenie formulĂˇra v reĹľime readonly</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVV.......................k+DQo8L2h0bWw+DQo8L3hzbDp0ZW1wbGF0ZT4NCjwveHNsOnN0eWxlc2hlZXQ+DQo=</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSLT_TXT_SGN</Type>
+										<Identifier>form.3.sb.xslt</Identifier>
+										<Description>Xslt transformĂˇcia do txt pre zobrazenie pre podpisovaÄŤ</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgi..........................94c2w6c3R5bGVzaGVldD4NCg0K</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_HTML_FORM</Type>
+										<Identifier>form.3.html</Identifier>
+										<Description>PrĂˇzdny html formulĂˇr</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PCFET0NUWVBFIGh0bWwgUFVCTElDI............................Hk+DQo8L2h0bWw+DQo=</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XML_NAT</Type>
+										<Identifier>form.3.xml</Identifier>
+										<Description>NatĂ­vne prĂˇzdne xml, ktorĂ© reprezentuje natĂ­vne xml, ktorĂ© vypadne z vyplnenĂ©ho formulĂˇra</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjx.......................9uPg0KPC9kaXNzZW1pbmF0ZVJlcXVlc3Q+DQoNCg==</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSD_NAT</Type>
+										<Identifier>form.3.xsd</Identifier>
+										<Description>Xsd natĂ­vneho xml</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGlu.................g0KPC94czpjb21wbGV4VHlwZT4NCjwveHM6ZWxlbWVudD4NCjwveHM6c2NoZW1hPg0KDQo=</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XML_EDOC</Type>
+										<Identifier>form.3.sk.xml</Identifier>
+										<Description>eDoc (elektronickĂ˝ dokument) prĂˇzdne xml</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjxkaXNzZW1pbmF0Z................lc3RpbmF0aW9uPjwvZGVzdGluYXRpb24+DQo8L2NvbnRlbnRTZWN0aW9uPg0KPC9kaXNzZW1pbmF0ZVJlcXVlc3Q+DQoNCg==</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSD_EDOC</Type>
+										<Identifier>form.3.sk.xsd</Identifier>
+										<Description>Xsd vĂ˝slednĂ©ho eDoc (elektronickĂ˝ dokument)  xml</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP..................5jZT4NCjwveHM6Y29tcGxleFR5cGU+DQo8L3hzOmVsZW1lbnQ+DQo8L3hzOnNlcXVlbmNlPg0KPC94czpjb21wbGV4VHlwZT4NCjwveHM6ZWxlbWVudD4NCjwveHM6c2NoZW1hPg0KDQo=</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XML_DCT</Type>
+										<Identifier>form.3.dct</Identifier>
+										<Description>Xml sĂşbor slovnika (dictionary). SlĂşĹľi na preklad medzi natĂ­vnym a edoc xml a naopak.</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PENvbXBsZXRlRGljdGlvbmFyeT48TWVzc2FnZURpY3Rpb25hcn...............................pb25hcnk+PERlZmF1bHRzRGljdGlvbmFyeSAvPjwvQ29tcGxldGVEaWN0aW9uYXJ5Pg==</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSL_FO</Type>
+										<Identifier>form.3.fo.xsl</Identifier>
+										<Description>Xsl fo transformĂˇcia. SlĂşĹľi na pouĹľitie pri zobrazenĂ­ do pdf</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgi..............ZvOnJvb3Q+DQogICAgICAgICA8L3hzbDp0ZW1wbGF0ZT4NCiAgICAgICAgPC94c2w6c3R5bGVzaGVldD4NCg==</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_DLL_VAL</Type>
+										<Identifier>CEP.ValidationTypes.FormVersion.3.dll</Identifier>
+										<Description>ValidaÄŤnĂ© dll, ktorĂ© je moĹľnĂ© pouĹľiĹĄ na validĂˇciu formulĂˇra na strane servera</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAA.........................AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XML_MTD</Type>
+										<Identifier>form.3.mtd.xml</Identifier>
+										<Description>Xml sĂşbor s metadĂˇtami formulĂˇra</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PFB1Ymxpc2hlZEZvcm1WZXJzaW9uTWV0YWRhdGEgUHVib......................JOQSIgTGFuZ3VhZ2U9InNrIiAvPjwvRm9ybT48L1B1Ymxpc2hlZEZvcm1WZXJzaW9uTWV0YWRhdGE+</Data>
+								</Document>
+								<Document>
+									<MetaData>
+										<Type>CLS_F_XSLT_HTML</Type>
+										<Identifier>form.3.html.xslt</Identifier>
+										<Description>Xslt transformĂˇcia z eDoc xml do html</Description>
+										<Language>sk</Language>
+									</MetaData>
+									<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4NCjx.........................EsIDQpKSIgLz4NCjwveHNsOnRlbXBsYXRlPg0KPC94c2w6c3R5bGVzaGVldD4NCg0K</Data>
+								</Document>
+							</RelatedDocuments>
+						</FormTemplate>
+					</InsertNewFormTemplate_Request>
+				</Body>
+			</message>
+		</Receive>
+	</s:Body>
+</s:Envelope>

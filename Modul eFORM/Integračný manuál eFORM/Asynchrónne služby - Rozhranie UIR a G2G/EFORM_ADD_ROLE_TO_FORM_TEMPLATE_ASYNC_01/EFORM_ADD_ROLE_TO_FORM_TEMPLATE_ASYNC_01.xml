@@ -1,0 +1,43 @@
+<SKTalkMessage xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://gov.sk/SKTalkMessage">
+	<EnvelopeVersion>3.0</EnvelopeVersion>
+	<Header>
+		<MessageInfo>
+			<Class>EFORM_ADD_ROLE_TO_FORM_TEMPLATE_ASYNC_01</Class>
+			<PospID/>
+			<PospVersion/>
+			<MessageID>2acdf51c-e96f-4b8b-980e-733fdf09c7f0</MessageID>
+			<CorrelationID>d5f05285-078e-438a-a836-c9414f83bcbb</CorrelationID>
+			<ReferenceID>00000000-0000-0000-0000-000000000000</ReferenceID>
+			<BusinessID/>
+			<ChannelInfo>
+				<Channel>
+					<ChannelInfoURI>http://eformapp/_vti_bin/eFLCMService.svc/ws</ChannelInfoURI>
+				</Channel>
+			</ChannelInfo>
+			<ChannelInfoReply>
+				<Channel>
+					<ChannelInfoURI>http://eformapp/_vti_bin/eFLCMService.svc/ws</ChannelInfoURI>
+				</Channel>
+			</ChannelInfoReply>
+		</MessageInfo>
+		<RoutingInfo/>
+	</Header>
+	<Body>
+		<AddRoleToFormTemplate_Request xmlns="http://schemas.gov.sk/eflcm/AddRoleToFormTemplate/1.0">
+			<Request>
+				<Title>Ziadost na pridelenie opravneni</Title>
+				<Description>ziadam o pridelenie role na vzor</Description>
+				<Publisher>UPVS</Publisher>
+				<Gestor>UPVSP-VYVOJ\test</Gestor>
+			</Request>
+			<FormTemplate>
+				<Identifier>77</Identifier>
+				<Version>
+					<Major>2</Major>
+					<Minor>2</Minor>
+				</Version>
+			</FormTemplate>
+			<RoleName>skupina</RoleName>
+		</AddRoleToFormTemplate_Request>
+	</Body>
+</SKTalkMessage>

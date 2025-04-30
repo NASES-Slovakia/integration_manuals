@@ -1,0 +1,16 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://schemas.gov.sk/ServiceBus/service/1.0/IServiceBus/CallService</Action>
+		<ActivityId CorrelationId="fcaf1f71-4a66-4d27-b602-7a3f2db4d9a6" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">60784e4e-b05b-4e2d-9c80-dd361c815724</ActivityId>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink"/>
+	</s:Header>
+	<s:Body>
+		<CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<serviceClass>EFORM_GETSUBSCRIBERENDPOINTURL_SOAP_V_1_0</serviceClass>
+			<serviceParameter xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:d4p2="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" i:type="d4p2:GetSubscriberEndpointUrlReq">
+				<d4p2:SubscribedGestor>Testcase.TS</d4p2:SubscribedGestor>
+				<d4p2:SubscribedPublisher>UPVS</d4p2:SubscribedPublisher>
+			</serviceParameter>
+		</CallService>
+	</s:Body>
+</s:Envelope>

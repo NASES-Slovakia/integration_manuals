@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.gov.sk/eflcm/ChangeFormTemplateMetaData/1.0" elementFormDefault="qualified" targetNamespace="http://schemas.gov.sk/eflcm/ChangeFormTemplateMetaData/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ChangeFormTemplateMetaData_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="tns:EFLCMRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="MetaData" type="tns:FormTemplateMetaData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="EFLCMRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Publisher" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Gestor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FormTemplateMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Identifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="eForm" />
+            <xs:enumeration value="teForm" />
+            <xs:enumeration value="POSP" />
+            <xs:enumeration value="NOTIFY" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Gestor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Publisher" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Section" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Agenda" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Source" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="tns:EFormVersion" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ValidDateFrom" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ValidDateTo" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Keywords" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccessGroup" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFormVersion">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Major" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Minor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangeFormTemplateMetaData_Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="tns:FormTemplateID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FormTemplateID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Identifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="tns:EFormVersion" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

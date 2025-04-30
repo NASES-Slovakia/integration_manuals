@@ -1,0 +1,61 @@
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://gov.sk/eGov/IService/Receive</a:Action>
+		<a:MessageID>urn:uuid:11224b39-53f4-43a3-aa9b-cf0f672b8e57</a:MessageID>
+		<ActivityId CorrelationId="c8b4fcf2-1d44-4d78-9184-9ba1845b09f8" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">5135b731-38a8-4090-a992-1ea625412d3f</ActivityId>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">http://vyvoj.upvs.globaltel.sk/g2g/G2GServiceBus/ServiceSkTalk3.svc</a:To>
+	</s:Header>
+	<s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<Receive xmlns="http://gov.sk/eGov/IService">
+			<message>
+				<EnvelopeVersion xmlns="http://gov.sk/SKTalkMessage">3.0</EnvelopeVersion>
+				<Header xmlns="http://gov.sk/SKTalkMessage">
+					<MessageInfo>
+						<Class>EFORM_INVALIDATE_FORM_TEMPLATE_ASYNC_01</Class>
+						<PospID/>
+						<PospVersion/>
+						<MessageID>2acdf51c-e96f-4b8b-980e-733fdf09c7f0</MessageID>
+						<CorrelationID>d5f05285-078e-438a-a836-c9414f83bcbb</CorrelationID>
+						<BusinessID/>
+						<ChannelInfo>
+							<Channel>
+								<ChannelInfoURI>http://eformapp/_vti_bin/eFLCMService.svc/ws</ChannelInfoURI>
+							</Channel>
+						</ChannelInfo>
+						<ChannelInfoReply>
+							<Channel>
+								<ChannelInfoURI>http://eformapp/_vti_bin/eFLCMService.svc/ws</ChannelInfoURI>
+							</Channel>
+						</ChannelInfoReply>
+					</MessageInfo>
+					<SenderInfo>
+						<SecurityMethod>security_method</SecurityMethod>
+						<SecurityToken/>
+						<Identity/>
+					</SenderInfo>
+					<RoutingInfo/>
+				</Header>
+				<Body xmlns="http://gov.sk/SKTalkMessage">
+					<InvalidateFormTemplate_Request xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.gov.sk/eflcm/InvalidateFormTemplate/1.0">
+						<Request>
+							<Title>Žiadosť na zneplatnenie vzoru</Title>
+							<Description>test - prosim neschvalit SOAPUI TEST !!!</Description>
+							<Publisher>UPVS</Publisher>
+							<Gestor>UPVSP-VYVOJ\iturcan</Gestor>
+						</Request>
+						<FormTemplate>
+							<Identifier>POSP</Identifier>
+							<Version>
+								<Major>1</Major>
+								<Minor>0</Minor>
+							</Version>
+						</FormTemplate>
+					</InvalidateFormTemplate_Request>
+				</Body>
+			</message>
+		</Receive>
+	</s:Body>
+</s:Envelope>

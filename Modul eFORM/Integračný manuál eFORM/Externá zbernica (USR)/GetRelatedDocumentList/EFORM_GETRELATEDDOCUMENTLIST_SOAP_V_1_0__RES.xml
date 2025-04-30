@@ -1,0 +1,83 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header/>
+	<s:Body>
+		<CallServiceResponse xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<CallServiceResult i:type="a:GetRelatedDocumentListRes" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0">
+				<a:RelatedDocuments>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xslt html transformácia na zobrazenie formulára v režime readonly</a:Description>
+						<a:Identifier>form.31.ro.xslt</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSLT_RO</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xslt html transformácia na zobrazenie formulára</a:Description>
+						<a:Identifier>form.31.xslt</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSLT_DEFAULT</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xml súbor slovnika (dictionary). Slúži na preklad medzi natívnym a edoc xml a naopak.</a:Description>
+						<a:Identifier>form.31.dct</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XML_DCT</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Natívne prázdne xml, ktoré reprezentuje natívne xml, ktoré vypadne z vyplneného formulára</a:Description>
+						<a:Identifier>form.31.xml</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XML_NAT</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xsd natívneho xml</a:Description>
+						<a:Identifier>form.31.xsd</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSD_NAT</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xml súbor s metadátami formulára</a:Description>
+						<a:Identifier>form.31.mtd.xml</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XML_MTD</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xslt transformácia z eDoc xml do html</a:Description>
+						<a:Identifier>form.31.html.xslt</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSLT_HTML</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Prázdny html formulár</a:Description>
+						<a:Identifier>form.31.html</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_HTML_FORM</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xslt transformácia do txt pre zobrazenie pre podpisovač</a:Description>
+						<a:Identifier>form.31.sb.xslt</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSLT_TXT_SGN</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xsl fo transformácia. Slúži na použitie pri zobrazení do pdf</a:Description>
+						<a:Identifier>form.31.fo.xsl</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSL_FO</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>eDoc (elektronický dokument) prázdne xml</a:Description>
+						<a:Identifier>form.31.sk.xml</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XML_EDOC</a:Type>
+					</a:RelatedDocumentMetaData>
+					<a:RelatedDocumentMetaData>
+						<a:Description>Xsd výsledného eDoc (elektronický dokument)  xml</a:Description>
+						<a:Identifier>form.31.sk.xsd</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XSD_EDOC</a:Type>
+					</a:RelatedDocumentMetaData>
+				</a:RelatedDocuments>
+			</CallServiceResult>
+		</CallServiceResponse>
+	</s:Body>
+</s:Envelope>

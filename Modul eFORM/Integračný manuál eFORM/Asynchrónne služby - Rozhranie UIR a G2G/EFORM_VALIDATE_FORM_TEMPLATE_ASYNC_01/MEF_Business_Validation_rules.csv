@@ -1,0 +1,910 @@
+"CisloValidacie";"NazovAPopis";"Aktivna";"Zavislost";"SpustitAkNadradenaNOK";"NazovValidacie";"Zavaznost";"ZaciatokUcinnosti";"KoniecUcinnosti";"Vystup";"Odporucanie";"InfoText"
+"1";"Kontrola balíèka na existenciu povinnıch adresárov
+Systém overí e, balíèek obsahuje v kmeòovom adresári adresár Content a adresár META-INF. Pre kadı chıbajúci adresár vytvorí samostatnú chybu na vıstupe.";"TRUE";"";"";"Rule001_RequiredDirectories";"ERROR";"1.1.2007";"";"Balík neobsahuje povinné adresáre {0}";"";"Balík formulára obsahuje adresár {0}"
+"2";"Kontrola balíèka na existenciu nepovolenıch adresárov
+Systém overí, e balíèek neobsahuje iné adresáre ako Content, META-INF a Attachments, Presentation a Thumbnails. Pre kadı takto nájdenı adresár vytvorí samostatnú chybu na vıstupe.";"TRUE";"";"";"Rule002_AllowedDirectories";"WARNING";"1.1.2007";"";"Balík obsahuje nepovolenı adresár {0}";"";"Balík formulára neobsahuje nepovolené adresáre"
+"3";"Kontrola existencie a umiestnenia základnıch súborov balíèka v koreòovom adresári
+Systém overí, e v kmeòovom adresári sa nenachádzajú iné ako nasledujúce súbory:
+attachments.xml
+data.xml
+meta.xml
+mimetype
+settings.xml
+schema.xsd
+Pre kadı identifikovanı súbor nad rámec uvedeného zoznamu systém vytvorí samostatnú chybu na vıstupe.";"TRUE";"";"";"Rule003_AllowedRootFiles";"WARNING";"1.1.2007";"";"V korenovom adresári sa nachádza nepovolenı súbor {0}";"";"V korenovom adresári sa nenachádzajú nepovolené súbory"
+"4";"Kontrola existencie a umiestnenia základnıch súborov balíèka
+Systém overí, e súbor manifest.xml sa nachádza v adresári META-INF.";"TRUE";"";"";"Rule004_RequiredMETA_INFFile";"ERROR";"1.1.2007";"";"Balík formulára neobsahuje {0}";"";"Balík formulára obsahuje {0}"
+"5";"V adresári META-INF smie existova len súbor manifest.xml
+Systém overí, e v adresári \META-INF sa nachádza len súbor manifest.xml.";"TRUE";"";"";"Rule005_AllowedMETA_INFFile";"WARNING";"1.1.2007";"";"V adresári META-INF sa nachádza nepovolenı súbor {0}";"";"V adresári META-INF sa nenachádzajú iné súbory ako manifest.xml"
+"6";"Kontrola èi je manifest.xml správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"4";"FALSE";"Rule006_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"7";"Kontrola èi je manifest.xml správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"4";"FALSE";"Rule007_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"8";"Kontrola èi manifest.xml pouíva kódovanie UTF-8
+Systém overí, e parameter encoding má hodnotu UTF-8 (encoding=""UTF-8""). Ak nie vyhlási chybu.";"TRUE";"4";"FALSE";"Rule008_IfManifestUTF8";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu UTF-8";"Pre súbor {0} zmente hodnotu parametra encoding na UTF-8";"Súbor {0} má hodnotu parametra encoding UTF-8"
+"9";"Kontrola platnosti manifest.xml voèi XSD schéme
+Systém overí, èi je súbor manifest.xml validnı voèi schéme pre manifest vo verzii daného e-form balíèka a platná pre èasovı rozsah platnosti tejto validácie. Poznámka: môu existova dve schémy pre manifest.xml pre rovnakú verziu balíèka platné v rôznom èase, nie však prekrıvjúce sa platnosami.";"TRUE";"4";"FALSE";"Rule009_ManifestXSDValidation";"ERROR";"1.1.2007";"";"Súbor {0} nie je validnı voci XSD schéme";"Opravte element {0} aby vyhovel validácii voci XSD schéme";"Súbor {0} je validnı voci XSD schéme"
+"10";"Kotntrola deklarácie všetkıch súborov balíèka v manifest.xml
+Systém overí, e v súbore manifest.xml je práve jeden dátovı prvok ""file-entry"" pre kadı súbor nachádzajúci sa v balièku. Tımto pravidlom sa nekontroluje súbor ""mimetype"" a obsah adresára ""Attachments"" a ani samotnı manifest.xml. Pre kadı identifikovanı chıbajúci file-entry systém vráti na vıstupe jednu chybu.";"TRUE";"4";"FALSE";"Rule010_CheckFileEntriesInManifest";"ERROR";"1.1.2007";"";"Súbor {0} nie je definovanı v {1}";"Pre súbor {0} definujte file-entry element v {1}";"Všetky súbory sú definované v {0}"
+"11";"Kontrola štruktúry file-entry elementov v manifest.xml
+Systém overí, èi kadú dátovı prvok ""file-entry"" obsahuje vyplnené atribúty „media-type“ a „full-path“. Pre kadı file-entry, ktorı to nespåòa, systém vyhlási na vıstupe chybu.";"TRUE";"4";"FALSE";"Rule011_XmlWheterAttributesExist";"ERROR";"1.1.2007";"";"Súbor {0} nemá definovanı, alebo vyplnenı atribút {1} pre element {2}";"Pre elementy {0} súboru {1} definujte a vyplnte atribúty {2}";"Súbor {0} má pre všetky elementy {1} definované a vyplnené atribúty {2}"
+"13";"Kontrola štruktúry file-entry elementov v manifest.xml
+Systém overí, èi kadú dátovı prvok ""file-entry"" obsahuje vyplnenı atribút „filename“. Pre kadı file-entry, ktorı to nespåòa, systém vyhlási na vıstupe chybu.";"TRUE";"4";"FALSE";"Rule013_XmlWheterAttributesExist";"WARNING";"1.1.2007";"";"Súbor {0} nemá definovanı, alebo vyplnenı atribút {1} pre element {2}";"Pre elementy {0} súboru {1} definujte a vyplnte atribúty {2}";"Súbor {0} má pre všetky elementy {1} definované a vyplnené atribúty {2}"
+"14";"Kontrola štruktúry file-entry elementov pre xslt v manifest.xml
+Systém overí, èi kadı dátovı prvok ""file-entry"", kde media-type=""application/xslt+xml|text/xsl"" obsahuje aj atribúty ""media-destination"", ""media-destination-type"", ""media-destination-type-description"". Pre kadı file-entry, ktorı to nespåòa, systém vyhlási na vıstupe chybu.";"TRUE";"4";"FALSE";"Rule014_CheckFileEntriesXsltInManifest";"WARNING";"1.1.2007";"";"Element {0} v {1} obsahuje atribút {2} s hodnotou {3} ale neobsahuje atribút {4}";"Doplnte atribút {0}";"Súbor {0} má pre všetky elementy {1} obsahujúce atribút {2} s hodnotou {3} definované a vyplnené atribúty {4}"
+"16";"Kontrola prípustnıch hodnôt media-destination v manifest.xml
+Systém overí, e hodnota atribútov media-destination je zo zoznamu P.23. Pre kadı atribút, ktorı to nespåòa vyhlási systém samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule016_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"17";"Kontrola štruktúry odkazovanıch url v manifest.xml
+Systém pre kadı element file-entry overí, èi atribút ""full-path"" obsahuje URL, ktorá nie je relatívnou URL. Ak je, musia by v danom file-entry elemente pouité aj atribúty ""reference-digest-method-algorithm"" a ""reference-digest-value"" a samotná URL musí by zo zoznamu UPVS URL adries P.12.";"FALSE";"4";"FALSE";"Rule017_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";" Ak atribút """"full - path"""" obsahuje URL, ktorá nie je relatívnou URL, musia byt v danom file-entry elemente pouité aj atribúty """"reference - digest - method - algorithm"""" a """"reference - digest - value"""" a samotná URL musí byt zo zoznamu UPVS URL adries P.12.""";"Súbor { 0} všetky hodnoty atribútu { 1} správne"
+"18";"Kontrola doplòujúcich mennıch priestorov v manifest.xml
+Systém overí, èi sa v manifest.xml nachádzajú aj ïalšie deklarácie mennıch priestorov, okrem mennıch priesotorov definovanıch v základnom zozname mennıch priestorov manifest.xml P.13. Pre kadı takıto mennı priestor musí existova element file-entry aspoò s parametrami:
+media-type=""text/xml""
+full-path=""full-path""
+description="""" s neprázdnou hodnotu
+a zároveò musí v balíèku existova súbor definovanı vo full-path.";"FALSE";"4";"FALSE";"Rule018_RequiredXmlAttributes";"WARNING";"1.1.2007";"";"V {0} je definovanı namespace {1}, ktorı nesplna poadované podmienky";"Pre danı namespace {0} vytvorte v {1} element file-entry s atribútmi media-type=""text/xml"", full-path=""full-path"" a description=""popis""";"V {0} sa nachádzajú všetky namespace, ktoré sú povolené, alebo definované vo file-entry"
+"19";"Manifest.xml kontrola nad rámec XSD: media-type
+Systém overí, e kadı parameter ""media-type"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""3""
+pattern "".+/.+""
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule019_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu podla minLength=""3"", pattern "".+/.+""";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"20";"Manifest.xml kontrola nad rámec XSD: povolené hodnoty media-type
+Systém overí, èi je hodnota parametra ""media-type"" zo zoznamu povolenıch hodnôt P.24. Pre kadı parameter, ktorı to nespåòa, vyhlási systém samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule020_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"21";"Manifest.xml kontrola nad rámec XSD: full-path
+Systém overí, e kadı parameter ""full-path"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1""
+prièom hodnota musí by relatívna cesta do vnútra balíèka k súboru, alebo spåòa masku P.14.
+
+Pre kadı parameter, ktorı tto nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule021_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Hodnota atribútu musí byt relatívna cesta do vnútra balícka k súboru, alebo splnat masku, alebo splnat masku {0}, {1}";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"22";"Manifest.xml kontrola nad rámec XSD: full-path-url
+Systém overí, e kadı parameter ""full-path-url"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+minLength=""10""
+prièom hodnota musí spåòa masku P.14.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"FALSE";"4";"FALSE";"Rule022_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Hodnota atribútu musí byt relatívna cesta do vnútra balícka k súboru, alebo splnat masku, alebo splnat masku {0}, {1}";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"23";"Manifest.xml kontrola nad rámec XSD: štruktúra url
+Systém overí, e hodnoty atribútov ""full-path"" a ""full-path-url"" pouíva iba forward slsh ""/"" lomítka. Systém vyhlási na vıstupe chybu pre kadı parameter, ktorého hodnota obsahuje backward slash ""\"".";"FALSE";"4";"FALSE";"Rule023_AllowedSlashesInUrl";"WARNING";"1.1.2007";"";"Hodnoty atribútu {0} v {1} smie obsahovat len ""/"" lomítka";"Zmente ""\"" lomítka na ""/"" lomítka";"Hodnoty atribútov {0} v {1} obsahujú správne lomítka"
+"25";"Manifest.xml kontrola nad rámec XSD: media-language
+Systém overí, e kadı parameter ""media-language"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""2""
+maxLength=""3""
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule025_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"26";"Manifest.xml kontrola nad rámec XSD: hodnota media-language
+Systém overí, e hodnota kadého parametra ""media-language"" spåòa je zo zoznamu povolenıch hodnôt P.25. Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule026_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"27";"Manifest.xml kontrola nad rámec XSD: hodnota media-language 2
+Systém overí, èi sa pouíva viacero hodnôt parametra ""media-language"" a ak áno pre kadú prezentaènú schému , ktorá nemá vyplnenú jeho hodnotu, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule027_PresentationSchemasForMediaLanguage";"WARNING";"1.1.2007";"";"Element prezentacnej schémy {0} v {1} neobsahuje {2}";"Do súboru {0} doplnte pre danú prezentacnú schému danı jazyk";"Všetky povinné prezentacné schémy obsahujú rovnaké {0}"
+"28";"Manifest.xml kontrola nad rámec XSD: media-destination-type
+Systém overí, e kadı parameter ""media-destination-type"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""3""
+pattern "".+/.+"" 
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule028_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu podla minLength=""3"", pattern "".+/.+""";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"29";"Manifest.xml kontrola nad rámec XSD: povolené hodnoty media-destination-type
+Systém overí, èi je hodnota parametra ""media-destination-type"" zo zoznamu povolenıch hodnôt P.24. Pre kadı parameter, ktorı to nespåòa, vyhlási systém samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule029_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"30";"Manifest.xml kontrola nad rámec XSD: media-destination-type-description
+Systém overí, e kadı parameter ""media-destination-type"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1""
+maxLength=""15""
+a zároveò hodnota je z zo zoznamu povolenıch hodnôt pre media-destination-type-description P.15.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule030_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"31";"Manifest.xml kontrola nad rámec XSD: povolené kombinácie hodnôt media-destination-type a media-destination-type-description
+Systém overí, èi sú hodnoty atribútu ""media-destination-type"" a „media-destination-type-description“ zo zoznamu povolenıch kombinácií hodnôt P.15.1. Pre kadı parameter, ktorı to nespåòa, vyhlási systém samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule031_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnoty {0} nie sú prípustné pre atribúty {1} v súbore {2}";"Zmente hodnoty atribútov";"Súbor {0} všetky kombinácie hodnôt atribútov {1} správne"
+"34";"Manifest.xml kontrola nad rámec XSD: target-environment
+Systém overí, e kadı parameter ""target-environment"" spåòa nasledovné vlastnosti nad rámec XSD:
+use=""optional""
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre target-environment P.16.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule034_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"35";"Manifest.xml kontrola nad rámec XSD: xslfo-reference-procesor
+Systém overí, e kadı parameter ""xslfo-reference-procesor"" spåòa nasledovné vlastnosti nad rámec XSD:
+hodnota je zo zoznamu povolenıch hodnôt pre xslfo-reference-procesor P.17.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule035_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"36";"Manifest.xml kontrola nad rámec XSD: xslfo-reference-procesor-url
+Systém overí, e kadı parameter ""xslfo-reference-procesor-url"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre xslfo-reference-procesor-url P.18.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule036_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"37";"Manifest.xml kontrola nad rámec XSD: reference-transform-algorithm
+Systém overí, e kadı parameter ""reference-transform-algorithm"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre reference-transform-algorithm P.19.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule037_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"38";"Manifest.xml kontrola nad rámec XSD: reference-digest-method-algorithm
+Systém overí, e kadı parameter ""reference-digest-method-algorithm"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre reference-digest-method-algorithm P.20.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule038_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"39";"Manifest.xml kontrola nad rámec XSD: reference-digest-value
+Systém overí, e kadı parameter ""reference-digest-value"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLenght=""1""
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"4";"FALSE";"Rule039_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"40";"Súbor meta.xml musí existova
+Systém overí, e súbor meta.xml sa nachádza v koreòovom adresári.";"TRUE";"";"";"Rule040_RequiredRootMetaFile";"ERROR";"1.1.2007";"";"Súbor {0} sa nenachádza v korenovom adresári";"";"Súbor meta.xml sa nachádza v korenovom adresári"
+"41";"Kontrola èi je meta.xml správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"40";"FALSE";"Rule041_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"42";"Kontrola èi je meta.xml správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"40";"FALSE";"Rule042_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"43";"Kontrola èi meta.xml pouíva kódovanie UTF-8
+Systém overí, e parameter encoding má hodnotu UTF-8 (encoding=""UTF-8""). Ak nie, vyhlási chybu.";"TRUE";"40";"FALSE";"Rule043_IfMetaUTF8";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu UTF-8";"Pre súbor {0} zmente hodnotu parametra encoding na UTF-8";"Súbor {0} má hodnotu parametra encoding UTF-8"
+"44";"Kontrola platnosti meta.xml voèi XSD schéme
+Systém overí, èi je súbor meta.xml validnı voèi schéme pre meta súbor vo verzii daného e-form balíèka a platná pre èasovı rozsah platnosti tejto validácie. Poznámka: môu existova dve schémy pre manifest.xml pre rovnakú verziu balíèka platné v rôznom èase, nie však prekrıvjúce sa platnosami.";"TRUE";"40";"FALSE";"Rule044_XsdSchemaValidation";"ERROR";"1.1.2007";"";"Súbor {0} nie je validnı voci XSD schéme";"Opravte element {0} aby vyhovel validácii voci XSD schéme";"Súbor {0} je validnı voci XSD schéme"
+"45";"Súlad metaúdajov meta.xml
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml""
+full-path=""meta.xml""
+full-path-url=""""
+filename=""meta.xml"" ak existuje
+
+Prièom hodnota parametra full-path-url sa musí vyhovova Full-path-url maske, kde:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+fullpath - je rovné rovné hodnote parametra ""full-path""";"FALSE";"40,4";"FALSE";"Rule045_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Atribút full-path-url chıba, alebo jeho hodnota vo file-entry pre {1} v {0} neobsahuje správnu hodnotu";"Atribút musí splnat {0} a {1}";"Atribút full-path-url v {0} obsahuje správnu hodnotu"
+"46";"Súlad metaúdajov meta.xml (CEP)
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml""
+full-path=""meta.xml""
+filename=""meta.xml"" ak existuje
+
+Prièom hodnota parametra full-path-url sa musí vyhovova Full-path-url maske, kde:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+fullpath - je rovné rovné hodnote parametra ""full-path""";"FALSE";"40,4";"FALSE";"Rule046_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota atribútu full-path-url vo file-entry pre {1} v {0} neobsahuje správnu hodnotu";"Atribút musí splnat {0} a {1}";"Atribút full-path-url v {0} obsahuje správnu hodnotu"
+"47";"Overenie najnovšej verzie formulára
+Systém overí, e hodnota verzie v elemente <meta:version> je vyššia ako posledná verzia uloená v module. Ak sa jedná o prvú verziu formulára (neexistuje v module) tak sa nejedná o chybu.";"FALSE";"40";"FALSE";"Rule047_ControlEFormVersion";"ERROR";"1.1.2007";"";"Hodnota verzie v {0} v elemente<meta:version> nie je vyššia ako posledná verzia uloená v module";"Hodnota verzie v {0} v elemente<meta:version> musí byt vyššia ako posledná verzia uloená v module";"Registrovaná verzia formulára je vyššia ako posledná uloená verzia"
+"48";"Overenie rovnakého gestora formulára
+Ak existuje iná verzia formulára v module, systém overí, e gestor je rovnakı. Hodnota <dc:publisher> je totoná ako v najvyššej uloenej verzii v module.";"TRUE";"40";"FALSE";"Rule048_ControlEFormGestor";"ERROR";"1.1.2007";"";"Gestor v {0} v elemente<meta:publisher> nie rovnakı ako v poslednej verzii uloenej v module";"Gestor v {0} v elemente<meta:publisher> musí byt rovnakı ako v poslednej verzii uloenej v module";"Gestor definovanı v balíku je rovnakı ako v poslednej uloenej verzia"
+"49";"Meta.xml kontrola nad rámec XSD: dc:title
+Systém overí, e element ""dc:title"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1""
+minoccurs=""1""
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule049_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"50";"Meta.xml kontrola nad rámec XSD: dc:identifier
+Systém overí, e element ""dc:identifier"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+hodnota musí spåòa namespace masku P.2
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule050_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"51";"Meta.xml kontrola nad rámec XSD: dc:identifier
+Systém overí, e element ""dc:identifier"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+hodnota musí spåòa niektorú z namespace masiek P.2 alebo P.3
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"FALSE";"40";"FALSE";"Rule051_AllowedXmlElementValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"52";"Meta.xml kontrola nad rámec XSD: dc:identifier
+Systém overí, e element ""dc:identifier"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+hodnota musí spåòa namespace masku P.3
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"FALSE";"40";"FALSE";"Rule052_AllowedXmlElementValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"53";"Meta.xml kontrola nad rámec XSD: dc:description
+Systém overí, e element ""dc:description"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1"" 
+minoccurs=""1""
+maxoccurs=""unbounded""
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule053_AllowedXmlElementValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"54";"Meta.xml kontrola nad rámec XSD: dc:creator
+Systém overí, e element ""dc:creator"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1""
+minoccurs=""1""
+maxoccurs=""unbounded""
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule054_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"55";"Meta.xml kontrola nad rámec XSD: dc:publisher
+Systém overí, e element ""dc:publisher"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1"" 
+minoccurs=""1""
+maxoccurs=""unbounded
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule055_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"56";"Meta.xml kontrola nad rámec XSD: language
+Systém overí, e element ""language"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""2""
+maxLength=""3"" 
+minoccurs=""1""
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule056_AllowedXmlElementValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"57";"Meta.xml kontrola nad rámec XSD: hodnota language
+Systém overí, e hodnota elementu ""language"" pochádza zo zoznamu jazykov P.26";"TRUE";"40";"FALSE";"Rule057_AllowedXmlElementValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"58";"Meta.xml kontrola nad rámec XSD: version
+Systém overí, e element ""version"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1"" 
+minoccurs=""1""
+
+Pre kadı element, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"40";"FALSE";"Rule058_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu, alebo doplnte chıbajúci element";"Súbor {0} všetky hodnoty elementu {1} správne"
+"59";"Meta.xml kontrola nad rámec XSD: Dátumy do budúcnosti
+Systém overí, e kadı z dátumovıch elementov validDateFrom, validDateTo, inForceFrom, inForceTo, ktorı má zadanú hodnotu, ju nemá v minulosti. Pre kadı element, ktorı to nespåòa, vyhlási samostatnú chybu na vıstupe.";"FALSE";"40";"FALSE";"Rule059_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v súbore {2}";"Zmente hodnotu elementu";"Súbor {0} všetky hodnoty elementu {1} správne"
+"60";"Meta.xml kontrola nad rámec XSD: Postupnos dátumov platnosti
+Ak je zadaná hodnota validDateTo, tak systém overí, e je väèšia alebo rovná ako hodnota validDateFrom.";"TRUE";"40";"FALSE";"Rule060_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v kombinácií so zodpovedajúcim elementom v súbore {2}";"Zmente hodnotu elementu";"Súbor {0} kombinácia elementov {1} je správna"
+"61";"Meta.xml kontrola nad rámec XSD: Postupnos dátumov úèinnosti
+Ak je zadaná hodnota inForceTo, tak systém overí, e je väèšia alebo rovná ako hodnota inForceFrom.";"TRUE";"40";"FALSE";"Rule061_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v kombinácií so zodpovedajúcim elementom v súbore {2}";"Zmente hodnotu elementu";"Súbor {0} kombinácia elementov {1} je správna"
+"62";"Meta.xml kontrola nad rámec XSD: Zaèiatok úèinnosti je po platnosti
+Systém overí, e hodnota inForceFrom je väèšia alebo rovná ako hodnota validDateFrom.";"TRUE";"40";"FALSE";"Rule062_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v kombinácií so zodpovedajúcim elementom v súbore {2}";"Zmente hodnotu elementu";"Súbor {0} kombinácia elementov {1} je správna"
+"63";"Meta.xml kontrola nad rámec XSD: Koniec úèinnosti je pred platnosou
+Systém overí, e ak je zadaná hodnota inForceTo, tak je väèšia alebo rovná ako hodnota validDateFrom (prièom nezadané inForceTo = nekoneèno).";"TRUE";"40";"FALSE";"Rule063_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre element {1} v kombinácií so zodpovedajúcim elementom v súbore {2}";"Zmente hodnotu elementu";"Súbor {0} kombinácia elementov {1} je správna"
+"64";"Súbor schema.xsd musí existova
+Systém overí, e súbor schema.xsd sa nachádza v koreòovom adresári.";"TRUE";"";"";"Rule064_RequiredRootSchemaFile";"ERROR";"1.1.2007";"";"Súbor {0} sa nenachádza v korenovom adresári";"";"Súbor {0} sa nachádza v korenovom adresári"
+"66";"Kontrola verzie XSD pre schema.xsd
+Systém overí z namespace (hodnota xmlns:xs) verziu W3C XSD súboru schema.xsd (t.j. èi pod¾a namespace ide o W3C XSD 1.0, 1.1 atï). V prípade, e je vyššia ako 1.0 vyhlási varovanie.";"TRUE";"64";"FALSE";"Rule066_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Nepovolená verziu schémy v {0}";"Vyššia verzia ako {0} nie je povolená";"{0} obsahuje platnú verziu schémy formulára"
+"67";"Kontrola èi je schema.xsd správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"64";"FALSE";"Rule067_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"68";"Kontrola èi je schema.xsd správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"64";"FALSE";"Rule068_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"69";"Kontrola xmlns v schema.xsd na masku 1 alebo 2
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.1 (P.1) alebo Namespace maske è.2 (P.2), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade, e nevyhovuje aspoò jednej z nich, systém vráti na vıstupe chybu.";"TRUE";"64,4";"FALSE";"Rule069_ControlNamespaceMask";"ERROR";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1} alebo {2}";"Namespace xmlns v {0} je zadefinovanı správne"
+"70";"Kontrola xmlns v schema.xsd na masku 2
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.2 (P.2), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade e nevyhovuje, systém vráti na vıstupe chybu.";"FALSE";"64,4";"FALSE";"Rule070_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1}";"Namespace xmlns v {0} je zadefinovanı správne"
+"71";"Kontrola xmlns v schema.xsd na masku 2 alebo 3
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.2 (P.2) alebo Namespace maske è.3 (P.3), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade, e nevyhovuje aspoò jednej z nich, systém vráti na vıstupe chybu.";"FALSE";"64,4";"FALSE";"Rule071_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1} alebo {2}";"Namespace xmlns v {0} je zadefinovanı správne"
+"72";"Kontrola xmlns v schema.xsd na masku 3
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.3 (P.3), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade e nevyhovuje, systém vráti na vıstupe chybu.";"FALSE";"64,4";"FALSE";"Rule072_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1}";"Namespace xmlns v {0} je zadefinovanı správne"
+"73";"Kontrola targetNamespace v schema.xsd na masku 1 alebo 2
+Systém overí, e hodnota namespace v elemente targetNamespace vyhovuje Namespace maske è.1 (P.1) alebo Namespace maske è.2 (P.2), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade, e nevyhovuje aspoò jednej z nich, systém vráti na vıstupe chybu.";"TRUE";"64,4";"FALSE";"Rule073_ControlNamespaceMask";"ERROR";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1} alebo {2}";"Namespace xmlns v {0} je zadefinovanı správne"
+"74";"Kontrola targetNamespace v schema.xsd na masku 2
+Systém overí, e hodnota namespace v elemente targetNamespace vyhovuje Namespace maske è.2 (P.2), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade e nevyhovuje, systém vráti na vıstupe chybu.";"FALSE";"64,4";"FALSE";"Rule074_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1}";"Namespace xmlns v {0} je zadefinovanı správne"
+"75";"Kontrola targetNamespace v schema.xsd na masku 2 alebo 3
+Systém overí, e hodnota namespace v elemente targetNamespace vyhovuje Namespace maske è.2 (P.2) alebo Namespace maske è.3 (P.3), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade, e nevyhovuje aspoò jednej z nich, systém vráti na vıstupe chybu.";"FALSE";"64,4";"FALSE";"Rule075_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1} alebo {2}";"Namespace xmlns v {0} je zadefinovanı správne"
+"76";"Kontrola targetNamespace v schema.xsd na masku 3
+Systém overí, e hodnota namespace v elemente targetNamespace vyhovuje Namespace maske è.3 (P.3), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade e nevyhovuje, systém vráti na vıstupe chybu.";"FALSE";"64,4";"FALSE";"Rule076_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1}";"Namespace xmlns v {0} je zadefinovanı správne"
+"77";"Kontrola, èi je xmlns a targetNamespace v schema.xsd rovnaké
+Systém overí, e hodnoty parametrov ""xmlns"" a ""targetNamespace"" sú rovnaké.";"TRUE";"64";"FALSE";"Rule077_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota atribútu {0} sa musí rovnat hodnote atribútu {1}";"Zmente hodnoty atribútov v súbore {0}";"V súbore {0} hodnoty atribútov {1} a {2} rovnajú"
+"78";"Kontrola, èi je schéma formulára tvorená jednım súborom
+Súbor schema.xsd nesmie obsahova element ""import"" a ""include"". Pre kadı identifikovanı nepovolenı element systém vytvorí samostatnú chybu na vıstupe.";"TRUE";"64";"FALSE";"Rule078_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Element {0} nie je prípustnı v súbore {1}";"Odstránte element";"Súbor {0} neobsahuje elementy {1}"
+"79";"Kontrola súladu metaúdajov schema.xsd
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml""
+full-path=""schema.xsd"" 
+full-path-url=""""
+
+Prièom hodnota parametra full-path-url sa musí vyhovova Full-path-url maske, kde:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+fullpath - je rovné rovné hodnote parametra ""full-path""";"FALSE";"64,4";"FALSE";"Rule079_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota atribútu full-path-url vo file-entry pre {1} v {0} neobsahuje správnu hodnotu";"Atribút musí splnat {0} a {1}";"Atribút full-path-url v {0} obsahuje správnu hodnotu"
+"80";"Kontrola súladu metaúdajov schema.xsd (CEP)
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml""
+full-path=""schema.xsd"" 
+
+Prièom hodnota parametra full-path-url sa musí vyhovova Full-path-url maske, kde:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+fullpath - je rovné rovné hodnote parametra ""full-path""";"FALSE";"64,4";"FALSE";"Rule080_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Hodnota atribútu full-path-url vo file-entry pre {1} v {0} neobsahuje správnu hodnotu";"Atribút musí splnat {0} a {1}";"Atribút full-path-url v {0} obsahuje správnu hodnotu"
+"81";"Kontrola mennıch priestorov schema.xsd
+Súbor schema.xsd musí obsahova elementy xmlns, xmlns:xs a môe obsahova ešte ïalšie xmlns elementy.";"TRUE";"64";"FALSE";"Rule081_RequiredXmlAttributes";"WARNING";"1.1.2007";"";"V schéme {0} sa musí nachádzat atribút {1}";"Doplnte chıbajúci atribút do schémy";"V schéme {0} sa nachádzajú atribúty {1}"
+"82";"Kontrola existencie vyadovanıch parametrov v schema.xsd
+Súbor schema.xsd musí obsahova elementy s názvom pod¾a P.31. Pre kadı, ktorı neobsahuje systém vyhlási na vıstupe samostatnú chybu.";"FALSE";"40";"FALSE";"Rule082_RequiredXmlElements";"WARNING";"1.1.2007";"";"Súbor {0} neobsahuje element s názvom {1}";"Doplnte chıbajúci element";"Súbor {0} obsahuje všetky vyadované elementy"
+"83";"Kontrola existencie vyadovanıch parametrov 2 v schema.xsd
+Súbor schema.xsd musí obsahova elementy s názvom pod¾a P.32. Pre kadı, ktorı neobsahuje systém vyhlási na vıstupe samostatnú chybu.";"FALSE";"40";"FALSE";"Rule083_RequiredXmlElements";"WARNING";"1.1.2007";"";"Súbor {0} neobsahuje element s názvom {1}";"Doplnte chıbajúci element";"Súbor {0} obsahuje všetky vyadované elementy"
+"84";"Kontrola koexistencie attachments.xml a adresára Attachments
+Súbor attachments.xml a adresár \Attachemtns mou existova iba spoloène. Systém vyhlási chybu, ak existuje iba súbor, alebo iba adresár.";"TRUE";"";"";"Rule084_CheckAttachmentsCoexistence";"WARNING";"1.1.2007";"";"Neexistuje adresár {1} a zároven súbor {0}";"";"Súbor {0} aj adresár {1} existujú"
+"85";"Kontrola èi je attachments.xml správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"84";"FALSE";"Rule085_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"86";"Kontrola èi je attachments.xml správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"84";"FALSE";"Rule086_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"87";"Kontrola èi attachments.xml pouíva kódovanie UTF-8
+Systém overí, e parameter encoding má hodnotu UTF-8 (encoding=""UTF-8""). Ak nie, vyhlási chybu.";"TRUE";"84";"FALSE";"Rule087_IfAttachmentsUTF8";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu UTF-8";"Pre súbor {0} zmente hodnotu parametra encoding na UTF-8";"Súbor {0} má hodnotu parametra encoding UTF-8"
+"88";"Kontrola platnosti attachments.xml voèi XSD schéme
+Systém overí, èi je súbor attachments.xml validnı voèi schéme pre attachments súbor vo verzii daného e-form balíèka a platná pre èasovı rozsah platnosti tejto validácie. Poznámka: môu existova dve schémy pre manifest.xml pre rovnakú verziu balíèka platné v rôznom èase, nie však prekrıvjúce sa platnosami.";"TRUE";"84";"FALSE";"Rule088_XsdSchemaValidation";"ERROR";"1.1.2007";"";"Súbor {0} nie je validnı voci XSD schéme";"Opravte element {0} aby vyhovel validácii voci XSD schéme";"Súbor {0} je validnı voci XSD schéme"
+"89";"Kontrola súladu metaúdajov attachments.xml
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml""
+full-path=""attachments.xml""
+full-path-url=""""
+filename=""attachments.xml"" ak existuje
+
+Prièom hodnota parametra full-path-url musí vyhovova Full-path-url maske, kde:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+fullpath - je rovné rovné hodnote parametra ""full-path""";"FALSE";"84,4";"FALSE";"Rule089_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota atribútu full-path-url vo file-entry pre {1} v {0} neobsahuje správnu hodnotu";"Atribút musí splnat {0} a {1}";"Atribút full-path-url v {0} obsahuje správnu hodnotu"
+"90";"Kontrola súladu metaúdajov attachments.xml
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml""
+full-path=""attachments.xml""
+filename=""attachments.xml"" ak existuje
+
+Prièom hodnota parametra full-path-url musí vyhovova Full-path-url maske, kde:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+fullpath - je rovné rovné hodnote parametra ""full-path""";"TRUE";"84,4";"FALSE";"Rule090_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota atribútu full-path-url vo file-entry pre {1} v {0} neobsahuje správnu hodnotu";"Atribút musí splnat {0} a {1}";"Atribút full-path-url v {0} obsahuje správnu hodnotu"
+"91";"Kontrola èi sú všetky súbory v Attachments registrované v attachments.xml
+Systém pre kadı súbor v adresári \Attachments overí, èi je registrovanı v attachements.xml a to takou formou, e pre kadı súbor existuje práve jeden dátovı prvok ""attachment:entry"". Pre kadı chıbajúci prvok systém vyhlási chybu.";"TRUE";"84";"FALSE";"Rule091_CheckAttachmentEntriesInAttachments";"ERROR";"1.1.2007";"";"Súbor {0} nie je definovanı v {1}";"Pre súbor {0} definujte entry element v {1}";"Všetky súbory sú definované v {0}"
+"92";"Attachments.xml kontrola nad rámec XSD: media-type
+Systém overí, e kadı parameter ""media-type"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""3"", pattern "".+/.+""
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule092_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu podla minLength=""3"", pattern "".+/.+""";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"93";"Attachments.xml kontrola nad rámec XSD: povolené hodnoty media-type
+Systém overí, èi je hodnota parametra ""media-type"" zo zoznamu povolenıch hodnôt P.24. Pre kadı parameter, ktorı to nespåòa, vyhlási systém samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule093_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"94";"Attachments.xml kontrola nad rámec XSD: full-path
+Systém overí, e kadı parameter ""full-path"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1""
+prièom hodnota musí by relatívna cesta do vnútra balíèka k súboru, alebo spåòa masku P.14.
+
+Pre kadı parameter, ktorı tto nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule094_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Hodnota atribútu musí byt relatívna cesta do vnútra balícka k súboru, alebo splnat masku, alebo splnat masku {0}, {1}";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"95";"Attachments.xml kontrola nad rámec XSD: full-path-url
+Systém overí, e kadı parameter ""full-path-url"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+minLength=""10""
+prièom hodnota musí spåòa masku P.14.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"FALSE";"84";"FALSE";"Rule095_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Hodnota atribútu musí byt relatívna cesta do vnútra balícka k súboru, alebo splnat masku, alebo splnat masku {0}, {1}";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"96";"Attachments.xml kontrola nad rámec XSD: filename
+Systém overí, e kadı parameter ""filename"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""1"" 
+use=""required""
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule096_RequiredXmlAttributes";"WARNING";"1.1.2007";"";"Element {0} v súbore {1} neobsahuje atribút {2} alebo má prázdnu hodnotu";"Doplnte chıbajúci atribút";"V súbore {0} obsahujú všetky elementy atribút {1}"
+"97";"Attachments.xml kontrola nad rámec XSD: media-language
+Systém overí, e kadı parameter ""media-language"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLength=""2""
+maxLength=""3""
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule097_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"98";"Attachments.xml kontrola nad rámec XSD: hodnota media-language
+Systém overí, e hodnota kadého parametra ""media-language"" spåòa je zo zoznamu povolenıch hodnôt P.25. Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule098_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"99";"Attachments.xml kontrola nad rámec XSD: target-environment
+Systém overí, e kadı parameter ""target-environment"" spåòa nasledovné vlastnosti nad rámec XSD:
+use=""optional""
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre target-environment P.16.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule099_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"100";"Attachments.xml kontrola nad rámec XSD: reference-transform-algorithm
+Systém overí, e kadı parameter ""reference-transform-algorithm"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre reference-transform-algorithm P.19.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule100_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"101";"Attachments.xml kontrola nad rámec XSD: reference-digest-method-algorithm
+Systém overí, e kadı parameter ""reference-digest-method-algorithm"" spåòa nasledovné vlastnosti nad rámec XSD:
+xs:anyURI
+a zároveò hodnota je zo zoznamu povolenıch hodnôt pre reference-digest-method-algorithm P.20.
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule101_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Hodnota {0} nie je prípustná pre atribút {1} v súbore {2}";"Zmente hodnotu atribútu";"Súbor {0} všetky hodnoty atribútu {1} správne"
+"102";"Attachments.xml kontrola nad rámec XSD: reference-digest-value
+Systém overí, e kadı parameter ""reference-digest-value"" spåòa nasledovné vlastnosti nad rámec XSD:
+minLenght=""1""
+
+Pre kadı parameter, ktorı ich nespåòa, vyhlási samostatnú chybu na vıstupe.";"TRUE";"84";"FALSE";"Rule102_RequiredXmlAttributeValues";"ERROR";"1.1.2007";"";"Element {0} v súbore {1} obsahuje atribút, ktorı nesplna minLenght=""1""";"Upravte hodnotu atribútu";"V súbore {0} obsahujú všetky elementy atribút {1} splnajúci minLenght=""1"""
+"103";"Súbor data.xml musí existova
+Systém overí, e súbor data.xml sa nachádza v koreòovom adresári.";"TRUE";"";"";"Rule103_RequiredRootDataFile";"ERROR";"1.1.2007";"";"Súbor {0} sa nenachádza v korenovom adresári";"Pridajte súbor {0} do korenového adresára";"Súbor {0} sa nachádza v korenovom adresári"
+"104";"Kontrola èi je data.xml správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"103";"FALSE";"Rule104_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"105";"Kontrola èi je data.xml správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"103";"FALSE";"Rule105_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"106";"Kontrola èi data.xml pouíva kódovanie UTF-8
+Systém overí, e parameter encoding má hodnotu UTF-8 (encoding=""UTF-8""). Ak nie, vyhlási chybu.";"TRUE";"103";"FALSE";"Rule106_IfDataUTF8";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu UTF-8";"Pre súbor {0} zmente hodnotu parametra encoding na UTF-8";"Súbor {0} má hodnotu parametra encoding UTF-8"
+"107";"Kontrola platnosti data.xml voèi XSD schéme
+Systém overí, èi je súbor data.xml validnı voèi schéme pre data súbor vo verzii daného e-form balíèka a platná pre èasovı rozsah platnosti tejto validácie. Poznámka: môu existova dve schémy pre manifest.xml pre rovnakú verziu balíèka platné v rôznom èase, nie však prekrıvjúce sa platnosami. V rámci validácie sú prípustné chyby tıkajúce sa absencie hodnôt v dátovıch prvkoch. V prípade, e XSD validácia vráti len tento typ chıb, systém na vıstupe nevyhlási chybu.";"FALSE";"103";"FALSE";"Rule107_XsdSchemaValidation";"WARNING";"1.1.2007";"";"Súbor {0} nie je validnı voci XSD schéme";"Opravte element {0} aby vyhovel validácii voci XSD schéme";"Súbor {0} je validnı voci XSD schéme"
+"108";"Kontrola xmlns v data.xml na masku 1 alebo 2
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.1 (P.1) alebo Namespace maske è.2 (P.2), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade, e nevyhovuje aspoò jednej z nich, systém vráti na vıstupe chybu.";"TRUE";"103,4";"FALSE";"Rule108_ControlNamespaceMask";"ERROR";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1} alebo {2}";"Namespace xmlns v {0} je zadefinovanı správne"
+"109";"Kontrola xmlns v data.xml na masku 2
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.2 (P.2), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade e nevyhovuje, systém vráti na vıstupe chybu.";"FALSE";"103,4";"FALSE";"Rule109_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1}";"Namespace xmlns v {0} je zadefinovanı správne"
+"110";"Kontrola xmlns v data.xml na masku 2 alebo 3
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.2 (P.2) alebo Namespace maske è.3 (P.3), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade, e nevyhovuje aspoò jednej z nich, systém vráti na vıstupe chybu.";"FALSE";"103,4";"FALSE";"Rule110_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1} alebo {2}";"Namespace xmlns v {0} je zadefinovanı správne"
+"111";"Kontrola xmlns v data.xml na masku 3
+Systém overí, e hodnota namespace v elemente xmlns vyhovuje Namespace maske è.3 (P.3), prièom:
+referencia - Hodnota medzi prvım reazcom ""form/"" a ïalším lomítkom ""/"" elementu <dc:identifier> zo súboru meta.xml v danom balíèku.
+verzia - je rovná hodnote elementu <meta:version> zo súboru meta.xml v danom balíèku.
+
+V prípade e nevyhovuje, systém vráti na vıstupe chybu.";"FALSE";"103,4";"FALSE";"Rule111_ControlNamespaceMask";"WARNING";"1.1.2007";"";"Hodnota namespace v elemente xmlns súboru {0} je nesprávna {1}";"Namespace xmlns v súbore {0} musí vyhovovat maske {1}";"Namespace xmlns v {0} je zadefinovanı správne"
+"112";"Kontrola súladu metaúdajov data.xml
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""text/xml|application/xml"" 
+full-path=""data.xml"" 
+filename=""data.xml"" ak existuje";"TRUE";"84,4";"FALSE";"Rule112_RequiredXmlAttributes";"ERROR";"1.1.2007";"";"iadny element v súbore {0} neobsahuje atribúty s potrebnımi hodnotami: {1}, {2} a (volitelne) {3}";"Aspon jeden element musí obsahovat potrebné atribúty";"Súbor {0} obsahuje aspon jeden element s atribútmi {1}, {2} a (volitelne) {3}"
+"113";"Súbor mimetype musí existova
+Systém overí, e súbor mimetype sa nachádza v koreòovom adresári.";"TRUE";"";"";"Rule113_RequiredRootMimetypeFile";"ERROR";"1.1.2007";"";"Súbor {0} sa nenachádza v korenovom adresári";"";"Súbor {0} sa nachádza v korenovom adresári"
+"114";"Kontrola obsahu súboru mimetype
+Systém overí, e súbor má ASCII formát a obsahuje práve hodnotu ""application/vnd.gov.sk.e-form+zip"".";"TRUE";"113";"FALSE";"Rule114_IsMimetypeASCII";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu {1}, alebo neobsahuje hodnotu {2}";"Súbor {0} musí mat hodnotu parametra encoding {1} a obsahovat {2}";"Súbor {0} má hodnotu parametra encoding {1} a obsahuje {2}"
+"115";"Kontrola existencie schémy pre vypåòanie
+Systém overí, e sa v súbore manifest.xml nachádza aspoò jeden element <manifest:file-entry> s parametrom media-destination=""screen"". Pre kadı nájdenı záznam systém spustí všetky validácie podriadené tejto.
+
+V prípade, e sa nenachádza ani jeden, systém vyhlási chybu.";"FALSE";"4";"FALSE";"Rule115_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"Súbor {0} neobsahuje element s atribútom {1}";"Doplnte atribút s danou hodnotou do súobru {0}";"Súbor {0} obsahuje element s atribútom {1}"
+"116";"Schéma pre vypåòanie smie existova len v adresári Content
+Systém overí, e sa danı súbor schémy pre vypåòanie nachádza v adresári \Content.";"TRUE";"115";"FALSE";"Rule116_CheckWhetherFileIsInProperDirectory";"WARNING";"1.1.2007";"1.1.2021";"Súbor {0} so schémou pre vyplnanie sa nechádza v adresári {1}";"Súbor so schémou pre vyplnanie sa musí nachádzat v adresári {0}";"Súbory so schémou pre vyplnanie sa nachádzajú v adresári {0}"
+"117";"Kontrola prípony súboru schémy pre vypåòanie
+Systém overí, èi je prípona súboru "".xsl"" alebo "".xslt"".";"TRUE";"115";"FALSE";"Rule117_CheckSchemaFileSuffix";"WARNING";"1.1.2007";"";"Súbor {0} so schémou pre vyplnanie nemá správnu príponu";"Skontrolujte, ci je prípona súboru "".xsl"" alebo "".xslt""";"Súbory so schémou pre vyplnanie majú správnu príponu"
+"118";"Kontrola èi je schéma pre vypåòanie správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"115";"FALSE";"Rule118_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"1.1.2021";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"119";"Kontrola èi je schéma pre vypåòanie správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"115";"FALSE";"Rule119_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"1.1.2021";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"120";"Kontrola èi je schéma pre vypåòanie validnı XSLT 1.0 súbor
+Systém overí, e daná transformaèná schéma je validná voèi W3C XSD schéme pre XSLT transformácie.";"FALSE";"115";"FALSE";"Rule120_XsltXsdSchemaValidation";"WARNING";"1.1.2007";"";"XSLT transformácia {0} nie je platná voci W3C XSD schéme pre XSLT 1.0 transformácie";"Odstránte nasledovné chyby: {0}";"XSLT transformácia {0} je platná voci W3C XSD schéme pre XSLT 1.0 transformácie"
+"121";"Kontrola súladu schémy pre vypåòanie s metaúdajmi v manifest.xml 
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""application/xslt+xml|text/xsl"" 
+media-destination=""screen"" 
+media-destination-type=""application/xhtml+xml|text/html"" 
+media-destination-type-description=""XHTML|HTML"" 
+full-path=""full-path"" 
+filename=""nazov_suboru"" ak existuje
+
+Prièom full-path je celá cesta k súboru (vratane samotného súboru) v balíèku a nazov_suboru je fyzickı názov daného súboru schémy pre vypåòanie.";"TRUE";"115";"FALSE";"Rule121_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"1.1.2021";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""", media-destination= """"screen"""", media-destination-type= """"application/xhtml+xml|text/html"""", media-destination-type-description= """"XHTML|HTML"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"122";"Overenie fontov schémy pre vypåòanie
+Systém overí, e v schéme sú pouité iba fonty{ font-family: }, ktoré sú uvedené v zozname podporovanıch fontov P.10 a zároveò:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path-url=""P.28"" 
+filename=""nazov-suboru"" ak existuje
+nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"FALSE";"115,4";"FALSE";"Rule122_FontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"123";"Overenie fontov schémy pre vypåòanie (CEP)
+Systém overí, e v schéme sú pouité iba fonty{ font-family: }, ktoré sú uvedené v zozname podporovanıch fontov P.10 a zároveò:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+filename=""nazov-suboru"" ak existuje
+nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"FALSE";"115,4";"FALSE";"Rule123_FontControlSoft";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"124";"Overenie vloenıch fontov schémy pre vypåòanie
+Systém overí, èi sú v schéme priamo vloené fonty (vo forme base64). Pre kadı takto vloenı font systém vyhlási jednu chybu.";"FALSE";"115,4";"FALSE";"Rule124_EnclosedFontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva vloenı font {1}, co nie je povolené";"Odstránte vloenı font zo schémy";"Schéma {0} nepouíva vloené fonty"
+"125";"Kontrola existencie schémy pre tlaè
+Systém overí, e sa v súbore manifest.xml nachádza aspoò jeden element <manifest:file-entry> s parametrom media-destination=""print"". Pre kadı nájdenı záznam systém spustí všetky validácie podriadené tejto.
+
+V prípade, e sa nenachádza ani jeden, systém vyhlási chybu.";"TRUE";"4";"FALSE";"Rule125_RequiredXmlAttributeValues";"ERROR";"1.1.2007";"";"Súbor {0} neobsahuje element s atribútom {1}";"Doplnte atribút s danou hodnotou do súobru {0}";"Súbor {0} obsahuje element s atribútom {1}"
+"126";"Schéma pre tlaè smie existova len v adresári Content
+Systém overí, e sa danı súbor schémy pre tlaè nachádza v adresári \Content.";"TRUE";"125";"FALSE";"Rule126_CheckWhetherFileIsInProperDirectory";"ERROR";"1.1.2007";"";"Súbor {0} so schémou pre tlac sa nechádza v adresári {1}";"Súbor so schémou pre tlac sa musí nachádzat v adresári {0}";"Súbory so schémou pre tlac sa nachádzajú v adresári {0}"
+"127";"Kontrola prípony súboru schémy pre tlaè
+Systém overí, èi je prípona súboru "".xsl"" alebo "".xslt"".";"TRUE";"125";"FALSE";"Rule127_CheckSchemaFileSuffix";"WARNING";"1.1.2007";"";"Súbor {0} so schémou pre vyplnanie nemá správnu príponu";"Skontrolujte, ci je prípona súboru "".xsl"" alebo "".xslt""";"Súbory so schémou pre vyplnanie majú správnu príponu"
+"128";"Kontrola názvu súboru schémy pre tlaè
+Systém overí, èi existuje súbor, ktorı má názov v nasledovnom tvare: *.fo.xsl alebo *fo.xslt. Ak nie, vyhlási chybu. ";"TRUE";"";"";"Rule128_CheckIfExistContentFOFile";"WARNING";"1.1.2007";"";"Neexistuje súbor {0} alebo {1}";"";"Súbor {0} alebo {1} existuje"
+"129";"Kontrola èi je schéma pre tlaè správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"128";"FALSE";"Rule129_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"130";"Kontrola èi je schéma pre tlaè správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"128";"FALSE";"Rule130_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"131";"Kontrola èi je schéma pre tlaè validnı XSLT 1.0 súbor
+Systém overí, e daná transformaèná schéma je validná voèi W3C XSD schéme pre XSLT transformácie.";"TRUE";"128";"FALSE";"Rule131_XsltXsdSchemaValidation";"ERROR";"1.1.2007";"";"XSLT transformácia {0} nie je platná voci W3C XSD schéme pre XSLT 1.0 transformácie";"Odstránte nasledovné chyby: {0}";"XSLT transformácia {0} je platná voci W3C XSD schéme pre XSLT 1.0 transformácie"
+"132";"Kontrola, èi je schéma pre tlaè tvorená jednım súborom
+Súbor schémy pre tlaè nesmie obsahova element ""import"" a ""include"". Pre kadı identifikovanı nepovolenı element systém vytvorí samostatnú chybu na vıstupe.";"TRUE";"125";"FALSE";"Rule132_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Element {0} nie je prípustnı v súbore {1}";"Odstránte element";"Súbor {0} neobsahuje elementy {1}"
+"133";"Kontrola existencie vylúèenıch namespaces v schéme pre tlaè
+Ak existuje parameter ""exclude-result-prefixes"", systém skontroluje, èi sú deklarované menné priestory zachytené v tomto parametri. Pre kadı takı mennı priestor systém vytvorí samostatnú chybu na vıstupe.";"TRUE";"125,4";"FALSE";"Rule133_ControlExcludedNamespaces";"ERROR";"1.1.2007";"";"Mennı priestor atribútu {0} v {1} nie je deklarovanı";"V {0} zadeklarujte mennı priestor {1}";"Všetky rozširujúce menné priestory pre schému pre tlac sú deklarované"
+"134";"Kontrola súladu schém pre tlaè s metaúdajmi v manifest.xml
+Systém overí, e kadı element <manifest:file-entry> s media-destination=""print"" má aspoò nasledovné parametre a ich hodnoty:
+media-type=""application/xslt+xml|text/xsl""
+media-destination-type=""application/xml|text/xml""
+media-destination-type-description=""XSLFO""
+full-path=""full-path""
+full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path""
+filename=""nazov_suboru"" ak existuje
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súboru schémy pre tlaè.";"FALSE";"125,4";"FALSE";"Rule134_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"1.1.2022";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""", media-destination= """"print"""", media-destination-type= """"application/xml|text/html"""", media-destination-type-description= """"XSLFO"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje, full-path-url= """"https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path""""";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"135";"Kontrola súladu schém pre tlaè s metaúdajmi v manifest.xml (CEP)
+Systém overí, e kadı element <manifest:file-entry> s media-destination=""print"" má aspoò nasledovné parametre a ich hodnoty:
+media-type=""application/xslt+xml|text/xsl""
+media-destination-type=""application/xml|text/xml""
+media-destination-type-description=""XSLFO""
+full-path=""full-path""
+filename=""nazov_suboru"" ak existuje
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súboru schémy pre tlaè.";"TRUE";"125,4";"FALSE";"Rule135_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""", media-destination= """"print"""", media-destination-type= """"application/xml|text/html"""", media-destination-type-description= """"XSLFO"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"136";"Kontrola súladu hlavnej schémy pre tlaè s metaúdajmi v manifest.xml
+Systém overí, e sa v súbore manifest.xml nacháda aspoò jeden element <manifest:file-entry> s aspoò nasledovnımi parametrami a ich hodnotami:
+media-type=""application/xslt+xml|text/xsl""
+media-destination=""print""
+media-destination-type=""application/xml|text/xml""
+media-destination-type-description=""XSLFO""
+full-path=""full-path""
+full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path""
+filename=""nazov_suboru"" ak existuje
+xslfo-reference-procesor=""Apache FOP 1.1""
+xslfo-reference-procesor-url=""http://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-1.1-bin.zip|adresa-na-upvs""
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súboru schémy pre tlaè.
+adresa-na-upvs je UPVS adresa vypublikovaného FOP servera a preberá sa z koštanty P.6";"FALSE";"125,4";"FALSE";"Rule136_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= ""application/xslt+xml|text/xsl"",media-destination= ""print"",media-destination-type=""application/xml|text/xml"",media-destination-type-description= ""XSLFO"",full-path=""full-path"",full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path"",filename=""nazov_suboru"" ak existuje, xslfo-reference-procesor=""Apache FOP 1.1"",xslfo-reference-procesor-url=""http://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-1.1-bin.zip|adresa-na-upvs""";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"137";"Kontrola súladu hlavnej schémy pre tlaè s metaúdajmi v manifest.xml (CEP)
+Systém overí, e sa v súbore manifest.xml nacháda aspoò jeden element <manifest:file-entry> s aspoò nasledovnımi parametrami a ich hodnotami:
+media-type=""application/xslt+xml|text/xsl""
+media-destination=""print""
+media-destination-type=""application/xml|text/xml""
+media-destination-type-description=""XSLFO""
+full-path=""full-path""
+filename=""nazov_suboru"" ak existuje
+xslfo-reference-procesor=""Apache FOP 1.1""
+xslfo-reference-procesor-url=""http://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-1.1-bin.zip|adresa-na-upvs""
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súboru schémy pre tlaè.
+adresa-na-upvs je UPVS adresa vypublikovaného FOP servera a preberá sa z koštanty P.6";"TRUE";"125,4";"FALSE";"Rule137_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= ""application/xslt+xml|text/xsl"",media-destination= ""print"",media-destination-type=""application/xml|text/xml"",media-destination-type-description= ""XSLFO"",full-path=""full-path"",filename=""nazov_suboru"" ak existuje, xslfo-reference-procesor=""Apache FOP 1.1"",xslfo-reference-procesor-url=""http://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-1.1-bin.zip|adresa-na-upvs""";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"138";"Overenie fontov schémy pre tlaè
+Systém overí, e v schéme sú pouité iba fonty{ font-family: } alebo font-family=, ktoré sú uvedené v zozname podporovanıch fontov P.10 a zároveò:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path-url=""P.28"" 
+filename=""nazov-suboru"" ak existuje
+kde nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"FALSE";"125,4";"FALSE";"Rule138_FontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"139";"Overenie fontov schémy pre tlaè (CEP)
+Systém overí, e v schéme sú pouité iba fonty{ font-family: } alebo font-family=, ktoré sú uvedené v zozname podporovanıch fontov P.10 a zároveò:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+filename=""nazov-suboru"" ak existuje
+kde nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"TRUE";"125,4";"FALSE";"Rule139_FontControlSoft";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"140";"Overenie vloenıch fontov schémy pre tlaè
+Systém overí, èi sú v schéme priamo vloené fonty (vo forme base64). Pre kadı takto vloenı font systém vyhlási jednu chybu.";"TRUE";"125";"FALSE";"Rule140_EnclosedFontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva vloenı font {1}, co nie je povolené";"Odstránte vloenı font zo schémy";"Schéma {0} nepouíva vloené fonty"
+"141";"Kontrola existencie PDF prezentácie
+Systém overí, e sa v súbore manifest.xml nachádza aspoò jeden element <manifest:file-entry> s parametrom media-destination=""print"" a media-type=""application/pdf"". Pre kadı nájdenı záznam systém spustí všetky validácie podriadené tejto.
+
+V prípade, e sa nenachádza ani jeden, systém vyhlási chybu.";"FALSE";"4";"FALSE";"Rule141_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"Súbor {0} neobsahuje element s atribútom {1}";"Doplnte atribút s danou hodnotou do súobru {0}";"Súbor {0} obsahuje element s atribútom {1}"
+"142";"Kontrola formátu súboru PDF prezentácie
+Systém overí, e PDF prezentácia súbor s príponou .pdf a e prvıch 5 znakov súboru zodpovedá ""%PDF-"" a za nimi hneï nasleduje verzia, ktorá je uvedená v Zozname podporovanıch PDF verzií P.7.";"FALSE";"141";"FALSE";"Rule142_PdfFormatControl";"WARNING";"1.1.2007";"";"Schéma prezentácie {0} obsahuje nesprávny obsahuje nesprávny formát suboru, alebo je nejplatná verzia pdf dokumentu";"Schéma prezentácie musí obsahovat zaciatok {0}, koniec {1} a povolenú verziu pdf {2}";"Schéma prezentácie obsahuje správny zaciatok a koniec súboru a povolenú verziu pdf súboru"
+"143";"PDF prezentácia smie existova len v adresári Presentation
+Systém overí, e sa danı súbor PDF prezentácie nachádza v adresári \Presentation.";"FALSE";"141,4";"FALSE";"Rule143_CheckWhetherFileIsInProperDirectory";"WARNING";"1.1.2007";"";"Súbor {0} prezentácia sa nechádza v adresári {1}";"Súbor s prezentáciou sa musí nachádzat v adresári {0}";"Súbory s prezentáciou sa nachádzajú v adresári {0}"
+"144";"Kontrola súladu PDF prezentácie s metaúdajmi v manifest.xml (CEP)
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""application/pdf""
+media-destination=""print"" 
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súbor";"FALSE";"141,4";"FALSE";"Rule144_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/pdf"""", media-destination= """"print"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"145";"Kontrola súladu PDF prezentácie s metaúdajmi v manifest.xml 
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""application/pdf""
+media-destination=""print"" 
+full-path=""full-path"" 
+full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path"" 
+filename=""nazov-suboru"" ak existuje
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súbor";"FALSE";"141,4";"FALSE";"Rule145_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/pdf"""", media-destination= """"print"""", full-path= """"full-path"""", full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path"" , filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre vyplnanie so správne vyplnenımi atribútmi"
+"146";"Kontrola existencie schémy pre podpisovanie
+Systém overí, e sa v súbore manifest.xml nachádza aspoò jeden element <manifest:file-entry> s parametrom media-destination=""sign"". Pre kadı nájdenı záznam systém spustí všetky validácie podriadené tejto.
+
+V prípade, e sa nenachádza ani jeden, systém vyhlási chybu.";"TRUE";"4";"FALSE";"Rule146_RequiredXmlAttributeValues";"ERROR";"1.1.2007";"";"Súbor {0} neobsahuje element s atribútom {1}";"Doplnte atribút s danou hodnotou do súobru {0}";"Súbor {0} obsahuje element s atribútom {1}"
+"147";"Schéma pre podpisovanie smie existova len v adresári Content
+Systém overí, e sa danı súbor schémy pre tlaè nachádza v adresári \Content.";"TRUE";"146";"FALSE";"Rule147_CheckWhetherFileIsInProperDirectory";"ERROR";"1.1.2007";"";"Súbor {0} so schémou pre podpisovanie sa nechádza v adresári {1}";"Súbor so schémou pre podpisovanie sa musí nachádzat v adresári {0}";"Súbory so schémou pre podpisovanie sa nachádzajú v adresári {0}"
+"148";"Kontrola prípony súboru schémy pre podpisovanie
+Systém overí, èi je prípona súboru "".xsl"" alebo "".xslt"".";"TRUE";"146";"FALSE";"Rule148_CheckProperFileSuffix";"WARNING";"1.1.2007";"";"Súbor {0} so schémou pre podpisovanie nemá odporucenú príponu {1}";"Súbor so schémou pre podpisovanie by mal mat odporucená príponu {0}";"Súbory so schémou pre podpisovanie majú odporucenú príponu {0}"
+"149";"Kontrola názvu súboru schémy pre podpisovanie
+Systém overí, èi existuje aspoò jeden súbor podpisovej schémy s media-destination=“sign“, ktoré majú názov v jednom z nasledovnıch tvarov:
+*.html.xslt
+*.sb.xslt
+Ak nie, vyhlási chybu.";"TRUE";"146";"FALSE";"Rule149_CheckProperFileName";"WARNING";"1.1.2007";"";"V balíku neexistuje iadny súbor so schémou pre podpisovanie s odporucenım názvom {0}";"Aspon jeden súbor so schémou pre podpisovanie by mal mat odporucenı názov {0}";"V balíku existuje aspon jeden súbor so schémou pre podpisovanie ktorı má odporucenı názov {0}"
+"150";"Kontrola názvu súboru schémy pre podpisovanie
+Systém overí, èi súbor s názvom v tvare *.html.xslt (ak existuje) má zároveò vyplnenú hodnotu atribútu media-destination-type s hodnotou z mnoiny application/xhtml+xml alebo text/html a zároveò k tomu príslušnú hodnotu atribútu media-destination-type-description s hodnotou HTML, XHTML";"TRUE";"146";"FALSE";"Rule150_XmlWheterAttributesExist";"WARNING";"1.1.2007";"";"V balíku neexistuje súbor s názvom v tvare *.html.xslt s vyplnenımi atribútmi {0} a {1}";"V balíku by mal existovat príslušnı súbor s danımi atribútmi";"V balíku existuje súbor *.html.xslt s vyplnenımi atribútmi {0} a {1}"
+"151";"Kontrola názvu súboru schémy pre podpisovanie
+Systém overí, èi súbor s názvom v tvare *.sb.xslt (ak existuje) má zároveò vyplnenú hodnotu atribútu media-destination-type s hodnotou z mnoiny text/plain
+a zároveò k tomu príslušnú hodnotu atribútu media-destination-type-description s hodnotou TXT";"FALSE";"146";"FALSE";"Rule151_XmlWheterAttributesExist";"WARNING";"1.1.2007";"";"V balíku neexistuje súbor s názvom v tvare *.sb.xslt s vyplnenımi atribútmi {0} a {1}";"V balíku by mal existovat príslušnı súbor s danımi atribútmi";"V balíku existuje súbor *.html.xslt s vyplnenımi atribútmi {0} a {1}"
+"152";"Kontrola názvu súboru schémy pre podpisovanie
+Systém overí, èi súbor s názvom v tvare *.sb.xslt (ak existuje) má zároveò vyplnenú hodnotu atribútu media-destination-type s hodnotou z mnoiny application/xhtml+xml, text/html alebo text/plain a zároveò k tomu príslušnú hodnotu atribútu media-destination-type-description s hodnotou XHTML, HTML alebo TXT";"TRUE";"146";"FALSE";"Rule152_XmlWheterAttributesExist";"WARNING";"1.1.2007";"";"V balíku neexistuje súbor s názvom v tvare *.sb.xslt s vyplnenımi atribútmi {0} a {1}";"V balíku by mal existovat príslušnı súbor s danımi atribútmi";"V balíku existuje súbor *.html.xslt s vyplnenımi atribútmi {0} a {1}"
+"153";"Kontrola èi je schéma pre podpisovanie správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"146";"FALSE";"Rule153_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"154";"Kontrola èi je schéma pre podpisovanie správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"146";"FALSE";"Rule154_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"155";"Kontrola èi je schéma pre podpisovanie validnı XSLT 1.0 súbor
+Systém overí, e daná transformaèná schéma je validná voèi W3C XSD schéme pre XSLT transformácie.";"TRUE";"146";"FALSE";"Rule155_XsltXsdSchemaValidation";"ERROR";"1.1.2007";"";"XSLT transformácia {0} nie je platná voci W3C XSD schéme pre XSLT 1.0 transformácie";"Odstránte nasledovné chyby: {0}";"XSLT transformácia {0} je platná voci W3C XSD schéme pre XSLT 1.0 transformácie"
+"156";"Kontrola, èi je schéma pre podpisovanie tvorená jednım súborom
+Súbor schémy pre tlaè nesmie obsahova element ""import"" a ""include"". Pre kadı identifikovanı nepovolenı element systém vytvorí samostatnú chybu na vıstupe.";"TRUE";"146";"FALSE";"Rule156_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Element {0} nie je prípustnı v súbore {1}";"Odstránte element";"Súbor {0} neobsahuje elementy {1}"
+"157";"Kontrola súladu schémy pre podpisovanie s metaúdajmi v manifest.xml 
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""application/xslt+xml|text/xsl"" alebo ak vo full-path je v názve súboru „.xsl|.xslt“ a media-type=“application/xml|text/xml|application/xslt+xml|text/xsl“ "" 
+media-destination=""sign"" 
+media-destination-type="""" - povolené hodnoty z P.29
+media-destination-type-description="""" - povolené hodnoty z P.30
+full-path=""full-path"" 
+full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path"" 
+filename=""nazov_suboru"" ak existuje
+target-environment=""podpisovac""
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súbor
+podpisovac je identifikácia podpisovaèa preberaná z konštanty P.8";"FALSE";"146,4";"FALSE";"Rule157_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""" alebo ak vo full-path je v názve súboru „.xsl|.xslt“ a media-type=“application/xml|text/xml|application/xslt+xml|text/xsl“ """" , media-destination= """"sign"""", full-path= """"full-path"""", full-path-url=""https://data.gov.sk/doc/egov/eform/identifikator/verzia/full-path"" , filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre podpisovanie so správne vyplnenımi atribútmi"
+"158";"Kontrola súladu schémy pre podpisovanie s metaúdajmi v manifest.xml (CEP)
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""application/xslt+xml|text/xsl"" alebo ak vo full-path je v názve súboru „.xsl|.xslt“ a media-type=“application/xml|text/xml|application/xslt+xml|text/xsl“ "" 
+media-destination=""sign"" 
+media-destination-type="""" - povolené hodnoty z P.29
+media-destination-type-description="""" - povolené hodnoty z P.30
+full-path=""full-path"" 
+filename=""nazov_suboru"" ak existuje
+target-environment=""podpisovac""
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súbor
+podpisovac je identifikácia podpisovaèa preberaná z konštanty P.8";"TRUE";"146,4";"FALSE";"Rule158_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""" alebo ak vo full-path je v názve súboru „.xsl|.xslt“ a media-type=“application/xml|text/xml|application/xslt+xml|text/xsl“ """" , media-destination= """"sign"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre podpisovanie so správne vyplnenımi atribútmi"
+"159";"Overenie fontov schémy pre podpisovanie
+Systém overí, e v schéme sú pouité iba fonty{ font-family: }, ktoré sú uvedené v zozname podporovanıch fontov P.10 a zároveò:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path-url=""P.28"" 
+filename=""nazov-suboru"" ak existuje
+kde nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"FALSE";"146,4";"FALSE";"Rule159_FontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"160";"Overenie fontov schémy pre podpisovanie (CEP)
+Systém overí, e v schéme sú pouité iba fonty{ font-family: }, ktoré sú uvedené v zozname podporovanıch fontov P.10 a zároveò:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+filename=""nazov-suboru"" ak existuje
+kde nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"TRUE";"146,4";"FALSE";"Rule160_FontControlSoft";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"161";"Overenie vloenıch fontov schémy pre podpisovanie
+Systém overí, èi sú v schéme priamo vloené fonty (vo forme base64). Pre kadı takto vloenı font systém vyhlási jednu chybu.";"TRUE";"146";"FALSE";"Rule161_EnclosedFontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva vloenı font {1}, co nie je povolené";"Odstránte vloenı font zo schémy";"Schéma {0} nepouíva vloené fonty"
+"162";"Overenie súladu podpisovej transformácie s media-type v manifest.xml
+Systém overí èi je hodnota parametra ""method"" v elemente <xsl:output> sú¾adná s hodnotou parametra ""media-destination-type-description"" v elemente <manifest:file-entry> pre túto schému v súbore manifest.xml a to pod¾a párovacej tabu¾ky P.15.2
+Systém zároveò overí, èi v prípade method=“xml“ je hodnota: 
+<xsl:output doctype-system=""http://www.w3.org/TR/xhtml1*
+alebo èi sa v XSLT súbore nachádza atribút s hodnotou: 
+xmlns=""http://www.w3.org/1999/xhtml""
+Ako nie s=u splnené vŠetky pod ienky, system vyhlási chybu.";"FALSE";"146,4";"FALSE";"Rule162_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Schéma pre podpisovanie nie je v súlade s definíciou v manifest.xml";"Hodnota atribútu ""method"" v schéme prezentácie musí byt v súlade s hodnotou ""media-destination-type-description"" definovanou pre túto schmému v manifest.xml podla {0}. Zároven musí platit, e ak method=""xml"", potom <xsl:output doctype-system= ""http://www.w3.org/TR/xhtml1*"" alebo v XSLT súbore sa musí nachádzat atribút s hodnotou: xmlns= ""http://www.w3.org/1999/xhtml""";"Schéma pre podpisovanie je v súlade s definíciou v manifest.xml"
+"163";"Overenie súladu podpisovej transformácie s media-type v manifest.xml (CEP)
+Systém overí èi je hodnota parametra ""method"" v elemente <xsl:output> sú¾adná s hodnotou parametra ""media-destination-type-description"" v elemente <manifest:file-entry> pre túto schému v súbore manifest.xml a to pod¾a párovacej tabu¾ky P.15.3
+
+Systém zároveò overí, èi v prípade method=“xml“ je hodnota: 
+<xsl:output doctype-system=""http://www.w3.org/TR/xhtml1*
+alebo èi sa v XSLT súbore nachádza atribút s hodnotou: 
+xmlns=""http://www.w3.org/1999/xhtml""
+Ako nie s=u splnené vŠetky pod ienky, system vyhlási chybu.";"TRUE";"146,4";"FALSE";"Rule163_AllowedXmlAttributeValues";"WARNING";"1.1.2007";"";"Schéma pre podpisovanie nie je v súlade s definíciou v manifest.xml";"Hodnota atribútu ""method"" v schéme prezentácie musí byt v súlade s hodnotou ""media-destination-type-description"" definovanou pre túto schmému v manifest.xml podla {0}. Zároven musí platit, e ak method=""xml"", potom <xsl:output doctype-system= ""http://www.w3.org/TR/xhtml1*"" alebo v XSLT súbore sa musí nachádzat atribút s hodnotou: xmlns= ""http://www.w3.org/1999/xhtml""";"Schéma pre podpisovanie je v súlade s definíciou v manifest.xml"
+"164";"Kontrola existencie schémy pre èítanie
+Systém overí, e sa v súbore manifest.xml nachádza aspoò jeden element <manifest:file-entry> s parametrom media-destination=""view"". Pre kadı nájdenı záznam systém spustí všetky validácie podriadené tejto.
+
+V prípade, e sa nenachádza ani jeden, systém vyhlási chybu.";"TRUE";"4";"FALSE";"Rule164_RequiredXmlAttributeValues";"ERROR";"1.1.2007";"";"Súbor {0} neobsahuje element s atribútom {1}, alebo sa {1} súbor v balíku fyzicky nenachádza";"Doplnte do balíka súbor a atribút s danou hodnotou do súboru {0}";"Súbor {0} obsahuje element s atribútom {1} a {1} súbor sa fyzicky nachádza v balíku"
+"165";"Schéma pre èítanie smie existova len v adresári Content
+Systém overí, e sa danı súbor schémy pre tlaè nachádza v adresári \Content.";"TRUE";"164";"FALSE";"Rule165_CheckWhetherFileIsInProperDirectory";"ERROR";"1.1.2007";"";"Súbor {0} so schémou pre cítanie sa nechádza v adresári {1}";"Súbor so schémou pre cítanie sa musí nachádzat v adresári {0}";"Súbory so schémou pre cítanie sa nachádzajú v adresári {0}"
+"166";"Kontrola prípony súboru schémy pre èítanie
+Systém overí, èi je prípona súboru "".xsl"" alebo "".xslt"".";"TRUE";"164";"FALSE";"Rule166_CheckProperFileSuffix";"WARNING";"1.1.2007";"";"Súbor {0} so schémou pre cítanie nemá odporucenú príponu {1}";"Súbor so schémou pre cítanie by mal mat odporucená príponu {0}";"Súbory so schémou pre cítanie majú odporucenú príponu {0}"
+"167";"Kontrola názvu súboru schémy pre èítanie
+Systém overí, èi existuje súbor schémy pre èítanie media-destination=“view“, ktorı má názov v nasledovnom tvare:
+*.html.xslt
+Ak nie, vyhlási chybu.
+";"TRUE";"164";"FALSE";"Rule167_CheckProperFileName";"WARNING";"1.1.2007";"";"V balíku neexistuje iadny súbor so schémou pre cítanie s odporucenım názvom {0}";"Aspon jeden súbor so schémou pre cítanie by mal mat odporucenı názov {0}";"V balíku existuje aspon jeden súbor so schémou pre cítanie ktorı má odporucenı názov {0}"
+"168";"Kontrola èi je schéma pre èítanie validnı XSLT 1.0 súbor
+Systém overí, e daná transformaèná schéma je validná voèi W3C XSD schéme pre XSLT transformácie.";"TRUE";"164";"FALSE";"Rule168_XsltXsdSchemaValidation";"ERROR";"1.1.2007";"";"XSLT transformácia {0} nie je platná voci W3C XSD schéme pre XSLT 1.0 transformácie";"Odstránte nasledovné chyby: {0}";"XSLT transformácia {0} je platná voci W3C XSD schéme pre XSLT 1.0 transformácie"
+"169";"Kontrola, èi je schéma pre èítanie tvorená jednım súborom
+Súbor schémy pre èítanie nesmie obsahova element ""import"" a ""include"". Pre kadı identifikovanı nepovolenı element systém vytvorí samostatnú chybu na vıstupe.";"TRUE";"164";"FALSE";"Rule169_AllowedXmlElementValues";"ERROR";"1.1.2007";"";"Element {0} nie je prípustnı v súbore {1}";"Odstránte element";"Súbor {0} neobsahuje elementy {1}"
+"170";"Kontrola èi je schéma pre èítanie správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"164";"FALSE";"Rule170_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"171";"Kontrola èi je schéma pre èítanie správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"164";"FALSE";"Rule171_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"172";"Kontrola súladu schémy pre èítanie s metaúdajmi v manifest.xml 
+Systém overí, e sa v súbore manifest.xml nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""application/xslt+xml|text/xsl""
+media-destination=""view"" 
+media-destination-type=""application/xhtml+xml|text/html"" 
+media-destination-type-description=""XHTML|HTML"" 
+full-path=""full-path"" 
+filename=""nazov_suboru"" ak existuje
+
+Prièom:
+full-path je celá cesta k súboru (vratane samotného súboru) v balíèku
+nazov_suboru je fyzickı názov daného súbor
+";"TRUE";"164,4";"FALSE";"Rule172_RequiredXmlAttributeValues";"WARNING";"1.1.2007";"";"V súbore {0} má schéma pre vyplnanie nesprávne vyplnené atribúty";"V súbore {0} musí mat v schéme pre vyplnanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""" , media-destination= """"view"""", media-destination-type= """"application/xhtml+xml|text/html"""", media-destination-type-description= """"XHTML|HTML"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje";"Súbor {0} obsahuje schému pre podpisovanie so správne vyplnenımi atribútmi"
+"173";"Overenie fontov schémy pre èítanie
+Systém overí, e v schéme sú pouité iba fonty{ font-family: : alebo font:}, ktoré:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path-url=""P.28"" 
+filename=""nazov-suboru"" ak existuje
+kde nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"FALSE";"164,4";"FALSE";"Rule173_FontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"174";"Overenie fontov schémy pre èítanie (CEP)
+Systém overí, e v schéme sú pouité iba fonty{ font-family: : alebo font:}, ktoré:
+1. sú referencované,
+2. alebo sú definované ako príloha vo formulári
+
+Ako referencované musia spåòa, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+filename=""nazov-suboru"" ak existuje
+kde nazov-suboru je názov zverejneného súboru.
+
+Ako definovaná príloha musia spåòa to, e v manifest.xml sa nacháda element <manifest:file-entry> aspoò s nasledovnımi parametrami a ich hodnotami:
+media-type=""P.33""
+full-path=""full-path"" 
+filename=""nazov-suboru"" ak existuje
+kde full-path je cesta k súboru fontu v balíèku vrátane názvu súboru, nazov-suboru je fyzickı názov daného súboru. Zároveò musí uvedenı súbor na danom full-path existova.
+
+Pre kadı font, ktorı uvedené nespåòa systém vyhlási jednu chybu, aj keï je rovnakı nekorektnı font pouitı na viacerıch miestach.";"TRUE";"164,4";"FALSE";"Rule174_FontControlSoft";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva fonty, ktoré nie sú v zozname povolenıch, nie sú referencované, alebo priloené.";"Zoznam povolenıch fontov: {0}";"Schéma {0} obsahuje všetky fonty platné"
+"175";"Overenie vloenıch fontov schémy pre èítanie
+Systém overí, èi sú v schéme priamo vloené fonty (vo forme base64). Pre kadı takto vloenı font systém vyhlási jednu chybu.";"TRUE";"164";"FALSE";"Rule175_EnclosedFontControl";"WARNING";"1.1.2007";"";"Súbor schémy {0} pouíva vloenı font {1}, co nie je povolené";"Odstránte vloenı font zo schémy";"Schéma {0} nepouíva vloené fonty"
+"176";"Overenie existencie súboru settings.xml
+Systém overí, e súbor settings.xml (ak existuje) sa nachádza v koreòovom adresári.";"TRUE";"";"";"Rule176_CheckIfExistRootSettingsFile";"WARNING";"1.1.2007";"";"Súbor {0} sa nenachádza v korenovom adresári, alebo neexistuje";"";"Súbor {0} sa nachádza v korenovom adresári"
+"177";"Kontrola èi je settings.xml správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"176";"FALSE";"Rule177_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"178";"Kontrola èi je settings.xml správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"176";"FALSE";"Rule178_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"179";"Kontrola èi settings.xml pouíva kódovanie UTF-8
+Systém overí, e parameter encoding má hodnotu UTF-8 (encoding=""UTF-8""). Ak nie, vyhlási chybu.";"TRUE";"176";"FALSE";"Rule179_IfSettingsUTF8";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu UTF-8";"Pre súbor {0} zmente hodnotu parametra encoding na UTF-8";"Súbor {0} má hodnotu parametra encoding UTF-8"
+"180";"Kontrola platnosti settings.xml voèi XSD schéme
+Systém overí, èi je súbor meta.xml validnı voèi schéme pre settings súbor vo verzii daného e-form balíèka a platná pre èasovı rozsah platnosti tejto validácie. Poznámka: môu existova dve schémy pre manifest.xml pre rovnakú verziu balíèka platné v rôznom èase, nie však prekrıvjúce sa platnosami.";"TRUE";"176";"FALSE";"Rule180_XsdSchemaValidation";"WARNING";"1.1.2007";"";"Súbor {0} nie je validnı voci XSD schéme";"Opravte element {0} aby vyhovel validácii voci XSD schéme";"Súbor {0} je validnı voci XSD schéme"
+"181";"Overenie existencie náh¾adu (thumbnail)
+Systém overí, èi existuje súbor s náh¾adom v adresári \Thumbnails. Súbor musí spåòa masku pre názov náh¾adu P.9 a zároveò sa musí jedna o súbor, ktorı spåòa nasledovné: Ve¾kos náh¾adu je 128x128 pixelov pod¾a Thumbnail Managing Standard (TMS) a v bitovej håbke 24bit, non-interlaced Portable Network Graphics (PNG) s podporou alpha transparentnosti.";"FALSE";"";"FALSE";"Rule181_ThumbnailParameters";"WARNING";"1.1.2007";"";"Súbor náhladu {0} nesplna potrebné atribúty: {1}";"Súbor náhladu musí splnat nasledovné: názov=thumbnail_cislo.png, 128x128 px, 24bit, non-interlaced";"Všetky súbory náhladu splnajú potrebné atribúty"
+"182";"Overenie existencie posp.xml
+Systém overí, èi sa v adresári \Content nachádza súbor posp.xml. Ak áno, vyhlási chybu.";"TRUE";"";"";"Rule182_NotAllowedContentPospFile";"WARNING";"1.1.2007";"";"Balík formulára obsahuje v adresári Content nepovolenı súbor {0}";"Odstránte z adresára Content nepovolenı súbor {0}";"Balík formulára v adresári Content neobsahuje súbor {0}"
+"183";"Kontrola èi je posp.xml správne formovanı XML (chyba)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jednu chybu, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"TRUE";"182";"FALSE";"Rule183_XmllintWellFormedErrorValidation";"ERROR";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"184";"Kontrola èi je posp.xml správne formovanı XML (varovanie)
+Systém vykoná validáciu súboru na to, èi sa jedná o správne formovanı XML súbor (well-formed). Kontrola prebieha voèi verzii XML špecifikácie uvedenej v parametri P.22. Ak P.22 prázdne, tak prebieha voèi hodnote uvedenj v hlavièke súboru. V prípade, e kontrola vráti aspoò jedno varovanie, systém vráti na vıstupe chybu. Systém kontrolu vykoná prostredníctvom lokálneho W3C validátora.";"FALSE";"182";"FALSE";"Rule184_XmllintWellFormedWarningValidation";"WARNING";"1.1.2007";"";"XML parser warning: {0}";"";"Súbor {0} je well-formed"
+"185";"Kontrola èi posp.xml pouíva kódovanie UTF-8
+Systém overí, e parameter encoding má hodnotu UTF-8 (encoding=""UTF-8""). Ak nie, vyhlási chybu.";"TRUE";"182";"FALSE";"Rule185_IfPospUTF8";"WARNING";"1.1.2007";"";"Súbor {0} nemá parameter encoding nastavenı na hodnotu UTF-8";"Pre súbor {0} zmente hodnotu parametra encoding na UTF-8";"Súbor {0} má hodnotu parametra encoding UTF-8"
+"186";"Kontrola platnosti posp.xml voèi XSD schéme
+Systém overí, èi je súbor posp.xml validnı voèi schéme pre posp súbor vo verzii daného e-form balíèka.";"TRUE";"182";"FALSE";"Rule186_XsdSchemaValidation";"ERROR";"1.1.2007";"";"Súbor {0} nie je validnı voci XSD schéme";"Opravte element {0} aby vyhovel validácii voci XSD schéme";"Súbor {0} je validnı voci XSD schéme"
+"187";"Overenie, e je zadaná suma ak je zadanı platobnı príkaz
+Systém overí, e element <field> s <id>Sum<id> existuje ak existuje element <field> s <id>PaymentOrder</id> a <value>true</value>. Zároveò musí plati, e <value> fieldu s <id>Sum</id> je nenulové kladné èíslo.";"TRUE";"182";"FALSE";"Rule187_PospXmlValues";"ERROR";"1.1.2007";"";"Ak v {0} existuje element field s <id>PaymentOrder</id> a <value>true</value>, musí existovat element field s <id>Sum</id> a <value>nenulové kladné císlo</value>";"Do {0} doplnte poadované elementy";"V {0} existuje element field s <id>PaymentOrder</id> a <value>true</value> a zároven s <id>Sum</id> a <value>nenulové kladné císlo, alebo neexistuje PaymentOrder ani Sum</value>"
+"188";"Overenie, e je zadanı príjemca platby ak je zadanı platobnı príkaz
+Systém overí, e element <field> s <id>PaymentRecipient<id> existuje len ak existuje element <field> s <id>PaymentOrder</id> a <value>true</value>. Zároveò mui plati, e hodnota <value> pre <id>PaymentRecipient</id> spåòa masku P.21.";"TRUE";"182";"FALSE";"Rule188_PospXmlValues";"WARNING";"1.1.2007";"";"V {0} Element<field> s<id>PaymentRecipient<id> môe existovat, len ak existuje element <field> s<id> PaymentOrder</id> a<value>true</value>. Zároven mui platit, e hodnota <value> pre<id> PaymentRecipient</id> splna masku {1}";"Do {0} doplnte poadované elementy";"V {0} existuje element field s<id>PaymentRecipient</id> len ak existuje <id>PaymentOrder</id>"
+"189";"Overenie, e do vlastnıch rúk je zadané len ak je vyadované doruèovanie
+Systém overí, e element <field> s <id>AddresseeOnly<id> existuje len ak existuje element <field> s <id>Delivery</id> a <value>true</value>. ";"FALSE";"182";"FALSE";"Rule189_PospXmlValues";"WARNING";"1.1.2007";"";"V {0} Element<field> s<id>AddresseeOnly<id> môe existovat, len ak existuje element <field> s<id> Delivery</id> a<value>true</value>.";"Do {0} doplnte poadované elementy";"V {0} existuje element field s<id>AddresseeOnly</id> len ak existuje <id>Delivery</id>"
+"190";"Overenie, e perioda je zadaná len ak je vyadované doruèovanie do vlastnıch rúk
+Systém overí, e element <field> s <id>Period<id> existuje len ak existuje element <field> s <id>AddresseeOnly</id> a <value>true</value>. Zároveò musí plati, e <value> fieldu s <id>Period</id> je nenulové kladné celé èíslo.";"FALSE";"182";"FALSE";"Rule190_PospXmlValues";"ERROR";"1.1.2007";"";"Ak v {0} existuje element field s<id>Period</id> a <value> nenulové kladné celé císlo</value>, musí existovat element field s<id> AddresseeOnly</id> a<value> true</value>";"Do {0} doplnte poadované elementy";"V {0} existuje element field s<id>Period</id> a <value>true</value> zároven s<id> AddresseeOnly</id>"
+"191";"Overenie, e fikcia doruèenia je zadaná len ak je vyadované doruèovanie do vlastnıch rúk
+Systém overí, e element <field> s <id>Fiction<id> existuje len ak existuje element <field> s <id>AddresseeOnly</id> a <value>true</value>.";"TRUE";"182";"FALSE";"Rule191_PospXmlValues";"ERROR";"1.1.2007";"";"V {0} Element<field> s<id>Fiction<id> môe existovat, len ak existuje element <field> s<id> AddresseeOnly</id> a<value>true</value>.";"Do {0} doplnte poadované elementy";"V {0} existuje element field s<id>Fiction</id> len ak existuje <id>AddresseeOnly</id>"
+"192";"Overenie, e posielanie informácie o prihlásení je zadané len ak je vyadované doruèovanie do vlastnıch rúk a nie je zadaná fikcia doruèenia
+Systém overí, e element <field> s <id>LoginInfo<id> existuje len ak existuje element <field> s <id>AddresseeOnly</id> a <value>true</value> a zároveò neexistuje <field> s <id>Fiction</id>, alebo je má field <field> s <id>Fiction</id> hodnotu <value>false</value>.";"TRUE";"182";"FALSE";"Rule192_PospXmlValues";"WARNING";"1.1.2007";"";"V {0} Element<field> s<id>LoginInfo<id> môe existovat, len ak existuje element <field> s<id> AddresseeOnly</id> a<value>true</value> a zároven neexistuje<field> s <id>Fiction</id>, alebo je má field <field> s<id> Fiction</id> hodnotu<value>false</value>.";"Do {0} doplnte poadované elementy";"V {0} existuje element field s<id>LoginInfo</id> len ak existuje <id>AddresseeOnly</id> a neexistuje <id>Fiction</id>, alebo existuje a ma hodnotu false"
+"193";"Overnie, e posp.xml neobsahuje nepovolené polia
+Systém overí, e posp.xml obsahuje iba elemnty <field> s hodnotou <id> zaradenú v zozname povolenıch polí posp.xml P.11. Pre kadı identifikovanı element <field>, ktorı to nespåòa, vyhlási systém na vıstupe chybu.";"TRUE";"182";"FALSE";"Rule193_PospXmlValues";"WARNING";"1.1.2007";"";"Hodnota elementu {0} v {1} nie je zo zoznamu povolenıch hodnôt";"Id elementov <field> v {0} môe obsahovat nasledovné hodnoty: {1}";"Všetky hodnoty id elementov <field> v {0} obsahujú povolené hodnoty"
+"194";"Overenie, e posp.xml neobsahuje duplicitné polia
+Systém overí, e posp.xml kadı existujúci element <field> s hodnotou <id> je uvedenı iba raz. Pre kadı identifikovanı duplicitnı element <field> vyhlási systém na vıstupe chybu.";"TRUE";"182";"FALSE";"Rule194_PospXmlValues";"ERROR";"1.1.2007";"";"Element {0} v {1} je uvedenı viackrát";"Kadı element <field> s danım id v {0} môe byt uvedenı iba raz";"Všetky elementy <field> s danım id v {0} sú uvedené iba raz"
+"195";"Overenie, e kadé pole posp.xml má zadané id a hodnotu
+Systém overí, e v posp.xml má kadı existujúci element <field> podradené elementy <id> a <value>. Pre kadı element <field>, ktorı to nespåòa, systém vyhlási na vıstupe chybu.";"TRUE";"182";"FALSE";"Rule195_PospXmlValues";"ERROR";"1.1.2007";"";"Element {0} v {1} neobsahuje podradenı element <id>, alebo <value>";"V {0} doplnte chıbajúce podradené elementy";"Všetky elementy <field> v {0} obsahujú podradené elementy <id> a <value>"
+"196";"Zákaz spracovania formulára vo verzii 1.0
+Systém overí v manifest.XML verziu schémy formulára. Jedná sa o hodnotu X.Y v xmlns:manifest=""urn:manifest:X.Y"". Ak je hodnota rovná 1.0, vyhlási chybu.";"FALSE";"4";"FALSE";"Rule196_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Nepovolená verziu schémy formulára v {0}";"Verzia 1.0 {0} nie je povolená";"{0} obsahuje platnú verziu schémy formulára"
+"197";"Zákaz spracovania formulára vo verzii 1.1
+Systém overí v manifest.XML verziu schémy formulára. Jedná sa o hodnotu X.Y v xmlns:manifest=""urn:manifest:X.Y"". Ak je hodnota rovná 1.1, vyhlási chybu.";"TRUE";"4";"FALSE";"Rule197_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Nepovolená verziu schémy formulára v {0}";"Verzia 1.0 {0} nie je povolená";"{0} obsahuje platnú verziu schémy formulára"
+"198";"Zákaz spracovania formulára vo verzii 1.2
+Systém overí v manifest.XML verziu schémy formulára. Jedná sa o hodnotu X.Y v xmlns:manifest=""urn:manifest:X.Y"". Ak je hodnota rovná 1.2, vyhlási chybu.";"TRUE";"4";"FALSE";"Rule198_AllowedXmlAttributeValues";"ERROR";"1.1.2007";"";"Nepovolená verziu schémy formulára v {0}";"Verzia 1.0 {0} nie je povolená";"{0} obsahuje platnú verziu schémy formulára"
+"199";"Kontrola zhody verzie schém súborov balíèka
+Systém overí, e verzia schém v k¾úcovıch súboroch balíèka ma rovnakú hodnotu. Za referenènú hodnotu sa povauje hodnota X.Y v súbore manifest.xml v parametri xmlns:manifest=""urn:manifest:X.Y"". Systém voèi tejto hodnote overuje v súboroch manifest.xml, meta.xml a attachments.xml hodnoty X.Y v atribútoch (ak existujú):
+xmlns:attachmentfile=""urn:attachmentfile:X.Y""
+xmlns:setting=""urn:setting:X.Y""
+xmlns:manifest=""urn:manifest:X.Y""
+xmlns:presentation=""urn:presentation:X.Y""
+xmlns:content=""urn:content:X.Y""
+xmlns:attachment=""urn:attachment:X.Y""
+xmlns:data=""urn:data:X.Y""
+xmlns:meta=""urn:meta:X.Y""
+Pre kadı identifikovanı atribút, kde sa hodnota odlišuje, systém vyhlási na vıstupe chybu.";"TRUE";"4";"FALSE";"Rule199_SchemaVersions";"ERROR";"1.1.2007";"";"Nepovolená verziu schémy formulára v {0} : {1}";"Referencná verzia z {0} je {1}";"{0} obsahujú správne verzie schém formulárov"
+"209";"Kontrola èi schéma pre vypåòanie obsahuje XSLT extensions";"TRUE";"115";"FALSE";"Rule209_XsltExtensions";"WARNING";"1.1.2007";"";"Schéma pre vyplnanie obsahuje rozšírenia {0}";"";"Schéma pre vyplnanie neobsahuje rozšírenia"
+"210";"Kontrola èi schéma pre tlaè obsahuje XSLT extensions";"TRUE";"125";"FALSE";"Rule210_XsltExtensions";"ERROR";"1.1.2007";"";"Schéma pre tlac obsahuje rozšírenia {0}";"";"Schéma pre tlac neobsahuje rozšírenia"
+"211";"Kontrola èi schéma pre podpisovanie obsahuje XSLT extensions";"TRUE";"146";"FALSE";"Rule211_XsltExtensions";"ERROR";"1.1.2007";"";"Schéma pre podpisovanie obsahuje rozšírenia {0}";"";"Schéma pre podpisovanie neobsahuje rozšírenia"
+"212";"Kontrola èi schéma pre èítanie obsahuje XSLT extensions";"TRUE";"164";"FALSE";"Rule212_XsltExtensions";"ERROR";"1.1.2007";"";"Schéma pre cítanie obsahuje rozšírenia {0}";"";"Schéma pre cítanie neobsahuje rozšírenia"
+"213";"Kontrola správneho zaèiatku a konca vısledného súboru prezentácie (kontrola masky PDF transformácie)";"TRUE";"4";"FALSE";"Rule213_PresentationSchemaPdfControl";"WARNING";"1.1.2007";"";"Schéma prezentácie {0} obsahuje nesprávny {1} súboru";"{0} musí obsahovat {1}";"Schéma prezentácie obsahuje správny zaciatok a koniec súboru"
+"214";"Kontrola, èi všetky súbory, ktoré majú mimetype XSLT (application/xslt+xml, text/xsl) sú validné XSLT súbory";"TRUE";"4";"FALSE";"Rule214_XsltControlAll";"WARNING";"1.1.2007";"";"Schéma {0} nie je valídny xslt súbor";"Chyba schémy {0}";"Schéma {0} je valídny xslt súbor"
+"215";"Kontrola, èi všetky súbory s media-type = (text/xml, application/xml) sú naparsovate¾né v .NET parseri";"TRUE";"4";"FALSE";"Rule215_XmlDotNetParserWellFormedControlAll";"WARNING";"1.1.2007";"";"Xml {0} nie je well formed";"Chyba xml {0}";"Xml {0} je well formed"
+"216";"Kontrola, èi všetky súbory s media-type = (text/xml, application/xml) sú xml well formed";"TRUE";"4";"FALSE";"Rule216_XmllintWellFormedControlAll";"WARNING";"1.1.2007";"";"XML parser error: {0}";"";"Súbor {0} je well-formed"
+"300";"Kontrola, èi súbor definovanı v manifest.xml aj reálne existuje v balíku";"TRUE";"4";"FALSE";"Rule300_CheckIfFileEntriesInManifestExist";"ERROR";"1.1.2007";"";"Súbor {0} definovanı gestorom v {1} sa nenachádza v balíku";"Doplnte súbor do balíka";"Všetky súbory sú definované v {0}"
+"301";"Kontrola, èi záznamy v manifest.xml, ktoré obsahujú súbory s media-type=""""application/xslt+xml"", ""text/xsl"""" obsahujú aj atribút media-destination-type";"TRUE";"4";"FALSE";"Rule301_CheckFileEntriesXsltInManifest";"WARNING";"1.1.2007";"";"Element {0} v {1} obsahuje atribút {2} s hodnotou {3} ale neobsahuje atribút {4}";"Doplnte atribút {0}";"Súbor {0} má pre všetky elementy {1} obsahujúce atribút {2} s hodnotou {3} definované a vyplnené atribúty {4}"
+"302";"Kontrola, èi záznamy v manifest.xml, ktoré obsahujú súbory s media-type=""""application/xslt+xml"", ""text/xsl"""" obsahujú aj atribút media-destination-type-description";"TRUE";"4";"FALSE";"Rule302_CheckFileEntriesXsltInManifest";"WARNING";"1.1.2007";"";"Element {0} v {1} obsahuje atribút {2} s hodnotou {3} ale neobsahuje atribút {4}";"Doplnte atribút {0}";"Súbor {0} má pre všetky elementy {1} obsahujúce atribút {2} s hodnotou {3} definované a vyplnené atribúty {4}"
+"303";"Kontrola, èi záznamy v manifext.xml neobsahujú pre atribút media-language inú hodnotu ako ""sk""";"FALSE";"4";"FALSE";"Rule303_ForeignLanguageWarning";"WARNING";"1.1.2007";"";"Element {0} v {1} obsahuje nepodporovanı jazyk";"Zmente jazyk na ""sk""";"Všetky elementy obsahujú {0}"
+"304";"Kontrola èi je manifest.xml naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule304_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"305";"Kontrola èi je meta.xml naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule305_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"306";"Kontrola èi je schema.xsd naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule306_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"307";"Kontrola èi je attachments.xml naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule307_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"308";"Kontrola èi je data.xml naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule308_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"309";"Kontrola èi je schéma pre vypåòanie naparsovate¾nı v .NET parseri";"TRUE";"4,115";"FALSE";"Rule309_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"310";"Kontrola èi je schéma pre tlaè naparsovate¾nı v .NET parseri";"TRUE";"4,125";"FALSE";"Rule310_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"311";"Kontrola èi je schéma pre podpisovanie naparsovate¾nı v .NET parseri";"TRUE";"4,146";"FALSE";"Rule311_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"312";"Kontrola èi je schéma pre èítanie naparsovate¾nı v .NET parseri";"TRUE";"4,164";"FALSE";"Rule312_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"313";"Kontrola èi je settings.xml naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule313_DotNetParserWellFormedValidation";"WARNING";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"
+"314";"Kontrola èi je posp.xml naparsovate¾nı v .NET parseri";"TRUE";"4";"FALSE";"Rule314_DotNetParserWellFormedValidation";"ERROR";"1.1.2007";"";"XML .net parser error: {0}";"";"Súbor {0} je .net parser well-formed"

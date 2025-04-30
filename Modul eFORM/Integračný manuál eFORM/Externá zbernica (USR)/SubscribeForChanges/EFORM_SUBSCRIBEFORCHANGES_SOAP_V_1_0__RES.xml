@@ -1,0 +1,11 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header/>
+	<s:Body>
+		<CallServiceResponse xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<CallServiceResult i:type="a:SubscribeForChangesRes" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0">
+				<a:Message i:nil="true"/>
+				<a:ResultCode>0</a:ResultCode>
+			</CallServiceResult>
+		</CallServiceResponse>
+	</s:Body>
+</s:Envelope>

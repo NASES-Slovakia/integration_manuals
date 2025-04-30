@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SKTalkMessage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<EnvelopeVersion xmlns="http://gov.sk/SKTalkMessage">3.0</EnvelopeVersion>
+	<Header xmlns="http://gov.sk/SKTalkMessage">
+		<MessageInfo>
+			<Class>EFORM_CHANGE_FORM_TEMPLATE_RELATED_DOCUMENTS_ASYNC_01</Class>
+			<MessageID>69fee18f-f139-4e1f-b0ab-122e29365200</MessageID>
+			<CorrelationID>0720162e-e229-41d1-84b7-bd2037242f86</CorrelationID>
+			<BusinessID/>
+			<ChannelInfo>
+				<Channel>
+					<ChannelInfoURI>edesk://idedesk/99999951</ChannelInfoURI>
+				</Channel>
+			</ChannelInfo>
+			<ChannelInfoReply>
+				<Channel>
+					<ChannelInfoURI>edesk://idedesk/99999951</ChannelInfoURI>
+				</Channel>
+			</ChannelInfoReply>
+		</MessageInfo>
+		<RoutingInfo/>
+	</Header>
+	<Body xmlns="http://gov.sk/SKTalkMessage">
+		<ChangeFormTemplateRelatedDocuments_Request xmlns="http://schemas.gov.sk/eflcm/ChangeFormTemplateRelatedDocuments/1.0">
+			<Request>
+				<Title>Žiadosť na zmenu súvisiacich dokumentov vzoru</Title>
+				<Description>Žiadosť o reaktiváciu schránky na doručovanie</Description>
+				<Publisher>UPVS</Publisher>
+				<Gestor>UPVSP-VYVOJ\martin.hric</Gestor>
+			</Request>
+			<FormTemplate>
+				<Identifier>upvs.iam.ziadostOReaktivaciuSchrankyNaDorucovanie</Identifier>
+				<Version>
+					<Major>1</Major>
+					<Minor>9</Minor>
+				</Version>
+			</FormTemplate>
+			<RelatedDocuments>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSLT_DEFAULT</Type>
+						<Identifier>form.1233.xslt</Identifier>
+						<Description>Xslt html transformácia na zobrazenie formulára</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZG......................Qo8L2JvZHk+DQo8L2h0bWw+DQo8L3hzbDp0ZW1wbGF0ZT4NCjwveHNsOnN0eWxlc2hlZXQ+DQo=</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSLT_RO</Type>
+						<Identifier>form.1233.ro.xslt</Identifier>
+						<Description>Xslt html transformácia na zobrazenie formulára v režime readonly</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZ........................wvZGl2Pg0KCQk8L2Rpdj4NCgk8L2Zvcm0+DQo8L2JvZHk+DQo8L2h0bWw+DQo8L3hzbDp0ZW1wbGF0ZT4NCjwveHNsOnN0eWxlc2hlZXQ+DQo=</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSLT_TXT_SGN</Type>
+						<Identifier>form.1233.sb.xslt</Identifier>
+						<Description>Xslt transformácia do txt pre zobrazenie pre podpisovač</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVR.............................0ZT4NCjwveHNsOnN0eWxlc2hlZXQ+DQoNCg==</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_HTML_FORM</Type>
+						<Identifier>form.1233.html</Identifier>
+						<Description>Prázdny html formulár</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PCFET0NUWVBFIGh0bWwgUFVCTE.............................g0KPC9ib2R5Pg0KPC9odG1sPg0K</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XML_NAT</Type>
+						<Identifier>form.1233.xml</Identifier>
+						<Description>Natívne prázdne xml, ktoré reprezentuje natívne xml, ktoré vypadne z vyplneného formulára</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48Zm9ybVJlcXVlc3QgeG1sbnM9Imh0dHA6.........................jaGtaaWFkb3N0Pjwvb3N0Pg0KPC9mb3JtUmVxdWVzdD4NCg0K</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSD_NAT</Type>
+						<Identifier>form.1233.xsd</Identifier>
+						<Description>Xsd natívneho xml</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48..............................9ImxkdF9DaGVja2JvbGV4VHlwZT4NCjwveHM6ZWxlbWVudD4NCjwveHM6c2NoZW1hPg0KDQo=</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XML_EDOC</Type>
+						<Identifier>form.1233.sk.xml</Identifier>
+						<Description>eDoc (elektronický dokument) prázdne xml</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>+DQo8emlhZG9zdD4NCjxjaGtaaWFkb3N0PjwvY2hrW.........................Pg0KPC9mb3JtUmVxdWVzdD4NCg0K</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSD_EDOC</Type>
+						<Identifier>form.1233.sk.xsd</Identifier>
+						<Description>Xsd výsledného eDoc (elektronický dokument)  xml</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTg...........................6ZWxlbWVudD4NCjwveHM6c2NoZW1hPg0KDQo=</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XML_DCT</Type>
+						<Identifier>form.1233.dct</Identifier>
+						<Description>Xml súbor slovnika (dictionary). Slúži na preklad medzi natívnym a edoc xml a naopak.</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PENvbXBsZXRlRGljdGlvbmFyeT48TWVzc2FnZURpY3Rpb25hcnk..........................GljdGlvbmFyeSAvPjwvQ29tcGxldGVEaWN0aW9uYXJ5Pg==</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSL_FO</Type>
+						<Identifier>form.1233.fo.xsl</Identifier>
+						<Description>Xsl fo transformácia. Slúži na použitie pri zobrazení do pdf</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0id...............................AgICAgICAgPC94c2w6dGVtcGxhdGU+DQogICAgICAgIDwveHNsOnN0eWxlc2hlZXQ+DQo=</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XML_MTD</Type>
+						<Identifier>form.1233.mtd.xml</Identifier>
+						<Description>Xml súbor s metadátami formulára</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PFB1Ymxpc2hlZEZvcm1WZXJzaW9uTWV0YWRhdGEgUHVibGlzaGluZ0RhdGU9IjI3L.................BIiBMYW5ndWFnZT0iU0siIC8+PC9Gb3JtPjwvUHVibGlzaGVkRm9ybVZlcnNpb25NZXRhZGF0YT4=</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XSLT_HTML</Type>
+						<Identifier>form.1233.html.xslt</Identifier>
+						<Description>Xslt transformácia z eDoc xml do html</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVV................................JzdHJpbmcoJGRhdGUsIDEsIDQpKSIgLz4NCjwveHNsOnRlbXBsYXRlPg0KPC94c2w6c3R5bGVzaGVldD4NCg0K</Data>
+				</Document>
+				<Document>
+					<MetaData>
+						<Type>CLS_F_XML_DEF</Type>
+						<Identifier>form.1233.edd.xml</Identifier>
+						<Description>Xml metadáta na predvyplnenie formulára</Description>
+						<Language>SK</Language>
+					</MetaData>
+					<Data>PFByZWZpbGxEYXRhTWFwcGluZyB4bWxuczp4c2k9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hLWluc3RhbmNlIj48L1ByZWZpbGxEYXRhTWFwcGluZz4=</Data>
+				</Document>
+			</RelatedDocuments>
+		</ChangeFormTemplateRelatedDocuments_Request>
+	</Body>
+</SKTalkMessage>

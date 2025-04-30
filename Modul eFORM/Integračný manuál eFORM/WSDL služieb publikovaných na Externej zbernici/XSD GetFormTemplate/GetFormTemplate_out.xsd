@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<xs:schema xmlns:tns="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" elementFormDefault="qualified" targetNamespace="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="GetFormTemplateRes">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EFormTemplate" nillable="true" type="tns:FormTemplate" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetFormTemplateRes" nillable="true" type="tns:GetFormTemplateRes" />
+  <xs:complexType name="FormTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="MetaData" nillable="true" type="tns:FormTemplateMetaData" />
+      <xs:element minOccurs="0" name="RelatedDocuments" nillable="true" type="tns:ArrayOfRelatedDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormTemplate" nillable="true" type="tns:FormTemplate" />
+  <xs:complexType name="FormTemplateMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccessGroup" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Agenda" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Gestor" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Keywords" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Publisher" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Section" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Source" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:FormTemplateType" />
+      <xs:element minOccurs="0" name="ValidDateFrom" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValidDateTo" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Version" nillable="true" type="tns:EFormVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FormTemplateMetaData" nillable="true" type="tns:FormTemplateMetaData" />
+  <xs:simpleType name="FormTemplateType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="eForm">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="teForm">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="POSP">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">3</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NOTIFY">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">4</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="FormTemplateType" nillable="true" type="tns:FormTemplateType" />
+  <xs:complexType name="EFormVersion">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Major" type="xs:int" />
+      <xs:element minOccurs="0" name="Minor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EFormVersion" nillable="true" type="tns:EFormVersion" />
+  <xs:complexType name="ArrayOfRelatedDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RelatedDocument" nillable="true" type="tns:RelatedDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRelatedDocument" nillable="true" type="tns:ArrayOfRelatedDocument" />
+  <xs:complexType name="RelatedDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Data" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="MetaData" nillable="true" type="tns:RelatedDocumentMetaData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelatedDocument" nillable="true" type="tns:RelatedDocument" />
+  <xs:complexType name="RelatedDocumentMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Identifier" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Language" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RelatedDocumentMetaData" nillable="true" type="tns:RelatedDocumentMetaData" />
+</xs:schema>

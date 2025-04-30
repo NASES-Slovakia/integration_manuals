@@ -1,0 +1,28 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header/>
+	<s:Body>
+		<CallServiceResponse xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<CallServiceResult i:type="a:GetFormTemplateMetaDataRes" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0">
+				<a:MetaData>
+					<a:AccessGroup i:nil="true"/>
+					<a:Agenda i:nil="true"/>
+					<a:Description>Autorizácia notifikačnej doručenky</a:Description>
+					<a:Gestor>UPVSP-VYVOJ\mnovacik</a:Gestor>
+					<a:Identifier>ED.DeliveryReportAuthorization</a:Identifier>
+					<a:Keywords>ED</a:Keywords>
+					<a:Publisher>UPVS</a:Publisher>
+					<a:Section i:nil="true"/>
+					<a:Source i:nil="true"/>
+					<a:Title>Autorizácia notifikačnej doručenky</a:Title>
+					<a:Type>teForm</a:Type>
+					<a:ValidDateFrom>2013-10-31T00:00:00</a:ValidDateFrom>
+					<a:ValidDateTo>0001-01-01T00:00:00</a:ValidDateTo>
+					<a:Version>
+						<a:Major>1</a:Major>
+						<a:Minor>3</a:Minor>
+					</a:Version>
+				</a:MetaData>
+			</CallServiceResult>
+		</CallServiceResponse>
+	</s:Body>
+</s:Envelope>

@@ -1,0 +1,285 @@
+<SKTalkMessage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://gov.sk/SKTalkMessage">
+  <EnvelopeVersion>3.0</EnvelopeVersion>
+  <Header>
+    <MessageInfo>
+      <Class>EFORM_VALIDATE_FORM_TEMPLATE_REPLY_ASYNC_02</Class>
+      <MessageID>731a9521-6efd-4fe0-b6b7-08e6b3792f18</MessageID>
+      <CorrelationID>dfc1c631-1eb3-4aa6-befa-e03af203be7a</CorrelationID>
+      <ReferenceID>61eac9e4-5b4c-4a0f-b2ae-0a1e1c433942</ReferenceID>
+      <BusinessID />
+      <ChannelInfo>
+        <Channel>
+          <ChannelInfoURI>ico://sk/42156424_90000</ChannelInfoURI>
+        </Channel>
+      </ChannelInfo>
+      <ChannelInfoReply>
+        <Channel>
+          <ChannelInfoURI>ico://sk/83136991</ChannelInfoURI>
+        </Channel>
+      </ChannelInfoReply>
+    </MessageInfo>
+    <SenderInfo>
+      <SecurityMethod />
+    </SenderInfo>
+  </Header>
+  <Body>
+    <MessageContainer xmlns="http://schemas.gov.sk/core/MessageContainer/1.0">
+      <MessageId>731a9521-6efd-4fe0-b6b7-08e6b3792f18</MessageId>
+      <SenderId>ico://sk/83136991</SenderId>
+      <RecipientId>ico://sk/42156424_90000</RecipientId>
+      <MessageType />
+      <MessageSubject>Výsledok validácie 02</MessageSubject>
+      <Object Id="731a9521-6efd-4fe0-b6b7-08e6b3792f18" Class="FORM" MimeType="application/x-eform-xml" Encoding="XML">
+        <ValidationReportData xmlns="http://schemas.gov.sk/form/MEF.Preprocessor.ValidationReport.sk/1.1">
+          <FormName>Všeobecná agenda</FormName>
+          <FormVersion>1.9</FormVersion>
+          <FormPurposeDescription>Všeobecná agenda</FormPurposeDescription>
+          <FormProvider>Hric Martin</FormProvider>
+          <ElectronicServiceCoordinator>ico://sk/42156424_90000</ElectronicServiceCoordinator>
+          <FormId>http://data.gov.sk/doc/eform/App.GeneralAgenda/1.9</FormId>
+          <FormShortId>App.GeneralAgenda</FormShortId>
+          <ValidDateFrom>2015-05-05T00:00:00</ValidDateFrom>
+          <ValidDateTo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+          <ApplyDateFrom>2015-05-05T00:00:00</ApplyDateFrom>
+          <ApplyDateTo xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" />
+          <ValidationDateTime>2025-03-03T12:01:17.582202+01:00</ValidationDateTime>
+          <FileName />
+          <FormSpecificationVersion />
+          <ValidationResult />
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="sign" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="sign" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="x-xslt-ro" media... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="x-xslt-ro" media... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="view" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="view" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="print" media-lan... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="print" media-lan... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="screen" media-la... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule014_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="screen" media-la... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule056_AllowedXmlElementValues</PlaceOfError>
+            <OutputText>Hodnota "chýbajúci element" nie je prípustná pre element language v súbore meta.xml</OutputText>
+            <RecomendedText>Zmeňte hodnotu elementu, alebo doplňte chýbajúci element</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule135_RequiredXmlAttributeValues</PlaceOfError>
+            <OutputText>V súbore manifest.xml má schéma pre vypĺňanie nesprávne vyplnené atribúty</OutputText>
+            <RecomendedText>"V súbore manifest.xml musí mať v schéme pre vypĺňanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""", media-destination= """"print"""", media-destination-type= """"application/xml|text/html"""", media-destination-type-description= """"XSLFO"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje"</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule137_RequiredXmlAttributeValues</PlaceOfError>
+            <OutputText>V súbore manifest.xml má schéma pre vypĺňanie nesprávne vyplnené atribúty</OutputText>
+            <RecomendedText>"V súbore manifest.xml musí mať v schéme pre vypĺňanie vyplnené atribúty media-type= ""application/xslt+xml|text/xsl"",media-destination= ""print"",media-destination-type=""application/xml|text/xml"",media-destination-type-description= ""XSLFO"",full-path=""full-path"",filename=""nazov_suboru"" ak existuje, xslfo-reference-procesor=""Apache FOP 1.1"",xslfo-reference-procesor-url=""http://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-1.1-bin.zip|adresa-na-upvs"""</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule150_XmlWheterAttributesExist</PlaceOfError>
+            <OutputText>V balíku neexistuje súbor s názvom v tvare *.html.xslt s vyplnenými atribútmi media-destination-type=application/xhtml+xml alebo text/html a media-destination-type-description=HTML alebo XHTM</OutputText>
+            <RecomendedText>V balíku by mal existovať príslušný súbor s danými atribútmi</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule152_XmlWheterAttributesExist</PlaceOfError>
+            <OutputText>V balíku neexistuje súbor s názvom v tvare *.sb.xslt s vyplnenými atribútmi media-destination-type=application/xhtml+xml/text/html/text/plain a media-destination-type-description=HTML/XHTML/TXT</OutputText>
+            <RecomendedText>V balíku by mal existovať príslušný súbor s danými atribútmi</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule158_RequiredXmlAttributeValues</PlaceOfError>
+            <OutputText>V súbore manifest.xml má schéma pre vypĺňanie nesprávne vyplnené atribúty</OutputText>
+            <RecomendedText>"V súbore manifest.xml musí mať v schéme pre vypĺňanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""" alebo ak vo full-path je v názve súboru „.xsl|.xslt“ a media-type=“application/xml|text/xml|application/xslt+xml|text/xsl“ """" , media-destination= """"sign"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje"</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule172_RequiredXmlAttributeValues</PlaceOfError>
+            <OutputText>V súbore manifest.xml má schéma pre vypĺňanie nesprávne vyplnené atribúty</OutputText>
+            <RecomendedText>"V súbore manifest.xml musí mať v schéme pre vypĺňanie vyplnené atribúty media-type= """"application/xslt+xml|text/xsl"""" , media-destination= """"view"""", media-destination-type= """"application/xhtml+xml|text/html"""", media-destination-type-description= """"XHTML|HTML"""", full-path= """"full-path"""", filename= """"nazov_suboru"""" ak existuje"</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule174_FontControlSoft</PlaceOfError>
+            <OutputText>Súbor schémy manifest.xml používa fonty, ktoré nie sú v zozname povolených, nie sú referencované, alebo priložené. Nesedí počet fontov Nepovolený font: "Open Sans" - v riadku č.: 13,42 ; Nepovolený font: "Segoe UI" - v riadku č.: 13,42 ; Nepovolený font: "Trebuchet MS" - v riadku č.: 13,42 ; Nepovolený font: "Geneva CE" - v riadku č.: 13,42 ; Nepovolený font: "lucida" - v riadku č.: 13,42 ; Nepovolený font: "sans-serif" - v riadku č.: 13,42 ;</OutputText>
+            <RecomendedText>Zoznam povolených fontov: "arial, times new roman, courier new, opensymbol"</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule193_PospXmlValues</PlaceOfError>
+            <OutputText>Hodnota elementu &lt;field&gt;  &lt;id&gt;Sign&lt;/id&gt;  &lt;value&gt;false&lt;/value&gt;&lt;/field&gt; v posp.xml nie je zo zoznamu povolených hodnôt</OutputText>
+            <RecomendedText>Id elementov &lt;field&gt; v posp.xml môže obsahovať nasledovné hodnoty: CheckZEP,PaymentOrder,Sum,PaymentRecipient,Delivery,AddresseeOnly,Period,Fiction,LoginInfo,PrintInColor,RepeatedDeliveryAttempt,DenyDeliveryForward,PostalDeliveryPeriod</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule301_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="sign" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule301_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="x-xslt-ro" media... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule301_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="view" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule301_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="print" media-lan... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule301_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="screen" media-la... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule302_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="sign" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule302_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="x-xslt-ro" media... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule302_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="view" media-lang... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule302_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="print" media-lan... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+          <RuleOutput>
+            <Severity>WARNING</Severity>
+            <ErrorCode />
+            <ApplyDateFrom>2007-01-01T00:00:00</ApplyDateFrom>
+            <PlaceOfError>Rule302_CheckFileEntriesXsltInManifest</PlaceOfError>
+            <OutputText>Element &lt;manifest:file-entry media-type="application/xslt+xml" media-destination="screen" media-la... v manifest.xml obsahuje atribút media-type s hodnotou application/xslt+xml,text/xsl ale neobsahuje atribút media-destination-type-description</OutputText>
+            <RecomendedText>Doplňte atribút media-destination-type-description</RecomendedText>
+          </RuleOutput>
+        </ValidationReportData>
+      </Object>
+    </MessageContainer>
+  </Body>
+</SKTalkMessage>

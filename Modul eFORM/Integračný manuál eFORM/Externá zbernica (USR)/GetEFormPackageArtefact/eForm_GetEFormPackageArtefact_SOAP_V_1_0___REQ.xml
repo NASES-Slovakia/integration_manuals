@@ -1,0 +1,30 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<ActivityId CorrelationId="5c3ecf10-78b6-4f4a-be41-ff9a9c8868cb" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">aa9cfbe1-0826-4722-b0ec-e35d7855b5b2</ActivityId>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink">uIDPo1ZmHQzwsEBOn+MesCEES28AAAAA6hgsHOX5qk+HZN5SaJz1oxCekdDnnMFKqIcKNhm+ASYACQAA</VsDebuggerCausalityData>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2014-11-18T22:13:09.230Z</u:Created>
+				<u:Expires>2014-11-18T22:18:09.230Z</u:Expires>
+			</u:Timestamp>
+			<saml:Assertion ID="id-Tewd8frueH32MlChxxHEk-PLni4-" IssueInstant="2014-11-18T22:12:30Z" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:enc="http://www.w3.org/2001/04/xmlenc#" xmlns:x500="urn:oasis:names:tc:SAML:2.0:profiles:attribute:X500" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+.....
+			</saml:Assertion>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<serviceClass>eForm_GetEFormPackageArtefact_SOAP_V_1_0</serviceClass>
+			<serviceParameter i:type="a:GetEFormPackageArtefactReq" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0">
+				<a:FormTemplate>
+					<a:Identifier>DCOM_eDemokracia_ZiadostOVydanieVolicskehoPreukazuFO_sk</a:Identifier>
+					<a:Version>
+						<a:Major>1</a:Major>
+						<a:Minor>0</a:Minor>
+					</a:Version>
+				</a:FormTemplate>
+				<a:FullPath>meta.xml</a:FullPath>
+			</serviceParameter>
+		</CallService>
+	</s:Body>
+</s:Envelope>

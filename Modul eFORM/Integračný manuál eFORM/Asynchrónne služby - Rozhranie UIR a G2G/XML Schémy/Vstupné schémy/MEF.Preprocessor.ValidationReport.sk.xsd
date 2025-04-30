@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.gov.sk/form/MEF.Preprocessor.ValidationReport.sk/1.1" xmlns="http://schemas.gov.sk/form/MEF.Preprocessor.ValidationReport.sk/1.1">
+<xs:simpleType name="typeOfString1024">
+<xs:restriction base="xs:string">
+<xs:maxLength value="1024" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="typeOfString64">
+<xs:restriction base="xs:string">
+<xs:maxLength value="64" />
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="ldt_Datumacas">
+<xs:restriction base="xs:dateTime">
+</xs:restriction>
+</xs:simpleType>
+<xs:simpleType name="typeOfString2048">
+<xs:restriction base="xs:string">
+<xs:maxLength value="2048" />
+</xs:restriction>
+</xs:simpleType>
+
+
+<xs:element name="ValidationReport">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="ValidationReportData" minOccurs="0">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="FormName" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="FormVersion" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="FormPurposeDescription" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="Language" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="FormProvider" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="ElectronicServiceCoordinator" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="FormId" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="FormShortId" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="ValidDateFrom" type="ldt_Datumacas" minOccurs="0" nillable="true" />
+<xs:element name="ValidDateTo" type="ldt_Datumacas" minOccurs="0" nillable="true" />
+<xs:element name="ApplyDateFrom" type="ldt_Datumacas" minOccurs="0" nillable="true" />
+<xs:element name="ApplyDateTo" type="ldt_Datumacas" minOccurs="0" nillable="true" />
+<xs:element name="ValidationDateTime" type="ldt_Datumacas" minOccurs="0" nillable="true" />
+<xs:element name="FileName" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="FormSpecificationVersion" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="ValidationResult" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="ErrorCount" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="WarningCount" type="typeOfString64" minOccurs="0" nillable="true" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+<xs:element name="RuleOutput" minOccurs="0" maxOccurs="999999">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="Severity" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="ErrorCode" type="typeOfString64" minOccurs="0" nillable="true" />
+<xs:element name="RuleApplyDateFrom" type="ldt_Datumacas" minOccurs="0" nillable="true" />
+<xs:element name="PlaceOfError" type="typeOfString1024" minOccurs="0" nillable="true" />
+<xs:element name="OutputText" type="typeOfString2048" minOccurs="0" nillable="true" />
+<xs:element name="RecomendedText" type="typeOfString2048" minOccurs="0" nillable="true" />
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:element>
+</xs:schema>
+

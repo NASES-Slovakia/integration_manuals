@@ -1,0 +1,24 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://schemas.gov.sk/ServiceBus/service/1.0/IServiceBus/CallService</Action>
+		<ActivityId CorrelationId="50e7d5eb-253e-4fc9-bef6-8af0f8b02ecc" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">f10a6198-baed-42e1-ac3c-19d5b81574be</ActivityId>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink"/>
+	</s:Header>
+	<s:Body>
+		<CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<serviceClass>EFORM_TRANSFORMRELATEDDOCUMENT_SOAP_V_1_0</serviceClass>
+			<serviceParameter xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:d4p2="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" i:type="d4p2:TransformRelatedDocumentReq">
+				<d4p2:FOTransform>true</d4p2:FOTransform>
+				<d4p2:FormTemplate>
+					<d4p2:Identifier>ED.DeliveryReportAuthorization</d4p2:Identifier>
+					<d4p2:Version>
+						<d4p2:Major>1</d4p2:Major>
+						<d4p2:Minor>3</d4p2:Minor>
+					</d4p2:Version>
+				</d4p2:FormTemplate>
+				<d4p2:RelatedDocumentXML>form.31.sk.xml</d4p2:RelatedDocumentXML>
+				<d4p2:RelatedDocumentXSLT>form.31.fo.xsl</d4p2:RelatedDocumentXSLT>
+			</serviceParameter>
+		</CallService>
+	</s:Body>
+</s:Envelope>

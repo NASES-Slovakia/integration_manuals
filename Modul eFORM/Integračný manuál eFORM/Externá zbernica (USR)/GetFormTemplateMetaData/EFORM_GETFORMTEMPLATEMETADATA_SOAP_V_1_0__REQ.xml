@@ -1,0 +1,21 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header>
+		<Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://schemas.gov.sk/ServiceBus/service/1.0/IServiceBus/CallService</Action>
+		<ActivityId CorrelationId="5b973f2a-b03f-4dce-a222-244e77876a5b" xmlns="http://schemas.microsoft.com/2004/09/ServiceModel/Diagnostics">34518107-52a2-4445-9dc5-79f239d92935</ActivityId>
+		<VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink"/>
+	</s:Header>
+	<s:Body>
+		<CallService xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<serviceClass>EFORM_GETFORMTEMPLATEMETADATA_SOAP_V_1_0</serviceClass>
+			<serviceParameter xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:d4p2="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0" i:type="d4p2:GetFormTemplateMetaDataReq">
+				<d4p2:FormTemplate>
+					<d4p2:Identifier>ED.DeliveryReportAuthorization</d4p2:Identifier>
+					<d4p2:Version>
+						<d4p2:Major>1</d4p2:Major>
+						<d4p2:Minor>3</d4p2:Minor>
+					</d4p2:Version>
+				</d4p2:FormTemplate>
+			</serviceParameter>
+		</CallService>
+	</s:Body>
+</s:Envelope>

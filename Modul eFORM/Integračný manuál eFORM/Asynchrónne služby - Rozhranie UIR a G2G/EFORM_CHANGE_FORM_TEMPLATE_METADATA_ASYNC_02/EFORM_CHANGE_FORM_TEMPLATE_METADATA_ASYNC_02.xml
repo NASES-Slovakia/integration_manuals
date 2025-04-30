@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-16"?>
+<SKTalkMessage xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://gov.sk/SKTalkMessage">
+  <EnvelopeVersion>3.0</EnvelopeVersion>
+  <Header>
+    <MessageInfo>
+      <Class>EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_02</Class>
+      <MessageID>2266dddf-4e89-463e-a4a2-abc3e19f81d6</MessageID>
+      <CorrelationID>c589ded7-7e67-43a4-87ee-f127f5e17125</CorrelationID>
+      <ReferenceID>00000000-0000-0000-0000-000000000000</ReferenceID>
+      <BusinessID />
+      <ChannelInfo>
+        <Channel>
+          <ChannelInfoURI>ico://sk/00151513_10001</ChannelInfoURI>
+        </Channel>
+      </ChannelInfo>
+      <ChannelInfoReply>
+        <Channel>
+          <ChannelInfoURI>ico://sk/14120606</ChannelInfoURI>
+        </Channel>
+      </ChannelInfoReply>
+    </MessageInfo>
+  </Header>
+  <Body>
+    <MessageContainer xmlns="http://schemas.gov.sk/core/MessageContainer/1.0">
+      <MessageId>2266dddf-4e89-463e-a4a2-abc3e19f81d6</MessageId>
+      <SenderId>ico://sk/14120606</SenderId>
+      <RecipientId>ico://sk/00151513_10001</RecipientId>
+      <MessageType>upvs.eform.EFormRequest</MessageType>
+      <MessageSubject>Žiadosť na zmenu metadát vzoru eformulára</MessageSubject>
+      <Object Id="394fb4f5-3a60-44e0-bc25-ce95e9447b0b" Name="ziadost.xml" Description="" Class="FORM" MimeType="application/x-eform-xml" Encoding="XML">
+        <EFormRequest xmlns="http://schemas.gov.sk/form/upvs.eform.EFormRequest/1.0">
+          <Title>Žiadosť na zmenu metadát vzoru</Title>
+          <Description>zmena MD prevadzka 897</Description>
+          <Publisher>ico://sk/14120606</Publisher>
+          <Gestor>rc://sk/6501012596_skutocny225906_adam</Gestor>
+        </EFormRequest>
+      </Object>
+      <Object Id="30ae0b87-7cfb-4bff-a448-0e8283f3cc5c" Name="" Description="" Class="ATTACHMENT" MimeType="application/vnd.gov.sk.e-form+xml" Encoding="Base64">PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48bWV0YTptZXRhZGF0YSB4bWxuczphdHRhY2htZW50ZmlsZT0idXJuOmF0dGFjaG1lbnRmaWxlOjEuMCIgeG1sbnM6eHM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDEvWE1MU2NoZW1hIiB4bWxuczpkYXRhPSJ1cm46ZGF0YToxLjAiIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIgeG1sbnM6c2V0dGluZz0idXJuOnNldHRpbmc6MS4wIiB4bWxuczpwcmVzZW50YXRpb249InVybjpwcmVzZW50YXRpb246MS4wIiB4bWxuczphdHRhY2htZW50PSJ1cm46YXR0YWNobWVudDoxLjAiIHhtbG5zOm1hbmlmZXN0PSJ1cm46bWFuaWZlc3Q6MS4wIiB4bWxuczpjb250ZW50PSJ1cm46Y29udGVudDoxLjAiIHhtbG5zOm1ldGE9InVybjptZXRhOjEuMCI+PGRjOnRpdGxlPk1GX3Byb2JlX3Rlc3Q8L2RjOnRpdGxlPjxkYzppZGVudGlmaWVyPk1GX3Byb2JlX3Rlc3Q8L2RjOmlkZW50aWZpZXI+PGRjOmRlc2NyaXB0aW9uPnptZW5hIE1EIHByZXZhZHprYSA4OTc8L2RjOmRlc2NyaXB0aW9uPjxkYzpjcmVhdG9yPlNrdXRvY255MjI1OTA2IEFkYW08L2RjOmNyZWF0b3I+PGRjOnB1Ymxpc2hlcj5pY286Ly9zay8xNDEyMDYwNjwvZGM6cHVibGlzaGVyPjxtZXRhOnZlcnNpb24+MS4xPC9tZXRhOnZlcnNpb24+PG1ldGE6bGFuZ3VhZ2UgLz48bWV0YTp2YWxpZERhdGVGcm9tPjIwMTYtMDgtMTg8L21ldGE6dmFsaWREYXRlRnJvbT48bWV0YTppbkZvcmNlRnJvbT4yMDE2LTA4LTE4PC9tZXRhOmluRm9yY2VGcm9tPjwvbWV0YTptZXRhZGF0YT4=</Object>
+    </MessageContainer>
+  </Body>
+</SKTalkMessage>

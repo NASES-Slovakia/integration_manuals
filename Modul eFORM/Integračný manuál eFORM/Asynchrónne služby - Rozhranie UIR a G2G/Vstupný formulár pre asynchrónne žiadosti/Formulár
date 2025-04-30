@@ -1,0 +1,6 @@
+<EFormRequest xmlns="http://schemas.gov.sk/form/upvs.eform.EFormRequest/1.0">
+	<Title>Názov žiadosti - povinné vyplniť </Title>
+	<Description>Popis žiadosti - povinné vyplniť</Description>
+	<Publisher>UPVS ID inštitúcie za ktorú sa eformulár registruje resp mení – povinné</Publisher>
+	<Gestor>UPVS ID autora poslednej zmeny – povinné </Gestor>
+</EFormRequest>

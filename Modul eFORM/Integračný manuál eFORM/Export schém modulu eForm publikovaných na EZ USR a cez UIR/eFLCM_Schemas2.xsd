@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="http://gov.sk/Iam/SamlAssertions" />
+  <xs:element name="AssertionsActorIdentityType" xmlns:q1="http://gov.sk/Iam/SamlAssertions" type="q1:AssertionsActorIdentityType" />
+  <xs:element name="AssertionsActorPreferredLanguage" xmlns:q2="http://gov.sk/Iam/SamlAssertions" type="q2:AssertionsActorPreferredLanguage" />
+  <xs:element name="AssertionsSubjectIdentityType" xmlns:q3="http://gov.sk/Iam/SamlAssertions" type="q3:AssertionsSubjectIdentityType" />
+  <xs:element name="AssertionsSubjectPreferredLanguage" xmlns:q4="http://gov.sk/Iam/SamlAssertions" type="q4:AssertionsSubjectPreferredLanguage" />
+  <xs:element name="AssertionsQAAlevel" xmlns:q5="http://gov.sk/Iam/SamlAssertions" type="q5:AssertionsQAAlevel" />
+  <xs:element name="AssertionsDelegationType" xmlns:q6="http://gov.sk/Iam/SamlAssertions" type="q6:AssertionsDelegationType" />
+  <xs:element name="AssertionsAssertion" nillable="true" xmlns:q7="http://gov.sk/Iam/SamlAssertions" type="q7:AssertionsAssertion" />
+  <xs:element name="InformationMessage" nillable="true" type="InformationMessage" />
+  <xs:complexType name="InformationMessage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Subject" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Text" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="eFormTemplateMessage" nillable="true" type="eFormTemplateMessage" />
+  <xs:complexType name="eFormTemplateMessage" />
+  <xs:element name="ENotifyTemplate" nillable="true" type="ENotifyTemplate" />
+  <xs:complexType name="ENotifyTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="FormTemplateID" />
+      <xs:element minOccurs="0" maxOccurs="1" name="FormStatus" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ValidDateFrom" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ValidDateTo" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FormTemplateID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Identifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="EFormVersion" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFormVersion">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Major" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Minor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ChangeFormTemplatePOSP_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="EFLCMRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="POSP" type="RelatedDocument" />
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="FormTemplateID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="EFLCMRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Publisher" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Gestor" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RelatedDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MetaData" type="RelatedDocumentMetaData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RelatedDocumentMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Type" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Identifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Language" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VytvorNovyVzorEFormularaOCF_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="EFLCMRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="EForm" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="EForm">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertChangedFormTemplate_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="Request" type="EFLCMRequest" />
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="FormTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="FormTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="MetaData" type="FormTemplateMetaData" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data" type="xs:base64Binary" />
+      <xs:element minOccurs="0" maxOccurs="1" name="RelatedDocuments" type="ArrayOfRelatedDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="FormTemplateMetaData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Identifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Type">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="eForm" />
+            <xs:enumeration value="teForm" />
+            <xs:enumeration value="POSP" />
+            <xs:enumeration value="NOTIFY" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="0" maxOccurs="1" name="Description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Gestor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Publisher" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Section" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Agenda" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Source" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="EFormVersion" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ValidDateFrom" type="xs:date" />
+      <xs:element minOccurs="1" maxOccurs="1" name="ValidDateTo" type="xs:date" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Keywords" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="AccessGroup" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfRelatedDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" type="RelatedDocument" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="InsertChangedFormTemplate_Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="FormTemplateID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DajVzorEFormulara_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="FormTemplateID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFormTemplate_Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplate" type="FormTemplate" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InvalidateFormTemplateNow_Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplateVzor" type="FormTemplateID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindFormTemplatesRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" name="FormTemplates" type="ArrayOfFormTemplateID" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="ArrayOfFormTemplateID">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FormTemplate" type="FormTemplateID" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BalikXML">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Document" type="RelatedDocument" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FormTemplateID" nillable="true" type="FormTemplateID" />
+  <xs:element name="EFormVersion" nillable="true" type="EFormVersion" />
+  <xs:element name="FormTemplate" nillable="true" type="FormTemplate" />
+  <xs:element name="FormTemplateMetaData" nillable="true" type="FormTemplateMetaData" />
+  <xs:element name="RelatedDocument" nillable="true" type="RelatedDocument" />
+  <xs:element name="RelatedDocumentMetaData" nillable="true" type="RelatedDocumentMetaData" />
+  <xs:element name="EForm" nillable="true" type="EForm" />
+  <xs:element name="EDocument" nillable="true" type="EDocument" />
+  <xs:complexType name="EDocument">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Data" type="xs:base64Binary" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EFLCMRequest" nillable="true" type="EFLCMRequest" />
+  <xs:element name="EFormTemplate" nillable="true" type="EFormTemplate" />
+  <xs:complexType name="EFormTemplate">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="Publisher" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Gestor" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Identifier" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="Version" type="EFormTemplateVersion" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Status">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="PUBLISHED" />
+            <xs:enumeration value="INVALIDATED" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element minOccurs="1" maxOccurs="1" name="Changed" type="xs:dateTime" />
+      <xs:element minOccurs="1" maxOccurs="1" name="RelatedDocumentChanged" type="xs:boolean" />
+      <xs:element minOccurs="1" maxOccurs="1" name="MetaDataChanged" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="EFormTemplateVersion">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="Major" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="Minor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EFormTemplateVersion" nillable="true" type="EFormTemplateVersion" />
+</xs:schema>

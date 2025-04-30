@@ -1,0 +1,19 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Header/>
+	<s:Body>
+		<CallServiceResponse xmlns="http://schemas.gov.sk/ServiceBus/service/1.0">
+			<CallServiceResult i:type="a:GetRelatedDocumentByTypeRes" xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns:a="http://schemas.gov.sk/ServiceBusServiceProvider/Ness/eFormProvider/1.0">
+				<a:FormTemplate i:nil="true"/>
+				<a:RelatedDocument>
+					<a:Data>PERlbGl2ZXJ5UmVwb3J0QXV0aG9yaXphdGlvbiB4bWxucz0iaHR0cDovL3NjaGVtYXMuZ292LnNrL2Zvcm0vRUQuRGVsaXZlcnlSZXBvcnRBdXRob3JpemF0aW9uLzEuMyIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSI+DQogIDxNZXNzYWdlSUQ+PC9NZXNzYWdlSUQ+DQogIDxBY3RvcklEPjwvQWN0b3JJRD4NCiAgPFN1YmplY3RJRD48L1N1YmplY3RJRD4NCiAgPEF1dGhvcml6ZWQ+PC9BdXRob3JpemVkPg0KPC9EZWxpdmVyeVJlcG9ydEF1dGhvcml6YXRpb24+</a:Data>
+					<a:MetaData>
+						<a:Description>eDoc (elektronický dokument) prázdne xml</a:Description>
+						<a:Identifier>form.31.sk.xml</a:Identifier>
+						<a:Language>sk</a:Language>
+						<a:Type>CLS_F_XML_EDOC</a:Type>
+					</a:MetaData>
+				</a:RelatedDocument>
+			</CallServiceResult>
+		</CallServiceResponse>
+	</s:Body>
+</s:Envelope>
