@@ -1,4 +1,4 @@
-# Integračný manuál eFORM
+# Integračný manuál modulu elektronických formulárov (MEF) / eFORM
 
 # Slovník pojmov
 
