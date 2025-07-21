@@ -1,6 +1,6 @@
-# Integračný manuál eFORM
+# Integračný manuál modulu elektronických formulárov (MEF) / eFORM
 
-# Slovník pojmov
+## Slovník pojmov
 
 | **Skratka / Pojem**     | **Popis**                                                                                                         |
 |-------------------------|------------------------------------------------------------------------------------------------------------------ |
@@ -29,7 +29,7 @@
 | XML	                    | Extensible markup language                                                                                        |
 | XSD	                    |XML schema definition                                                                                              |
 
-# 1. Úvod
+## 1. Úvod
 
   Modul elektronických formulárov (eForm) zabezpečuje centrálne úložisko elektronických formulárov  v zmysle zákona č. 305/2013 Z.z. (ďalej aj „vzor“). Elektronické formuláre pre elektronické podania a elektronické úradné dokumenty sú platné výlučne v prípade, ak sú sprístupnené v module elektronických formulárov a v podobe, v akej sú v tomto module sprístupnené. 
 Nad týmto úložiskom je vytvorené používateľské rozhranie pre verejnosť a pre gestorov elektronických formulárov z jednotlivých inštitúcií.  Pre integráciu voči ISVS poskytuje služby prostredníctvom G2G rozhraní. Tieto služby umožňujú základnú prácu so vzorom, ako je podanie žiadosti na registráciu vzoru elektronického formulára, jeho aktualizácia, či zneplatnenie. Taktiež však umožňujú služby pre vyhľadanie vzoru, alebo množiny vzorov v úložisku, poskytnutie vzoru elektronického formulára, jeho metadát a jednotlivých súvisiacich dokumentov - súčastí formulára. Nad jednotlivými vzormi je ďalej umožnené vytvárať vizualizácie s pomocou priložených súvisiacich dokumentov vzoru na základe jeho dát vo formáte XML. 
@@ -48,7 +48,7 @@ Súčasťou tohto integračného manuálu je aj návod pre publikáciu elektroni
 
 •	[Návod pre orgány verejnej moci na registráciu a správu formulárov v module elektronických formulárov](https://www.slovensko.sk/_img/CMS4/Navody/navod_registracia_eform_ovm.pdf)
 
-# 2. Integrácia na eFORM prostredíctvom UIR/G2G
+## 2. Integrácia na eFORM prostredíctvom UIR/G2G
 
 Nasledujúca kapitola popisuje služby eForm publikované na rozhraní UIR – všetky volania musia obsahovať platný SAML token a všetky správy zabalené v obálke SKTalk v. 3. 
 
@@ -61,7 +61,7 @@ V prípade nevyhovenia validáciám bude žiadateľovi do elektronickej schránk
 Zoznam validácií formulárov a ich konfigurácia sú zverejňované na Ústrednom portáli verejnej správy.
 Podrobné informácie sú uvedené aj v [Návode pre orgány verejnej moci na registráciu a správu formulárov v module elektronických formulárov](https://www.slovensko.sk/_img/CMS4/Navody/navod_registracia_eform_ovm.pdf)
 
-## 2.1 Asynchrónne služby modulu eFORM
+### 2.1 Asynchrónne služby modulu eFORM
 
 Modul eForm prostredníctvom rozhrania UIR modulu G2G má uverejnenú sadu služieb. Tieto sú popísané v ďalších kapitolách. Pre volanie týchto služieb sú v module G2G zaregistrované ich CLASSNAME podľa nasledovnej tabuľky: 
 
@@ -159,12 +159,12 @@ Modul eForm v rámci rozšírenia poskytuje sadu služieb pre:
 > [!NOTE]
 > všetky príklady volaní a odpovedí uvedené v tejto kapitole majú ilustračnú povahu, zároveň platí, že dostupné odpovedajúce správy/ odpovede nemusia mať súvis s príkladovými volaniami.
 
-### 2.1.1 EFORM_ADD_FORM_TEMPLATE_ASYNC_01
+#### 2.1.1 EFORM_ADD_FORM_TEMPLATE_ASYNC_01
 
 Služba umožňuje zaslať žiadosť o registráciu a zverejnenie elektronického formulára v module elektronických formulárov. Služba podporuje iba elektronické formuláre vo formáte pkg.xml, resp. registráciu jednotlivých súčastí elektronického formulára s uvedením ich typu.
 V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Tieto sa pri volaní služby serializujú a ukladajú v rámci SKTalk/Body časti. Popis schém daných typov je uvedení v ďalších kapitolách.
 
-#### 2.1.1.1	Popis správy (Vstupná):
+##### 2.1.1.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class:**                        | EFORM_ADD_FORM_TEMPLATE_ASYNC_01                                                 |
 | ------------------------------------------| -------------------------------------------------------------------------------- |
@@ -185,7 +185,7 @@ V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Ti
 |                                           | - EFORM_ADD_FORM_TEMPLATE_REPLY_REFUSE_VALIDATION_REPORT_ASYNC_01                |
 | Poznámka                                  |                                                                                  |
 
-#### 2.1.1.2  Vstupný technický formulár
+##### 2.1.1.2  Vstupný technický formulár
 
 - **Classname:** EFORM_ADD_FORM_TEMPLATE_ASYNC_01
 - **Input object:** InsertNewFormTemplate_Request
@@ -293,7 +293,7 @@ FormTemplateType: string
 | Description           | String                            |                     | Popis súvisiaceho dokumentu                                            |
 | Language              | String                            | Áno                 | Jazyk súvisiaceho dokumentu                                            |
 
-#### 2.1.1.3	Popis správy (Výstupná):
+##### 2.1.1.3	Popis správy (Výstupná):
 
 Na výstupe sa môžu vrátiť tri rôzne Sk-Talk Class:
 
@@ -353,7 +353,7 @@ Odpoveď na žiadosť o registráciu vzoru - **spracovanie registrácie formulá
 | Nadväzná správa 1 (odpoveď/notifikácia)   | NA                                                                                |
 | Poznámka                                  |                                                                                   |
 
-#### 2.1.1.4	Výstupný technický formulár - Odpoveď
+##### 2.1.1.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:** EFORM_ADD_FORM_TEMPLATE_ASYNC_01
 - **Output object:** 
@@ -415,7 +415,7 @@ Odpoveď na žiadosť o registráciu vzoru - **spracovanie registrácie formulá
 
 - [XML schéma eFLCMExceptionMessage](https://github.com/NASES-Slovakia/integration_manuals/blob/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_ADD_FORM_TEMPLATE_ASYNC_01/eFLCMExceptionMessage__schema.xsd)
 
-#### 2.1.1.5	Chybové kódy služby
+##### 2.1.1.5	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6 - Chybové hlášky
 <!-- Potom prelinkovať na predmetnú kapitolu -->
@@ -429,18 +429,18 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000795
 -	06000794
 
-#### 2.1.1.6	Príklady volaní a odpovedí služby – SKTalk 
+##### 2.1.1.6	Príklady volaní a odpovedí služby – SKTalk 
 
 - [Príklady SKTalk](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_ADD_FORM_TEMPLATE_ASYNC_01)
 
-### 2.1.2	EFORM_CHANGE_FORM_TEMPLATE_MEDATADATA_ASYNC_01
+#### 2.1.2	EFORM_CHANGE_FORM_TEMPLATE_MEDATADATA_ASYNC_01
 
 Správa popisuje žiadosť na zmenu metadát existujúceho vzoru eFormulára. V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Tieto sa pri volaní služby serializujú a ukladajú v rámci SKTalk/Body časti. Popis schém daných typov je uvedení v ďalších kapitolách.
 
 > [!WARNING]
 > Názov elektronického formulára sa nesmie meniť vzhľadom na používanie názvu formulára v podpisoch v historických formátoch XAdES_ZEP. Zmenou názvu by sa takéto podpisy mohli overovať ako neplatné.
 
-#### 2.1.2.1	Popis správy (Vstupná):
+##### 2.1.2.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**				                      | EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_01                |
 | --------------------------------------------- | ----------------------------------------------------------- |
@@ -458,7 +458,7 @@ Správa popisuje žiadosť na zmenu metadát existujúceho vzoru eFormulára. V 
 | Nadväzná správa 1 (odpoveď/notifikácia)       | EFORM_CHANGE_FORM_TEMPLATE_METADATA_REPLY_ASYNC_01          |
 | Poznámka                                      |                                                             |
 
-#### 2.1.2.2	Vstupný technický formulár
+##### 2.1.2.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_01
 - **Input Object:** ChangeFormTemplateMetaData_Request
@@ -511,7 +511,7 @@ FormTemplateType: string
 - POSP
 - Notify
 
-#### 2.1.2.3	Popis správy (Výstupná):
+##### 2.1.2.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**				                      | EFORM_CHANGE_FORM_TEMPLATE_METADATA_REPLY_ASYNC_01     |
 | --------------------------------------------- | ------------------------------------------------------ |
@@ -529,14 +529,14 @@ FormTemplateType: string
 | Nadväzná správa 1 (odpoveď/notifikácia)       | NA                                                     |
 | Poznámka                                      |                                                        |
 
-#### 2.1.2.4	Výstupný technický formulár - Odpoveď
+##### 2.1.2.4	Výstupný technický formulár - Odpoveď
                                            
 | **Názov**                                             | **Popis**       |   
 | ----------------------------------------------------- | --------------- |
 | http://schemas.gov.sk/form/G2G.InformationMessage/1.3 | Viď. IM G2G     |
 | http://schemas.gov.sk/eflcm/eFLCMExceptionMessage/1.0 | Viď. vyššie     |
 
-#### 2.1.2.5	Chybové kódy služby
+##### 2.1.2.5	Chybové kódy služby
 
  nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6 - Chybové hlášky
 <!-- Potom prelinkovať na predmetnú kapitolu -->
@@ -548,16 +548,16 @@ FormTemplateType: string
 -	06000797
 -	06000794
 
-#### 2.1.2.6  Príklady volaní a odpovedí služby – SKTalk
+##### 2.1.2.6  Príklady volaní a odpovedí služby – SKTalk
 
 - [Príklady SKTalk](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_CHANGE_FORM_TEMPLATE_MEDATADATA_ASYNC_01)
 
-### 2.1.3	EFORM_INVALIDATE_FORM_TEMPLATE_ASYNC_01
+#### 2.1.3	EFORM_INVALIDATE_FORM_TEMPLATE_ASYNC_01
 
 Služba umožňuje zaslať žiadosť o zrušenie účinnosti elektronického formulára v module elektronických formulárov. Pojem „účinnosť“ používaný pre dátum začiatku a konca účinnosti formulára bol v rámci novely Vyhlášky č. 78/2020 Z. z. v roku 2022 zmenený na „platnosť“. Pôvodný pojem „platnosť“ používaný pre dátum zverejnenia elektronického formulára v eFORM/MEF bol v rámci rovnakej novely zmenený na „dostupnosť“. V rámci tohto integračného manuálu sa však zatiaľ používajú pojmy v pôvodnom význame podľa pôvodne platnej legislatívy.
 V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Tieto sa pri volaní služby serializujú a ukladajú v rámci SKTalk/Body časti. Popis schém daných typov je uvedení v ďalších kapitolách.
 
-#### 2.1.3.1	Popis správy (Vstupná):
+##### 2.1.3.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**				                      | EFORM_INVALIDATE_FORM_TEMPLATE_ASYNC_01                   |
 | --------------------------------------------- | --------------------------------------------------------- |
@@ -575,7 +575,7 @@ V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Ti
 | Nadväzná správa 1 (odpoveď/notifikácia)       | EFORM_INVALIDATE_FORM_TEMPLATE_REPLY_ASYNC_01             |
 | Poznámka                                      |                                                           |
 
-#### 2.1.3.2	Vstupný technický formulár
+##### 2.1.3.2	Vstupný technický formulár
 
 - **Classname:** EFORM_INVALIDATE_FORM_TEMPLATE_ASYNC_01
 - **Input object:** InvalidateFormTemplate_Request
@@ -610,7 +610,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major                             | Int                        | Áno                  | Verzia vzoru                          |
 | Minor                             | Int                        | Áno                  | Podverzia vzoru                       |
 
-#### 2.1.3.3	Popis správy (výstupná):
+##### 2.1.3.3	Popis správy (výstupná):
 
 | **Sk-Talk Class**				                      | EFORM_INVALIDATE_FORM_TEMPLATE_REPLY_ASYNC_01            |
 | --------------------------------------------- | -------------------------------------------------------- |
@@ -628,7 +628,7 @@ Popis štruktúr použitých vo webovej službe:
 | Nadväzná správa 1 (odpoveď/notifikácia)       | NA                                                       |
 | Poznámka                                      |                                                          |
 
-#### 2.1.3.4	Výstupný technický formulár - Odpoveď
+##### 2.1.3.4	Výstupný technický formulár - Odpoveď
 
 | **Názov**                                               | **Popis**         |
 | ------------------------------------------------------- | ----------------- |
@@ -645,7 +645,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major                  | String                              | Nie                  | Verzia hlavná               |
 | Minor                  | String                              | Nie                  | Podverzia vzoru             |
 
-#### 2.1.3.5	Chybové kódy služby
+##### 2.1.3.5	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -656,11 +656,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000797
 -	06000794
 
-#### 2.1.3.6	Príklad volania služby – SKTalk 
+##### 2.1.3.6	Príklad volania služby – SKTalk 
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_INVALIDATE_FORM_TEMPLATE_ASYNC_01)
 
-### 2.1.4	  EFORM_SubscriptionMessageASync_01
+#### 2.1.4	  EFORM_SubscriptionMessageASync_01
 
 Pre synchronizáciu s podriadenými modulmi musí podriadený IS,  ktorý požaduje dostávať informácie o zmenách v úložisku eFLCM implementovať službu umožňujúcu spracovanie správy s CLASSNAME=EFORM_SubscriptionMessageASync_01. 
 
@@ -668,7 +668,7 @@ Obsahom tejto správy sú informácie o zmenách v úložisku. Tieto sú uložen
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Tieto sa pri volaní služby serializujú a ukladajú v rámci SKTalk/Body časti. Popis schém daných typov je uvedení v ďalších kapitolách.
 
-#### 2.1.4.1	Popis správy (Výstupná):
+##### 2.1.4.1	Popis správy (Výstupná):
 
 | **Sk-Talk Class**				                      | EFORM_SUBSCRIPTION_MESSAGE_ASYNC_01                               |
 | --------------------------------------------- | ----------------------------------------------------------------- |
@@ -718,7 +718,7 @@ FormTemplateStatus: string
 - PUBLISHED
 - INVALIDATED
 
-#### 2.1.4.2	Príklad notifikačnej správy zasielanej modulom eForm pri metóde Subscribe 
+##### 2.1.4.2	Príklad notifikačnej správy zasielanej modulom eForm pri metóde Subscribe 
 
 ```
 
@@ -881,13 +881,13 @@ FormTemplateStatus: string
 > [!NOTE]
 > viac o metóde v kapitole 5
 
-### 2.1.5	  EFORM_CHANGE_FORM_TEMPLATE_RELATED_DOCUMENTS_ASYNC_01
+#### 2.1.5	  EFORM_CHANGE_FORM_TEMPLATE_RELATED_DOCUMENTS_ASYNC_01
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných elementov. Tieto sa pri volaní služby serializujú a ukladajú v rámci SKTalk/Body časti. Popis schém daných typov je uvedení v ďalších kapitolách.
 
 Metóda slúži pre zmenu súčastí elektronického formulára a podlieha schvaľovaniu v NASES. Táto metóda sa môže používať jedine v súlade s bodom 3.1.1 prílohy č. 1 Vyhlášky č. 78/2020 Z. z. o štandardoch pre IT VS. **Upozorňujeme, že zmena súvisiacich dokumentov by sa nemala robiť, nakoľko zmena súčastí formulára môže spôsobiť rozličné problémy** (napríklad neplatnosť už vytvorených podpisov, neaktuálnosť formulárov v rezortných systémoch, nakoľko informácia o zmene súvisiacich dokumentov nie je zasielaná prostredníctvom publish/subscribe mechanizmu, takže sa o zmene súčastí formuláru rezortné systémy, ktoré môžu mať formulár skopírovaný k sebe, nemajú ako dozvedieť).
 
-#### 2.1.5.1	Popis správy (Vstupná):
+##### 2.1.5.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**				                      | EFORM_CHANGE_FORM_TEMPLATE_RELATED_DOCUMENTS_ASYNC_01               |
 | --------------------------------------------- | ------------------------------------------------------------------- |
@@ -914,7 +914,7 @@ Metóda slúži pre zmenu súčastí elektronického formulára a podlieha schva
 | FormTemplate              | FormTemplateID                                                 | Áno                  | Identifikátor vzoru eFormulára       |
 | RelatedDocuments          | RelatedDocument[]                                              | Áno                  | Súvisiace dokumenty                  |
 
-#### 2.1.5.2	Vstupný technický formulár
+##### 2.1.5.2	Vstupný technický formulár
 
 **Názov štruktúry:** EFLCMRequest
 
@@ -981,7 +981,7 @@ Metóda slúži pre zmenu súčastí elektronického formulára a podlieha schva
 | Description           | String                  |                   | Popis súvisiaceho dokumentu                                               |
 | Language              | String                  | Áno               | Jazyk súvisiaceho dokumentu                                               |
 
-#### 2.1.5.3	Popis správy (Výstupná):
+##### 2.1.5.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**				                      | EFORM_CHANGE_FORM_TEMPLATE_RELATED_DOCUMENTS_REPLY_ASYNC_01           |
 | --------------------------------------------- | --------------------------------------------------------------------- |
@@ -999,7 +999,7 @@ Metóda slúži pre zmenu súčastí elektronického formulára a podlieha schva
 | Nadväzná správa 1 (odpoveď/notifikácia)       | NA                                                                    |
 | Poznámka                                      |                                                                       |
 
-#### 2.1.5.4	Výstupný technický formulár - Odpoveď:
+##### 2.1.5.4	Výstupný technický formulár - Odpoveď:
 
 | **Názov**                                                          | **Popis**     |
 |--------------------------------------------------------------------|---------------|
@@ -1015,7 +1015,7 @@ Metóda slúži pre zmenu súčastí elektronického formulára a podlieha schva
 | Version    | string | Nie           | Verzia vzoru    |
 | Major      | string | Nie           | Verzia hlavná   |
 
-#### 2.1.5.5	Chybové kódy služby
+##### 2.1.5.5	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -1026,16 +1026,16 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000797
 -	06000794
 
-#### 2.1.5.6	Príklad volania služby – SKTalk
+##### 2.1.5.6	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_CHANGE_FORM_TEMPLATE_RELATED_DOCUMENTS_ASYNC_01)
 
-### 2.1.6	  EFORM_ADD_ROLE_TO_FORM_TEMPLATE_ASYNC_01 
+#### 2.1.6	  EFORM_ADD_ROLE_TO_FORM_TEMPLATE_ASYNC_01 
 
 eForm poskytuje asynchrónne služby na pridanie/odobratie oprávnení vzoru pre príslušnú skupinu/rolu evidovanú v IAM. V prípade, ak sa na vzor pridá aspoň jedna skupina prostredníctvom tejto služby, je takto upravený vzor prístupný prostredníctvom služieb eFormu len pre overených používateľov disponujúcich danou IAM rolou.
 Táto služba sa v novom module elektronických formulárov **nepoužíva**, resp. nastavenie oprávnení sa neuplatňuje. Nastavenie oprávnení mohlo spôsobiť nedostupnosť formulára pre niektoré skupiny používateľov, pričom podľa zákona o eGovernmente musia byť všetky elektronické formuláre verejne dostupné.
 
-#### 2.1.6.1	Popis správy (Vstupná):
+##### 2.1.6.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | EFORM_ADD_ROLE_TO_FORM_TEMPLATE_ASYNC_01               |
 |------------------------------------------|--------------------------------------------------------|
@@ -1053,7 +1053,7 @@ Táto služba sa v novom module elektronických formulárov **nepoužíva**, res
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                     |
 | Poznámka                                 | NEPOUŽÍVA SA – uvedená z historických dôvodov          |
 
-#### 2.1.6.2	Vstupný technický formulár
+##### 2.1.6.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_ADD_ROLE_TO_FORM_TEMPLATE_ASYNC_01
 - **Input Object:** AddRoleToFormTemplate_Request
@@ -1088,7 +1088,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 2.1.6.3	Chybové kódy služby
+##### 2.1.6.3	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -1100,15 +1100,15 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000797
 -	06000795
 
-#### 2.1.6.4	Príklad volania služby – SKTalk
+##### 2.1.6.4	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_ADD_ROLE_TO_FORM_TEMPLATE_ASYNC_01)
 
-### 2.1.7	  EFORM_REMOVE_ROLE_TO_FORM_TEMPLATE_ASYNC_01
+#### 2.1.7	  EFORM_REMOVE_ROLE_TO_FORM_TEMPLATE_ASYNC_01
 
 Služba slúži na pridanie/odobratie oprávnení vzoru pre príslušnú skupinu/rolu evidovanú v IAM. V prípade, ak sa na vzor pridá aspoň jedna skupina, prostredníctvom tejto služby, je takto upravený vzor prístupný prostredníctvom služieb eFormu len pre overených používateľov disponujúcich danou IAM rolou.
 
-#### 2.1.7.1	Popis správy (Vstupná):
+##### 2.1.7.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | EFORM_REMOVE_ROLE_TO_FORM_TEMPLATE_ASYNC_01                 |
 |------------------------------------------|-------------------------------------------------------------|
@@ -1126,7 +1126,7 @@ Služba slúži na pridanie/odobratie oprávnení vzoru pre príslušnú skupinu
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                          |
 | Poznámka                                 | NEPOUŽÍVA SA – uvedená z historických dôvodov               |
 
-#### 2.1.7.2	Vstupný technický formulár
+##### 2.1.7.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_REMOVE_ROLE_TO_FORM_TEMPLATE_ASYNC_01
 - **Input Object:** RemoveRoleFromFormTemplate_Request
@@ -1161,7 +1161,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 2.1.7.3	Chybové kódy služby
+##### 2.1.7.3	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -1173,15 +1173,15 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000797
 -	06000795
 
-#### 2.1.7.4	Príklad volania služby – SKTalk
+##### 2.1.7.4	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_REMOVE_ROLE_TO_FORM_TEMPLATE_ASYNC_01)
 
-### 2.1.8	  EFORM_ADD_FORM_TEMPLATE_ASYNC_02
+#### 2.1.8	  EFORM_ADD_FORM_TEMPLATE_ASYNC_02
 
 Služba je určená na registrovanie vzoru eformulára v štandardnom balíku .zip podľa Vyhlášky č. 78/2020 Z.z. o štandardoch pre IT VS. Registrácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS, pričom v body časti je vložený formulár upvs.eform.EFormRequest vo verzii 1.0 so žiadosťou. Tento je uložený v rámci Message containera. Štruktúra formuláru je popísaná v nasledovnej tabuľke:
 
-#### 2.1.8.1	Popis správy (Vstupná):
+##### 2.1.8.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | **EFORM_ADD_FORM_TEMPLATE_ASYNC_02**                             |
 |------------------------------------------|------------------------------------------------------------------|
@@ -1199,7 +1199,7 @@ Služba je určená na registrovanie vzoru eformulára v štandardnom balíku .z
 | Nadväzná správa 1 (odpoveď/notifikácia)  | EFORM_ADD_FORM_TEMPLATE_REPLY_VALIDATION_REPORT_ASYNC_02         |
 | Poznámka                                 |                                                                  |
 
-#### 2.1.8.2	Vstupný technický formulár
+##### 2.1.8.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_ADD_FORM_TEMPLATE_ASYNC_02
 - **Input Object:** http://schemas.gov.sk/form/upvs.eform.EFormRequest/1.0
@@ -1215,7 +1215,7 @@ Samotný formulár je v rámci message containera ako samostatný objekt typu AT
 -	hodnota mimetype ak je **application/vnd.gov.sk.e-form+zip** tak vložený objekt je kódovaný base64 ZIP súbor, 
 -	pokiaľ by bola hodnota **application/vnd.gov.sk.e-form+xml** tak vložený objekt je balík vo formáte XML, avšak tento formát už vzhľadom na novelu vyhlášky č. 78/2020 Z. z. nie je podporovaný.
 
-#### 2.1.8.3	Popis správy (Výstupná):
+##### 2.1.8.3	Popis správy (Výstupná):
 
 Na výstupe sa môžu vrátiť tri rôzne Sk-Talk Class:
 Odpoveď na žiadosť o registráciu formulára sa vracia len v prípade úspešnej registrácie alebo chyby, ktorá nebola zistená v rámci vstupných validácií. Nevracia sa v prípade zistenej chyby pri validácii, ktorá má za následok nezaregistrovanie formulára.
@@ -1276,7 +1276,7 @@ Odpoveď na žiadosť o registráciu vzoru - **spracovanie registrácie formulá
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                                                  |
 | Poznámka                                 |                                                                                     |
 
-#### 2.1.8.4	Výstupný technický formulár - Odpoveď
+##### 2.1.8.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:** EFORM_ADD_FORM_TEMPLATE_REPLY_ASYNC_02
 - **Output Object:**
@@ -1300,20 +1300,20 @@ Odpoveď na žiadosť o registráciu vzoru - **spracovanie registrácie formulá
 |---------------------------------------------------------------------|
 | http://schemas.gov.sk/form/MEF.Preprocessor.ValidationReport.sk/1.1 |
 
-#### 2.1.8.5	Chybové kódy služby
+##### 2.1.8.5	Chybové kódy služby
 
 **Chybové stavy:**
 - 06000997
 
-#### 2.1.8.6	Príklad volania služby – SKTalk
+##### 2.1.8.6	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_ADD_FORM_TEMPLATE_ASYNC_02)
 
-### 2.1.9 	EFORM_ADD_NOTIFY_TEMPLATE_ASYNC_01
+#### 2.1.9 	EFORM_ADD_NOTIFY_TEMPLATE_ASYNC_01
 
 Služba je určená na registrovanie vzoru eFormulára typu notifikačná šablóna v štandardnom balíku ZIP alebo XML. Registrácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS, pričom v body časti je vložený formulár upvs.eform.EFormRequest vo verzii 1.0 so žiadosťou. Tento je uložený v rámci Message containera. Štruktúra formuláru je popísaná v nasledovnej tabuľke nižšie.
 
-#### 2.1.9.1	Popis správy (Vstupná):
+##### 2.1.9.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | **EFORM_ADD_NOTIFY_TEMPLATE_ASYNC_01**                    |
 |------------------------------------------|-----------------------------------------------------------|
@@ -1331,7 +1331,7 @@ Služba je určená na registrovanie vzoru eFormulára typu notifikačná šabl�
 | Nadväzná správa 1 (odpoveď/notifikácia)  | EFORM_ADD_NOTIFY_TEMPLATE_REPLY_ASYNC_01                  |
 | Poznámka                                 |                                                           |
 
-#### 2.1.9.2	Vstupný technický formulár
+##### 2.1.9.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_ADD_NOTIFY_TEMPLATE_ASYNC_01
 - **Input Object:** http://schemas.gov.sk/form/upvs.eform.EFormRequest/1.0
@@ -1347,7 +1347,7 @@ Formát vloženého balíka sa určuje podľa MIMEType atribútu v message conta
 -	hodnota mimetype ak je **application/vnd.gov.sk.e-form+zip** tak vložený objekt je kódovaný base64 .zip súbor, 
 -	pokiaľ je hodnota **application/vnd.gov.sk.e-form+xml** tak vložený objekt je balík vo formáte XML , pričom pokiaľ je atribút ENCODING nastavený na Base64 tak .xml súbor je encodovaný ako base64 reťazec.
 
-#### 2.1.9.3	Popis správy (Výstupná):
+##### 2.1.9.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                                      | **EFORM_ADD_NOTIFY_TEMPLATE_REPLY_ASYNC_01**            |
 |--------------------------------------------------------|---------------------------------------------------------|
@@ -1366,7 +1366,7 @@ Formát vloženého balíka sa určuje podľa MIMEType atribútu v message conta
 | Nadväzná správa 1 (odpoveď/notifikácia)                | NA                                                      |
 | Poznámka                                               |                                                         |
 
-#### 2.1.9.4	Výstupný technický formulár - Odpoveď
+##### 2.1.9.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:**
 - **Output Object:**
@@ -1376,16 +1376,16 @@ Formát vloženého balíka sa určuje podľa MIMEType atribútu v message conta
 | http://schemas.gov.sk/form/G2G.InformationMessage/1.3 | Vid. IM – G2G  |
 | http://schemas.gov.sk/eflcm/eFLCMExceptionMessage/1.0 | Vid. vyššie    |
 
-#### 2.1.9.5	Chybové kódy služby
+##### 2.1.9.5	Chybové kódy služby
 
 **Chybové stavy:**
 -	06000997
 
-#### 2.1.9.6	Príklad volania služby – SKTalk
+##### 2.1.9.6	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_ADD_NOTIFY_TEMPLATE_ASYNC_01)
 
-### 2.1.10	EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_ASYNC_01
+#### 2.1.10	EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_ASYNC_01
 
 Služba je určená na zmenu metadát vzoru eFormulára typu notifikačná **šablóna v štandardnom balíku .zip alebo XML.**  
 
@@ -1393,7 +1393,7 @@ Notifikačné šablóny slúžia len pre prípad, ak OVM chce vytvárať a zasie
 
 Registrácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS, pričom v „body“ časti je vložený formulár upvs.eform.EFormRequest vo verzii 1.0 so žiadosťou. Tento je uložený v rámci Message containera. Štruktúra formuláru je popísaná v nasledovnej tabuľke:
 
-#### 2.1.10.1	Popis správy (Vstupná):
+##### 2.1.10.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | **EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_ASYNC_01**              |
 |------------------------------------------|-----------------------------------------------------------------|
@@ -1411,7 +1411,7 @@ Registrácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS, pričom v
 | Nadväzná správa 1 (odpoveď/notifikácia)  | EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_REPLY_ASYNC_01            |
 | Poznámka                                 |                                                                 |
 
-#### 2.1.10.2	Vstupný technický formulár
+##### 2.1.10.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_ASYNC_01
 - **Input Object:** http://schemas.gov.sk/form/upvs.eform.EFormRequest/1.0
@@ -1425,7 +1425,7 @@ Registrácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS, pričom v
 
 Samotné metadáta sú v rámci message containera ako samostatný objekt typu **ATTACHMENT**. Ako metadáta sa vkladá súbor meta.xml. Pri vkladaní tohto súboru, pokiaľ je vkladaný ako base64, je potrebné nastaviť atribút ENCODING v message containery pre objekt na Base64.
 
-#### 2.1.10.3	Popis správy (Výstupná):
+##### 2.1.10.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                                      | **EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_REPLY_ASYNC_01**                   |
 |--------------------------------------------------------|----------------------------------------------------------------------------|
@@ -1444,7 +1444,7 @@ Samotné metadáta sú v rámci message containera ako samostatný objekt typu *
 | Nadväzná správa 1 (odpoveď/notifikácia)                | NA                                                                         |
 | Poznámka                                               |                                                                            |
 
-#### 2.1.10.4	Výstupný technický formulár - Odpoveď
+##### 2.1.10.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:**
 - **Output Object:**
@@ -1454,20 +1454,20 @@ Samotné metadáta sú v rámci message containera ako samostatný objekt typu *
 | http://schemas.gov.sk/form/G2G.InformationMessage/1.3 | Vid. IM – G2G  |
 | http://schemas.gov.sk/eflcm/eFLCMExceptionMessage/1.0 | Vid. vyššie    |
 
-#### 2.1.10.5	Chybové kódy služby
+##### 2.1.10.5	Chybové kódy služby
 
 **Chybové stavy:**
 -	06000997
 
-#### 2.1.10.6	Príklad volania služby – SKTalk
+##### 2.1.10.6	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_CHANGE_NOTIFY_TEMPLATE_METADATA_ASYNC_01)
 
-### 2.1.11	EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_02
+#### 2.1.11	EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_02
 
 Služba je určená na zmenu metadát vzoru eFormulára typu eFormulár v štandardnom balíku .zip alebo XML.  Registrácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS, pričom v body časti je vložený formulár upvs.eform.EFormRequest vo verzii 1.0 so žiadosťou. Tento je uložený v rámci Message containera. Štruktúra formuláru je popísaná v nasledovnej tabuľke nižšie.
 
-#### 2.1.11.1	Popis správy (Vstupná):
+##### 2.1.11.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | **EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_02**        |
 |------------------------------------------|---------------------------------------------------------|
@@ -1485,7 +1485,7 @@ Služba je určená na zmenu metadát vzoru eFormulára typu eFormulár v štand
 | Nadväzná správa 1 (odpoveď/notifikácia)  | EFORM_CHANGE_FORM_TEMPLATE_METADATA_REPLY_ASYNC_02      |
 | Poznámka                                 |                                                         |
 
-#### 2.1.11.2	Vstupný technický formulár
+##### 2.1.11.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_02
 - **Input Object:** http://schemas.gov.sk/form/upvs.eform.EFormRequest/1.0
@@ -1499,7 +1499,7 @@ Služba je určená na zmenu metadát vzoru eFormulára typu eFormulár v štand
 
 Samotné metadáta sú v rámci message containera ako samostatný objekt typu ATTACHMENT. Ako metadáta sa vkladá súbor meta.xml. Pri vkladaní tohto súboru pokiaľ je vkladaný ako base64 je potrebné nastaviť atribút ENCODING v message containery pre objekt na Base64.
 
-#### 2.1.11.3	Popis správy (Výstupná):
+##### 2.1.11.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                                                                                                          | **EFORM_CHANGE_FORM_TEMPLATE_METADATA_REPLY_ASYNC_02**  |
 |----------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------|
@@ -1518,7 +1518,7 @@ Samotné metadáta sú v rámci message containera ako samostatný objekt typu A
 | Nadväzná správa 1 (odpoveď/notifikácia)                                                                                    | NA                                                      |
 | Poznámka                                                                                                                   |                                                         |
 
-#### 2.1.11.4	Výstupný technický formulár - Odpoveď
+##### 2.1.11.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:**
 - **Output Object:**
@@ -1528,22 +1528,22 @@ Samotné metadáta sú v rámci message containera ako samostatný objekt typu A
 | http://schemas.gov.sk/form/G2G.InformationMessage/1.3 | Viď IM – G2G  |
 | http://schemas.gov.sk/eflcm/eFLCMExceptionMessage/1.0 | Viď vyššie    |
 
-#### 2.1.11.5	Chybové kódy služby
+##### 2.1.11.5	Chybové kódy služby
 
 **Chybové stavy:**
 -	06000997
 
-#### 2.1.11.6	Príklad volania služby – SKTalk
+##### 2.1.11.6	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_CHANGE_FORM_TEMPLATE_METADATA_ASYNC_02)
 
-### 2.1.12	EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_01
+#### 2.1.12	EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_01
 
 Služba je určená na validáciu vzoru eFormulára v balíku vo formáte pkg+xml, pred jeho registráciou v úložisku vzorov. Validácia prebieha odoslaním SKTalk správy na G2G rozhranie UPVS. Výsledný validačný report je zaslaný do eDesku identity odosielateľa žiadosti. Služba je dostupná aj pre subjekty, ktoré nie sú orgánmi verejnej moci.
 
 Štruktúra žiadosti o validáciu je rovnaká ako pri žiadosti o registráciu nového vzoru podľa EFORM_ADD_FORM_TEMPLATE_ASYNC_01.
 
-#### 2.1.12.1	Popis správy (Vstupná):
+##### 2.1.12.1	Popis správy (Vstupná):
 
 | ****                                      | ****                                                                                                                                                   |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1564,7 +1564,7 @@ Služba je určená na validáciu vzoru eFormulára v balíku vo formáte pkg+xm
 | Nadväzná správa 1 (odpoveď/notifikácia)   | EFORM_VALIDATE_FORM_TEMPLATE_REPLY_ASYNC_01                                                                                                            |
 | Poznámka                                  |                                                                                                                                                        |
 
-#### 2.1.12.2	Vstupný technický formulár
+##### 2.1.12.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_01
 - **Input Object:** InsertNewFormTemplate_Request
@@ -1679,7 +1679,7 @@ https://portal.upvsfixnew.gov.sk/static/eform/validation/P_[poradové číslo].c
 > [!TIP]
 > napr. pre číselník P.24.: https://portal.upvsfixnew.gov.sk/static/eform/validation/P_24.csv
 
-#### 2.1.12.3	Popis správy (Výstupná):
+##### 2.1.12.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                        | **EFORM_VALIDATE_FORM_TEMPLATE_REPLY_ASYNC_01**                            |
 |------------------------------------------|----------------------------------------------------------------------------|
@@ -1698,7 +1698,7 @@ https://portal.upvsfixnew.gov.sk/static/eform/validation/P_[poradové číslo].c
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                                         |
 | Poznámka                                 |                                                                            |
 
-#### 2.1.12.4	Výstupný technický formulár - Odpoveď
+##### 2.1.12.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:**
 - **Output Object:** 
@@ -1707,17 +1707,17 @@ https://portal.upvsfixnew.gov.sk/static/eform/validation/P_[poradové číslo].c
 |---------------------------------------------------------------------|-------------|
 | http://schemas.gov.sk/form/MEF.Preprocessor.ValidationReport.sk/1.1 | Viď vyššie  |
 
-#### 2.1.12.5	Príklad volania služby – SKTalk 
+##### 2.1.12.5	Príklad volania služby – SKTalk 
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_01)
 
-### 2.1.13	EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02
+#### 2.1.13	EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02
 
 Služba je určená na validáciu vzoru eFormulára v **balíku vo formáte .zip** (podľa prílohy č. 1 Vyhlášky 78/2020 Z. z. o štandardoch pre IT VS), pred jeho registráciou v úložisku vzorov. Validácia prebieha odoslaním SKTalk správy na G2G rozhranie ÚPVS, pričom v „body“ časti je vložený určený formulár ValidationEFormPkgPackage.sk. Tento je uložený v rámci Message containera. Výsledný validačný report je zaslaný do eDesku identity odosielateľa žiadosti. Táto služba zasiela rovnaký validačný report (technický formulár) ako pri registrácii formulára, len s odlišným Sk-Talk Class a prípadne predmetom správy.
 
 Použitím služby si môže napríklad dodávateľ implementujúci formulár alebo OVM otestovať, či formulár prejde validáciami a v prípade zistených chýb postupne odstraňovať chyby. 
 
-#### 2.1.13.1	Popis správy (Vstupná):
+##### 2.1.13.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | **EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02**                                                                                                 |
 |------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1735,7 +1735,7 @@ Použitím služby si môže napríklad dodávateľ implementujúci formulár al
 | Nadväzná správa 1 (odpoveď/notifikácia)  | EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02                                                                                                     |
 | Poznámka                                 |                                                                                                                                           |
 
-#### 2.1.13.2	Vstupný technický formulár
+##### 2.1.13.2	Vstupný technický formulár
 
 - **CLASSNAME:** EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02
 - **Input Object:** _ValidationEFormPkgPackage.sk
@@ -1744,7 +1744,7 @@ Použitím služby si môže napríklad dodávateľ implementujúci formulár al
 |-----------|---------|---------------|------------|
 | NA        | NA      | NA            | NA         |
 
-#### 2.1.13.3	Popis správy (Výstupná):
+##### 2.1.13.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                        | **EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02**                                  |
 |------------------------------------------|----------------------------------------------------------------------------|
@@ -1763,7 +1763,7 @@ Použitím služby si môže napríklad dodávateľ implementujúci formulár al
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                                         |
 | Poznámka                                 |                                                                            |
 
-#### 2.1.13.4	Výstupný technický formulár - Odpoveď
+##### 2.1.13.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:**
 - **Output Object:**
@@ -1772,11 +1772,11 @@ Použitím služby si môže napríklad dodávateľ implementujúci formulár al
 |---------------------------------------------------------------------|-------------|
 | http://schemas.gov.sk/form/MEF.Preprocessor.ValidationReport.sk/1.1 | Viď vyššie  |
 
-#### 2.1.13.5	Príklad volania služby – SKTalk
+##### 2.1.13.5	Príklad volania služby – SKTalk
 
 - [Príklad SKTalk Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_VALIDATE_FORM_TEMPLATE_ASYNC_02)
 
-### 2.1.14	EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_01
+#### 2.1.14	EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_01
 
 Služba je určená na vytvorenie vizualizácií z prezentačných schém, ktoré sa nachádzajú v balíku vzoru eFormulára vo formáte pkg+xml. Vo formulári sa podľa manifest.xml identifikujú schémy „sign“, „view“, „screen“, „print“ a „help“, pričom do transformácie sa berie prvá nájdená schéma daného typu. Konkrétne z prvej nájdenej prezentačnej schémy pre jednotlivé účely: 
 -	pre podpisovanie (sign), 
@@ -1790,7 +1790,7 @@ Súbory môžu byť pomenované podľa transformačnej schémy (napr. “tprint.
 Žiadosť o vytvorenie vizualizácie obsahuje štruktúru FormTemplate v body SKTalk správy poďla príkladu. 
 Do žiadosti je možné voliteľne uviesť prílohu – dátové .xml vyplnené podľa elektronického formulára, ktoré sa použije pri transformácii. V prípade, že nie je uvedené použije sa data.xml z balíka vzoru formulára.
 
-#### 2.1.14.1	Popis vstupnej správy:
+##### 2.1.14.1	Popis vstupnej správy:
 
 | **Sk-Talk Class**                        | **EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_01**                         |
 |------------------------------------------|--------------------------------------------------------------------|
@@ -1809,7 +1809,7 @@ Do žiadosti je možné voliteľne uviesť prílohu – dátové .xml vyplnené 
 | Vrátené jednotlivé vizualizácie.         |                                                                    |
 | Poznámka                                 |                                                                    |
 
-#### 2.1.14.2	Vstupný technický formulár
+##### 2.1.14.2	Vstupný technický formulár
 
 **Názov štruktúry:** FormTemplate
 
@@ -1893,7 +1893,7 @@ FormTemplateType: string
 | Description           | String                  |                   | Popis súvisiaceho dokumentu                                               |
 | Language              | String                  | Áno               | Jazyk súvisiaceho dokumentu                                               |
 
-#### 2.1.14.3	Popis správy (Výstupná):
+##### 2.1.14.3	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                        | **EFORM_TRANSFORM_FORM_TEMPLATE_REPLY_ASYNC_01**                           |
 |------------------------------------------|----------------------------------------------------------------------------|
@@ -1911,7 +1911,7 @@ FormTemplateType: string
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                                         |
 | Poznámka                                 |                                                                            |
 
-#### 2.1.14.4	Výstupný technický formulár - Odpoveď
+##### 2.1.14.4	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:** EFORM_TRANSFORM_FORM_TEMPLATE_REPLY_ASYNC_01
 - **Output Object:**
@@ -1920,11 +1920,11 @@ FormTemplateType: string
 |--------------|------------|
 | FormTemplate | NA         |
 
-#### 2.1.14.5	Príklad– SKTalk
+##### 2.1.14.5	Príklad– SKTalk
 
 - [Príklady SKTalk](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_01)
 
-### 2.1.15	EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_02
+#### 2.1.15	EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_02
 
 Služba je určená na vytvorenie vizualizácií z transformačných súborov, ktoré sa nachádzajú v balíku vzoru eFormulára v štandardnom formáte .zip podľa Vyhlášky č. 78/2020 Z. z. o štandardoch pre IT VS. Konkrétne z prvej nájdenej prezentačnej schémy pre jednotlivé účely: 
 -	pre podpisovanie (sign), 
@@ -1937,7 +1937,7 @@ Transformácia prebieha odoslaním SKTalk správy na G2G rozhranie ÚPVS. Výsle
 Žiadosť o vytvorenie vizualizácie obsahuje štruktúru:
 „http://data.gov.sk/doc/eform/TransformationEFormPkgPackage.sk/1.0“ umiestnenú v Message containeri v body SKTalk správy podľa príkladu a .zip balík formulára umiestnený v Message containeri ako prílohu. Do prílohy je zároveň možné vložiť aj XML súbor vyplnený podľa elektronického formulára, ktorý bude použitý pri transformácii pre naplnenie údajov do vizualizácie.
 
-#### 2.1.15.1	Popis správy (Vstupná):
+##### 2.1.15.1	Popis správy (Vstupná):
 
 | **Sk-Talk Class**                        | **EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_02**                         |
 |------------------------------------------|--------------------------------------------------------------------|
@@ -1955,7 +1955,7 @@ Transformácia prebieha odoslaním SKTalk správy na G2G rozhranie ÚPVS. Výsle
 | Nadväzná správa 1 (odpoveď/notifikácia)  | EFORM_TRANSFORM_FORM_TEMPLATE_REPLY_ASYNC_02                       |
 | Poznámka                                 |                                                                    |
 
-#### 2.1.15.2	Popis správy (Výstupná):
+##### 2.1.15.2	Popis správy (Výstupná):
 
 | **Sk-Talk Class**                        | **EFORM_TRANSFORM_FORM_TEMPLATE_REPLY_ASYNC_02**                                  |
 |------------------------------------------|-----------------------------------------------------------------------------------|
@@ -1973,7 +1973,7 @@ Transformácia prebieha odoslaním SKTalk správy na G2G rozhranie ÚPVS. Výsle
 | Nadväzná správa 1 (odpoveď/notifikácia)  | NA                                                                                |
 | Poznámka                                 |                                                                                   |
 
-#### 2.1.15.3	Výstupný technický formulár - Odpoveď
+##### 2.1.15.3	Výstupný technický formulár - Odpoveď
 
 - **CLASSNAME:**
 - **Output Object:**
@@ -1982,11 +1982,11 @@ Transformácia prebieha odoslaním SKTalk správy na G2G rozhranie ÚPVS. Výsle
 |-------------------------------------------------------|---------------|
 | http://schemas.gov.sk/form/G2G.InformationMessage/1.3 | Viď IM – G2G  |
 
-#### 2.1.15.4	Príklad volania služby – SKTalk
+##### 2.1.15.4	Príklad volania služby – SKTalk
 
 - [Príklady SKTalk Request/Respose](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/EFORM_TRANSFORM_FORM_TEMPLATE_ASYNC_02)
 
-### 2.1.16	Vstupný formulár pre asynchrónne žiadosti 
+#### 2.1.16	Vstupný formulár pre asynchrónne žiadosti 
 
 Pre odosielanie žiadostí na MEF sa používa formulár upvs.eform.EFormRequest, ktorý je uvedený v tomto dokumente a je zaregistrovaný na príslušných prostrediach ÚPVS. V rámci eformulára sú jednotlivé polia povinné. Formulár slúži ako sprievodný list pre samotnú registráciu, tj jeho obsah je zobrazovaný v rámci evidencie žiadostí na vloženie, resp. zmenu eFormulára pre výstupnú kontrolu ÚPVS. Príklad vyplneného eFormulára ako i jeho schéma je uvedená nižšie. Aktuálna verzia daného eFormulára je zároveň aj zaregistrovaná v rámci modulu MEF.
 
@@ -2004,19 +2004,19 @@ Pre odosielanie žiadostí na MEF sa používa formulár upvs.eform.EFormRequest
 
 - [Podklady](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/Vstupn%C3%BD%20formul%C3%A1r%20pre%20asynchr%C3%B3nne%20%C5%BEiadosti) 
 
-### 2.1.17	Asynchrónne volané služby eForm – XML Schémy
+#### 2.1.17	Asynchrónne volané služby eForm – XML Schémy
 
 - [XML schémy](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/XML%20Sch%C3%A9my/Vstupn%C3%A9%20sch%C3%A9my)
 
-### 2.1.18	Asynchrónne služby eForm – výstupné XML Schémy
+#### 2.1.18	Asynchrónne služby eForm – výstupné XML Schémy
 
 - [Výstupné schémy](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Asynchr%C3%B3nne%20slu%C5%BEby%20-%20Rozhranie%20UIR%20a%20G2G/XML%20Sch%C3%A9my/V%C3%BDstupn%C3%A9%20sch%C3%A9my)
 
-# 3	Integrácia na eFORM cez Externú zbernicu - USR
+## 3	Integrácia na eFORM cez Externú zbernicu - USR
 
 Detaily k volaniu služieb publikovaných na externej zbernici (G2G - USR) je možné nájsť v IM – G2G v kapitole venovanej Externej Zbernici – USR. 
 
-## 3.1	Externá zbernica – G2G (USR)
+### 3.1	Externá zbernica – G2G (USR)
 
 Externá zbernica slúži na sprostredkovanie synchrónnej komunikácie zo systémov ISVS do ÚPVS. Poskytuje univerzálne synchrónne rozhranie – USR pre volanie služieb ÚPVS na spoločnej adrese s definíciami komunikačných štruktúr, vďaka čomu umožní rýchle a jednoduché prepojenie modulov navzájom a udržovanie týchto prepojení po prípadných zmenách komunikačných adries a štruktúr.
 
@@ -2028,11 +2028,11 @@ Schéma vzájomnej komunikácie modulov prostredníctvom externej zbernice
 
 Externá zbernica poskytuje informácie o všetkých dostupných službách a ich rozhraniach potrebné na zavolanie služby. Volania služieb prebiehajú prostredníctvom externej zbernice ktorá vykoná validáciu správnosti vstupujúcich parametrov, logovanie volania a presmerovanie komunikácie na volanú službu.
 
-## 3.2	Volanie služieb eFORM cez externú zbernicu
+### 3.2	Volanie služieb eFORM cez externú zbernicu
 
 Na externej zbernici je publikovaná sada služieb bežiaca pod systémom eFLCM, ktorá je implementovaná v technológii Microsoft SharePoint. Táto sada služieb je bližšie popísaná v kapitole 3.3. Pri publikovaní služieb na externej zbernici prichádza k zmene vstupných atribútov služby na objekt. Parametre sa nemenia mení sa len formát ich zápisu pri volaní. Spôsob tohto volania je popísaný v integračnej dokumentácii modulu Externá zbernica – USR.
 
-## 3.3	eForm webové služby (WS) publikované na Externej zbernici
+### 3.3	eForm webové služby (WS) publikované na Externej zbernici
 
 Rozhranie integračného komponentu modulu eForm poskytuje eForm webové služby zabezpečujúce sadu základných služieb pre získanie vzoru formulára, jeho metadata a súvisiacich dokumentov. 
 
@@ -2092,7 +2092,7 @@ Použité metódy webových služieb s krátkym popisom:
 > ![NOTE]
 > všetky príklady volaní a odpovedí uvedené v tejto kap. majú ilustračnú povahu
 
-### 3.3.1	GetFormTemplateMetaData
+#### 3.3.1	GetFormTemplateMetaData
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2144,7 +2144,7 @@ FormTemplateType: string
 -	POSP
 -	NOTIFY
 
-#### 3.3.1.1	Chybové kódy služby
+##### 3.3.1.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2154,11 +2154,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000999
 -	06000798
 
-#### 3.3.1.2	Príklad volania služby – SOAP 
+##### 3.3.1.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetFormTemplateMetaData)
 
-### 3.3.2	GetRelatedDocumentList
+#### 3.3.2	GetRelatedDocumentList
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -2227,7 +2227,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.2.1	Chybové kódy služby
+##### 3.3.2.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2237,11 +2237,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000999
 -	06000798
 
-#### 3.3.2.2	Príklad volania služby - SOAP
+##### 3.3.2.2	Príklad volania služby - SOAP
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetRelatedDocumentList)
 
-### 3.3.3	GetRelatedDocument
+#### 3.3.3	GetRelatedDocument
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2319,7 +2319,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.3.1	Chybové kódy služby
+##### 3.3.3.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2330,11 +2330,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000798
 -	06000796
 
-#### 3.3.3.2	Príklad volania služby – SOAP 
+##### 3.3.3.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetRelatedDocument)
 
-### 3.3.4	GetFormTemplateStatus
+#### 3.3.4	GetFormTemplateStatus
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -2369,7 +2369,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.4.1	Chybové kódy služby
+##### 3.3.4.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2379,11 +2379,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000999
 -	06000798
 
-#### 3.3.4.2	Príklad volania služby – SOAP 
+##### 3.3.4.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetFormTemplateStatus)
 
-### 3.3.5	FindFormTemplates
+#### 3.3.5	FindFormTemplates
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2435,18 +2435,18 @@ FormTemplateType: string
 -	POSP
 -	NOTIFY
 
-#### 3.3.5.1	Chybové kódy služby
+##### 3.3.5.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
 **Chybové stavy:**
 -	06000999
 
-#### 3.3.5.2	Príklad volania služby – SOAP 
+##### 3.3.5.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/FindFormTemplates)
 
-### 3.3.6	GetEDoc
+#### 3.3.6	GetEDoc
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2491,7 +2491,7 @@ Popis štruktúr použitých vo webovej službe:
 | Title    | string  |               | Názov elektronického dokumentu s príponou .pdf.                                                            |
 | Data     | byte[]  |               | Dáta elektronického dokumentu vizualizovaného vo formáte .pdf. Kódovanie prenášaných dát je base64Binary.  |
 
-#### 3.3.6.1	Chybové kódy služby
+##### 3.3.6.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2501,11 +2501,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000796
 -	06000787
 
-#### 3.3.6.2	Príklad volania služby – SOAP 
+##### 3.3.6.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEDoc)
 
-### 3.3.7	GetEDocFromXML
+#### 3.3.7	GetEDocFromXML
 
 Služba transformuje XML údaje vyplnené podľa elektronického formulára do .pdf pomocou tlačovej prezentačnej schémy.
 
@@ -2553,7 +2553,7 @@ Popis štruktúr použitých vo webovej službe:
 | Title    | string  |               | Názov elektronického dokumentu s príponou .pdf.                                                            |
 | Data     | byte[]  |               | Dáta elektronického dokumentu vizualizovaného vo formáte .pdf. Kódovanie prenášaných dát je base64Binary.  |
 
-#### 3.3.7.1	Chybové kódy služby
+##### 3.3.7.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2563,11 +2563,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000796
 -	06000787
 
-#### 3.3.7.2	Príklad volania služby – SOAP 
+##### 3.3.7.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEDocFromXML)
 
-### 3.3.8	GetEmptyEForm
+#### 3.3.8	GetEmptyEForm
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -2644,7 +2644,7 @@ Popis štruktúr použitých vo webovej službe:
 | Description           | String                  |                   | Popis súvisiaceho dokumentu                                               |
 | Language              | String                  | Áno               | Jazyk súvisiaceho dokumentu                                               |
 
-#### 3.3.8.1	Chybové kódy služby
+##### 3.3.8.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2653,11 +2653,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 •	06000798
 •	06000796
 
-#### 3.3.8.2	Príklad volania služby – SOAP 
+##### 3.3.8.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEmptyEForm)
 
-### 3.3.9	SubscribeForChanges
+#### 3.3.9	SubscribeForChanges
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -2707,7 +2707,7 @@ SearchFormTemplateStatus: string
 -	PUBLISHED
 -	INVALIDATED
 
-#### 3.3.9.1	Chybové kódy služby
+##### 3.3.9.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2718,11 +2718,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000790
 -	06000789
 
-#### 3.3.9.2	Príklad volania služby – SOAP 
+##### 3.3.9.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/SubscribeForChanges)
 
-### 3.3.10	UnsubscribeForChanges
+#### 3.3.10	UnsubscribeForChanges
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2742,11 +2742,11 @@ V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 | ResultCode | int     |               | Kód chyby. V prípade korektného spracovania je hodnota 0.  |
 | Message    | String  |               | Popis vzniknutej chyby                                     |
 
-#### 3.3.10.1	Príklad volania služby – SOAP 
+##### 3.3.10.1	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/UnsubscribeForChanges)
 
-### 3.3.11	ChangeSubscriberSearchCriteria
+#### 3.3.11	ChangeSubscriberSearchCriteria
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2795,7 +2795,7 @@ SearchFormTemplateStatus: string
 -	PUBLISHED
 -	INVALIDATED
 
-#### 3.3.11.1	Chybové kódy služby
+##### 3.3.11.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2804,11 +2804,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000790
 -	06000793
 
-#### 3.3.11.2	Príklad volania služby – SOAP 
+##### 3.3.11.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/ChangeSubscriberSearchCriteria)
 
-### 3.3.12	ChangeSubscriberEndpointUrl
+#### 3.3.12	ChangeSubscriberEndpointUrl
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -2829,7 +2829,7 @@ V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 | ResultCode | int     |               | Kód chyby. V prípade korektného spracovania je hodnota 0.  |
 | Message    | String  |               | Popis vzniknutej chyby                                     |
 
-#### 3.3.12.1	Chybové kódy služby
+##### 3.3.12.1	Chybové kódy služby
 
 V nasledovnom zozname  sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2838,11 +2838,11 @@ V nasledovnom zozname  sú pre metódu uvedené možné chybové stavy. Ich bli�
 -	06000790
 -	06000793
 
-#### 3.3.12.2	Príklad volania služby – SOAP 
+##### 3.3.12.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/ChangeSubscriberEndpointUrl)
 
-### 3.3.13	GetSubscriberSearchCriteria
+#### 3.3.13	GetSubscriberSearchCriteria
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2891,7 +2891,7 @@ SearchFormTemplateStatus: string
 -	PUBLISHED
 -	INVALIDATED
 
-#### 3.3.13.1	Chybové kódy služby
+##### 3.3.13.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2900,11 +2900,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000790
 -	06000793
 
-#### 3.3.13.2	Príklad volania služby – SOAP 
+##### 3.3.13.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetSubscriberSearchCriteria)
 
-### 3.3.14	GetSubscriberEndpointUrl
+#### 3.3.14	GetSubscriberEndpointUrl
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -2925,7 +2925,7 @@ V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 | Message     | String  |               | Popis vzniknutej chyby                                                                                                            |
 | EndpointUrl | String  |               | Endpoint URL, na ktoré bude odoslaná správa obsahujúca zmeny vo vypublikovaní/zneplatnení vzorov na základe výberových kritérií.  |
 
-#### 1.1.13.1	Chybové kódy služby
+##### 1.1.13.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -2934,11 +2934,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000790
 -	06000793
 
-#### 3.3.14.2	Príklad volania služby – SOAP 
+##### 3.3.14.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetSubscriberEndpointUrl)
 
-### 3.3.15	GetRelatedDocumentByType
+#### 3.3.15	GetRelatedDocumentByType
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3036,7 +3036,7 @@ opis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.15.1	Chybové kódy služby
+##### 3.3.15.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3045,11 +3045,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000798
 -	06000796
 
-#### 3.3.12.2	Príklad volania služby – SOAP 
+##### 3.3.12.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetRelatedDocumentByType)
 
-### 3.3.16	TransformRelatedDocument
+#### 3.3.16	TransformRelatedDocument
 
 Služba je určená pre transformáciu súvisiaceho dokumentu nachádzajúceho sa v elektronickom formulári na základe určeného XSLT elektronického formulára.
 
@@ -3095,7 +3095,7 @@ opis štruktúr použitých vo webovej službe:
 | Title     | string  |               | Názov elektronického dokumentu s príponou .pdf.                                                            |
 | Data      | byte[]  |               | Dáta elektronického dokumentu vizualizovaného vo formáte .pdf. Kódovanie prenášaných dát je base64Binary.  |
 
-#### 3.3.16.1	Chybové kódy služby
+##### 3.3.16.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3105,11 +3105,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 •	06000796
 •	06000786
 
-#### 3.3.16.2	Príklad volania služby – SOAP 
+##### 3.3.16.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/TransformRelatedDocument)
 
-### 3.3.17	TransformRelatedDocumentFromXML
+#### 3.3.17	TransformRelatedDocumentFromXML
 
 Služba je určená pre transformáciu XML údajov vyplnených podľa el. formulára, ktoré sú vložené do volania služby s  identifikáciou XML transformácie (XSLT súvisiaceho dokumentu) v elektronickom formulári.
 
@@ -3156,7 +3156,7 @@ opis štruktúr použitých vo webovej službe:
 | Title     | string  |               | Názov elektronického dokumentu s príponou .pdf.                                                            |
 | Data      | byte[]  |               | Dáta elektronického dokumentu vizualizovaného vo formáte .pdf. Kódovanie prenášaných dát je base64Binary.  |
 
-#### 3.3.17.1	Chybové kódy služby
+##### 3.3.17.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3166,11 +3166,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000796
 -	06000786
 
-#### 3.3.17.2	Príklad volania služby – SOAP 
+##### 3.3.17.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/TransformRelatedDocumentFromXML)
 
-### 3.3.18	TransformRelatedDocumentByType
+#### 3.3.18	TransformRelatedDocumentByType
 
 Služba je určená pre transformáciu súvisiaceho dokumentu nachádzajúceho sa v elektronickom formulári na základe určeného XSLT elektronického formulára určeného jeho typom.
 
@@ -3222,7 +3222,7 @@ Popis štruktúr použitých vo webovej službe:
 | Title     | string  |               | Názov elektronického dokumentu s príponou .pdf.                                                            |
 | Data      | byte[]  |               | Dáta elektronického dokumentu vizualizovaného vo formáte .pdf. Kódovanie prenášaných dát je base64Binary.  |
 
-#### 3.3.18.1	Chybové kódy služby
+##### 3.3.18.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3232,11 +3232,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000796
 -	06000786
 
-#### 3.3.18.2	Príklad volania služby – SOAP 
+##### 3.3.18.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/TransformRelatedDocumentByType)
 
-### 3.3.19	TransformRelatedDocumentFromXMLByType
+#### 3.3.19	TransformRelatedDocumentFromXMLByType
 
 Služba je určená pre transformáciu XML údajov vyplnených podľa formulára vložených vo volaní služby špecifikáciou požadovaného typu prezentačnej schémy (XSLT).
 
@@ -3298,7 +3298,7 @@ Popis štruktúr použitých vo webovej službe:
 | Title     | string  |               | Názov elektronického dokumentu s príponou .pdf.                                                            |
 | Data      | byte[]  |               | Dáta elektronického dokumentu vizualizovaného vo formáte .pdf. Kódovanie prenášaných dát je base64Binary.  |
 
-#### 3.3.19.1	Chybové kódy služby
+##### 3.3.19.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3308,11 +3308,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000796
 -	06000786
 
-#### 3.3.19.2	Príklad volania služby - SOAP
+##### 3.3.19.2	Príklad volania služby - SOAP
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/TransformRelatedDocumentFromXMLByType)
 
-### 3.3.20	GetFormTemplate
+#### 3.3.20	GetFormTemplate
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3421,7 +3421,7 @@ FormTemplateType: string
 | Description           | String                  |                   | Popis súvisiaceho dokumentu                                               |
 | Language              | String                  | Áno               | Jazyk súvisiaceho dokumentu                                               |
 
-#### 3.3.20.1	Chybové kódy služby
+##### 3.3.20.1	Chybové kódy služby
 
 V nasledovnom zozname  sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3431,11 +3431,11 @@ V nasledovnom zozname  sú pre metódu uvedené možné chybové stavy. Ich bli�
 -	06000999
 -	06000798
 
-#### 3.3.20.2	Príklad volania služby – SOAP 
+##### 3.3.20.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetFormTemplate)
 
-### 3.3.21	SetFormTemplateStatus
+#### 3.3.21	SetFormTemplateStatus
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3475,7 +3475,7 @@ FormTemplateStatus: string
 -	PUBLISHED
 -	INVALIDATED
 
-#### 3.3.21.1	Chybové kódy služby
+##### 3.3.21.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3487,11 +3487,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000796
 -	06000786
 
-#### 3.3.21.2	Príklad volania služby – SOAP 
+##### 3.3.21.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/SetFormTemplateStatus)
 
-### 3.3.22	GetFilledEForm
+#### 3.3.22	GetFilledEForm
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3529,7 +3529,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.22.1	Chybové kódy služby
+##### 3.3.22.1	Chybové kódy služby
 
 V nasledovnom zozname  sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3543,11 +3543,11 @@ V nasledovnom zozname  sú pre metódu uvedené možné chybové stavy. Ich bli�
 -	06000785
 -	06000784
 
-#### 3.3.22.2	Príklad volania služby – SOAP 
+##### 3.3.22.2	Príklad volania služby – SOAP 
 
 - [Request/Response](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetFilledEForm)
 
-### 3.3.23	GetEFormPackage
+#### 3.3.23	GetEFormPackage
 
 Synchrónna služba určená na poskytnutie vzoru eformulára vo formáte predpísanom výnosom ISVS. V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov
 
@@ -3611,7 +3611,7 @@ EFormPackageType: string
 | Keywords    | String  |               | Kľúčové slová                                                                          |
 | AccessGroup | String  |               | Prístupová skupina - toto pole sa aktuálne nevypĺňa (uvedené z historických dôvodov). Pre formuláre, ktoré majú uvedenú skupinu prístupu je táto hodnota pri vyhodnocovaní prístupu k formulárom ignorovaná a teda všetky formuláre sú prístupné.  														  |
 
-#### 3.3.23.1	Chybové kódy služby
+##### 3.3.23.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3623,11 +3623,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000775
 -	06000776
 
-#### 3.3.23.2	Príklad volania služby – SOAP
+##### 3.3.23.2	Príklad volania služby – SOAP
 
 - [Request](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEFormPackage)
 
-### 3.3.24	GetEFormTemplateManifestXML
+#### 3.3.24	GetEFormTemplateManifestXML
 
 Služba slúži na poskytnutie súboru manifest.xml, ktorý je predpísaný výnosom ISVS ako popisný súbor balíka vzoru eFormulára. V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3663,7 +3663,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.24.1	Chybové kódy služby
+##### 3.3.24.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3674,11 +3674,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000798
 -	06000773
 
-#### 3.3.24.2	Príklad volania služby – SOAP
+##### 3.3.24.2	Príklad volania služby – SOAP
 
 - [Reuqest](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEFormTemplateManifestXML)
 
-### 3.3.25	GetEFormTemplateAttachmentsXML
+#### 3.3.25	GetEFormTemplateAttachmentsXML
 
 Služba slúži na poskytnutie súboru attachments.xml, ktorý je predpísaný výnosom ISVS ako popisný súbor príloh ktoré sa nachádzajú v balíku vzoru eformulára. V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3714,7 +3714,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.25.1	Chybové kódy služby
+##### 3.3.25.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3725,11 +3725,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000798
 -	06000772
 
-#### 3.3.25.2	Príklad volania služby – SOAP
+##### 3.3.25.2	Príklad volania služby – SOAP
 
 - [Request](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEFormTemplateAttachmentsXML)
 
-### 3.3.26	GetEFormTemplateMetaXML
+#### 3.3.26	GetEFormTemplateMetaXML
 
 Služba slúži na poskytnutie súboru metadát meta.xml, ktorý je predpísaný výnosom ISVS. V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3765,7 +3765,7 @@ Popis štruktúr použitých vo webovej službe:
 | Major    | int     | Áno           | Verzia vzoru     |
 | Minor    | int     | Áno           | Podverzia vzoru  |
 
-#### 3.3.26.1	Chybové kódy služby
+##### 3.3.26.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3776,11 +3776,11 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000798
 -	06000774
 
-#### 3.3.26.2	Príklad volania služby – SOAP
+##### 3.3.26.2	Príklad volania služby – SOAP
 
 - [Request](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEFormTemplateMetaXML)
 
-### 3.3.27	GetEFormPackageArtefact
+#### 3.3.27	GetEFormPackageArtefact
 
 V tabuľke je pre metódu uvedený popis vstupných a výstupných parametrov.
 
@@ -3824,7 +3824,7 @@ Popis štruktúr použitých vo webovej službe:
 | FullPath | String  |               | Cesta k požadovanému súboru                                             |
 | Data     | Byte[]  |               | Požadovaný súvisiaci dokument vzoru eFormulára „encodovaný“ ako base64  |
 
-#### 3.3.27.1	Chybové kódy služby
+##### 3.3.27.1	Chybové kódy služby
 
 V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bližší popis je uvedený v kapitole 6.
 
@@ -3835,13 +3835,13 @@ V nasledovnom zozname sú pre metódu uvedené možné chybové stavy. Ich bliž
 -	06000798
 -	06000771
 
-#### 3.3.27.2	Príklad volania služby – SOAP
+##### 3.3.27.2	Príklad volania služby – SOAP
 
 - [Request](https://github.com/NASES-Slovakia/integration_manuals/tree/main/Modul%20eFORM/Integra%C4%8Dn%C3%BD%20manu%C3%A1l%20eFORM/Extern%C3%A1%20zbernica%20(USR)/GetEFormPackageArtefact)
 
-# 4	WSDL služieb publikovaných na Externej zbernici
+## 4	WSDL služieb publikovaných na Externej zbernici
 
-## 4.1	Popis eForm WebService: http://< IP adresa eform servera >/_vti_bin/eFLCMService.svc
+### 4.1	Popis eForm WebService: http://< IP adresa eform servera >/_vti_bin/eFLCMService.svc
 
 Adresa rozhrania externej zbernice:
 
@@ -3862,9 +3862,9 @@ https://github.com/NASES-Slovakia/integration_manuals/blob/main/Modul%20eFORM/In
 > [!WARNING]
 > Uvedené WSDL predstavuje príklad popisu služby modulu eForm. Reálnu implementáciu tejto služby na strane integrátora je vytváraná proti definícií služby publikovanej na externej zbernici na príslušnom integračnom prostredí ÚPVS. Pre FIX prostredie zvolením konkrétneho modulu generovaním wsdl cez tlačidlo „Generate WSDL“ na adrese https://usr.upvsfixnew.gov.sk/ServiceBus/SbWsdlGeneratorToken.aspx
 
-# 5	Synchronizácia s podriadenými modulmi - Subscribe
+## 5	Synchronizácia s podriadenými modulmi - Subscribe
 
-## 5.1	Použitie
+### 5.1	Použitie
 
 EForm modul poskytuje funkcionalitu odberu správ o zmenách stavu vzorov eFormulárov (publish/subscribe) pre podriadené moduly. Podriadeným modulom môže byť interný systém ÚPVS, ale I systém ISVS, ktorý je registrovaný prostredníctvom poskytovaných služieb k odberu správ.
 
@@ -3886,7 +3886,7 @@ Z pohľadu použitia tejto množiny operácií je vhodné postupovať nasledovne
 
 4. Pokiaľ už nie je potrebné získavať informácie o zmenách v úložisku vzorov, je potrebné sa odhlásiť. Toto sa vykoná prostredníctvom služby UnsubscribeSearchCriteria.
 
-## 5.2	Implementácia subscribera
+### 5.2	Implementácia subscribera
 
 Podriadený modul, ktorý požaduje od EFLCM získať informácie o zmenách vo vzoroch musí implementovať také rozhranie umožňujúce prijať správu typu SKTalk vo verzii 3. 
 
@@ -3902,7 +3902,7 @@ V prípade **externého endpointu** je potrebné, aby bolo rozhranie „Subscrib
 
 V prípade zasielania notifikácii priamo **do eDesk schránky**, „Subscriber“ v rámci elementu SubscribeForChangesReq / EndpointUrl uvedie svoje URI, ktoré reprezentuje identifikátor jeho eDesk schránky.
 
-## 5.3	Schéma správy eFLCMSubscriptionMessage
+### 5.3	Schéma správy eFLCMSubscriptionMessage
 
 ```
 
@@ -3950,7 +3950,7 @@ V prípade zasielania notifikácii priamo **do eDesk schránky**, „Subscriber�
 ```
 
 
-# 6 Zoznam chybových kódov
+## 6 Zoznam chybových kódov
 
 | **Kód chyby**   | **Verzia**  | **Chybová hláška (SK)**                                 | **Popis chyby**                                                                                                   |
 | --------------- | ----------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
@@ -3990,7 +3990,7 @@ V prípade zasielania notifikácii priamo **do eDesk schránky**, „Subscriber�
 > [!NOTE]
 > kompletný zoznam aktuálne podporovaných chybových hlásení na ÚPVS je možné získať v dokumente „UPVS_Error_Codes_List_External“ dostupného na stiahnutie na PFP 
 
-# 7	Mapovanie služieb z výzvy
+## 7	Mapovanie služieb z výzvy
 
 | **Služby z výzvy**                                                                        | **Názov služby**                                                                      |
 | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -4046,7 +4046,7 @@ V prípade zasielania notifikácii priamo **do eDesk schránky**, „Subscriber�
 |                                                                                           | GetFormTemplateMetaData                                                               |
 | A.34 Zápis repliky údajov z podriadeného modulu správy eformulárov do MeF                 | EFORM_ADD_FORM_TEMPLATE_ASYNC                                                         |
 
-# 8	Príklad SOAP správy volania eform služby na tokenovom rozhraní USR – externá zbernica
+## 8	Príklad SOAP správy volania eform služby na tokenovom rozhraní USR – externá zbernica
 
 Nasledovný príklad obsahuje kompletnú SOAP správu, vrátane nastaveného SAML assertion.
 
