@@ -1,4 +1,12 @@
-# Integračný manuál eFORM
+---
+Title: "Integračný manuál eFORM"
+owner: "NASES"
+author: "NASES"
+status: "Schválené"
+sensitivity: "Verejné"
+version: "1.0"
+date: "2025-09-04"
+---
 
 # Slovník pojmov
 
