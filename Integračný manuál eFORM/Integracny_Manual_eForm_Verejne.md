@@ -1,7 +1,7 @@
 ---
 Title: "Integračný manuál eFORM"
 owner: "NASES"
-author: "NASES"
+author: "GlobalTel"
 status: "Schválené"
 sensitivity: "Verejné"
 version: "1.0"
